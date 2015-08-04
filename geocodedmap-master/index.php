@@ -72,27 +72,27 @@ ga('send', 'pageview');
 </nav>  
 <div class="Toolbar" id="inputs">
 
-    <div>
+    <div id="geo-search">
         <div class="input-group input-group-sm">
             <span class="input-group-btn"><button id="ButtonSearch" class="btn btn-default btn-sm" onclick="codeAddress()" title="heatery"><span class="glyphicon glyphicon-search"></span></button>
             </span>
             <input id="address" type="text" class="form-control" style="width: 150px;" placeholder="Find Your Hot Spot.">
-        </div>
-    </div>
+        </div><!--@end .input-group input-group-sm-->
+    </div><!--@end #geo-search-->
 
-    <div>
+    <div id="toolbar-btns">
         <div class="btn-group">
             <button id="toggle" class="btn btn-default btn-sm" onclick="toggleHeatmap()" title="heatmap"><span class="glyphicon glyphicon-off
 "></span></button>
             <button id="radius" class="btn btn-default btn-sm" onclick="changeRadius()" title="radius"><span class="glyphicon glyphicon-fullscreen"></span></button>
             <button id="opacity" class="btn btn-default btn-sm" onclick="changeOpacity()" title="opacity"><span class="glyphicon glyphicon-adjust"></span></button>
 
-        </div>
-    </div>
+        </div><!--@end .btn-group-->
+    </div><!--@end #toolbar-btns .btn-group-->
 </div><!--@end #inputs .Toolbar-->
 
 <input id="pac-input" class="controls" type="text" placeholder="Places Search"/>
-<div id="map-canvas"></div>
+<div id="map-canvas"></div><!--@end #map-canvas-->
 <script src="js/get_loc.js"></script>
 <script>
 
