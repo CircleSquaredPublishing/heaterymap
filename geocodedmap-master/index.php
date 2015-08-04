@@ -27,6 +27,7 @@
 <meta name="twitter:description" content="Find the Hottest Restaurants in Delray Beach with the heatery.io Heatery Map!">
 <meta name="twitter:creator" content="@DelrayInfo"/>
 <meta name="twitter:image:src" content="http://www.heatery.io/wp-content/uploads/2015/07/Screenshot-2015-07-21-17.26.08.png"/>
+<!----------GOOGLE ANALYTICS TRACKING CODE---------->
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -35,6 +36,7 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 ga('create', 'UA-64702784-1', 'auto');
 ga('send', 'pageview');
 </script>
+<!----------EXTERNAL LIBRARIES, SCRIPTS & STYLESHEETS---------->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>       
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=false&libraries=visualization,places">
 </script>   
