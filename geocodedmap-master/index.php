@@ -27,6 +27,7 @@
 <meta name="twitter:description" content="Find the Hottest Restaurants in Delray Beach with the heatery.io Heatery Map!">
 <meta name="twitter:creator" content="@DelrayInfo"/>
 <meta name="twitter:image:src" content="http://www.heatery.io/wp-content/uploads/2015/07/Screenshot-2015-07-21-17.26.08.png"/>
+<!----------GOOGLE ANALYTICS TRACKING CODE---------->
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -35,6 +36,7 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 ga('create', 'UA-64702784-1', 'auto');
 ga('send', 'pageview');
 </script>
+<!----------EXTERNAL LIBRARIES, SCRIPTS & STYLESHEETS---------->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>       
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=false&libraries=visualization,places">
 </script>   
@@ -70,29 +72,29 @@ ga('send', 'pageview');
 </div>
 </div>
 </nav>  
-<div class="Toolbar">
+<div class="Toolbar" id="inputs">
 
-    <div>
+    <div id="geo-search">
         <div class="input-group input-group-sm">
             <span class="input-group-btn"><button id="ButtonSearch" class="btn btn-default btn-sm" onclick="codeAddress()" title="heatery"><span class="glyphicon glyphicon-search"></span></button>
             </span>
             <input id="address" type="text" class="form-control" style="width: 150px;" placeholder="Find Your Hot Spot.">
-        </div>
-    </div>
+        </div><!--@end .input-group input-group-sm-->
+    </div><!--@end #geo-search-->
 
-    <div>
+    <div id="toolbar-btns">
         <div class="btn-group">
             <button id="toggle" class="btn btn-default btn-sm" onclick="toggleHeatmap()" title="heatmap"><span class="glyphicon glyphicon-off
 "></span></button>
             <button id="radius" class="btn btn-default btn-sm" onclick="changeRadius()" title="radius"><span class="glyphicon glyphicon-fullscreen"></span></button>
             <button id="opacity" class="btn btn-default btn-sm" onclick="changeOpacity()" title="opacity"><span class="glyphicon glyphicon-adjust"></span></button>
 
-        </div>
-    </div>
-</div>
+        </div><!--@end .btn-group-->
+    </div><!--@end #toolbar-btns .btn-group-->
+</div><!--@end #inputs .Toolbar-->
 
 <input id="pac-input" class="controls" type="text" placeholder="Places Search"/>
-<div id="map-canvas"></div>
+<div id="map-canvas"></div><!--@end #map-canvas-->
 <script src="js/get_loc.js"></script>
 <script>
 
