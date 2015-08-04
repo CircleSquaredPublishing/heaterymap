@@ -1,0 +1,69 @@
+html, body{
+z-index: 0;
+position: fixed;
+top:0;
+bottom:0;
+left:0;
+right:0;
+height:100%;
+width:100%;
+text-align:center;
+}
+    
+#map-canvas {
+position: relative;
+bottom:0;
+height: 90%;
+width: 100%;
+z-index: -1;
+}
+
+#pac-input {
+position: absolute;
+margin-top: 5px;
+left: 15px;
+background-color: #fff;
+font-family: Helvetica neue, sans-serif, serif;
+font-size: 12px;
+font-weight: 300;
+text-overflow: ellipsis;
+width: 20%;
+min-width: 150px;
+height:30px;
+z-index: 1
+}
+
+#pac-input:focus {
+border-color: #4d90fe
+}
+
+.controls {
+height: auto;
+border: 1px inset #c0c0c0;
+box-sizing: border-box;
+z-index: 5
+}
+    
+nav.navbar{
+margin-bottom:0px;    
+}
+
+
+
+.Toolbar
+{
+position: relative;
+display: table;
+}
+
+.Toolbar > div
+{
+display: table-cell;
+padding-right: 8px;
+vertical-align: top;
+}
+
+.Toolbar, .btn-group, .btn-group-vertical
+{
+    vertical-align: inherit;
+}

@@ -38,13 +38,13 @@ ga('send', 'pageview');
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>       
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=false&libraries=visualization,places">
 </script>   
-<link rel="stylesheet" type="text/css" href="/HM-BETA/css/style.css"/>  
+<link rel="stylesheet" type="text/css" href="css/style.css"/>  
 <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css"/>
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-<script src="/HM-BETA/heateryMap/js/custom_style.js"></script>
-</head>   
+<script src="js/custom_style.js"></script>
+</head>
 <body style="background-color: #000">
 <nav class="navbar navbar-inverse">
 <div class="container-fluid">
@@ -54,14 +54,14 @@ ga('send', 'pageview');
 <span class="icon-bar"></span>
 <span class="icon-bar"></span>  
 </button>
-<a class="navbar-brand" href="http://www.heatery.io">heatery.io</a>
+<a class="navbar-brand" href="#">heatery.io</a>
 </div>
 <div class="collapse navbar-collapse" id="myNavbar">
 <ul class="nav navbar-nav">
 <li class="active" ><a href="#">Heatery Map</a></li>  
-<li><a href="http://www.heatery.io/about/">About</a></li>
+<li><a href="#">About</a></li>
 <li><a href="http://localhost/top10/index.php">Top 10</a></li>
-<li><a href="http://www.heatery.io">Home</a></li>
+<li><a href="#">Home</a></li>
 </ul>
 <ul class="nav navbar-nav navbar-right">
 <li><a href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;Client Portal</a></li>
@@ -70,16 +70,30 @@ ga('send', 'pageview');
 </div>
 </div>
 </nav>  
-<div id="panel">
-<button onclick="toggleHeatmap()">Toggle Heatmap</button>
-<button onclick="changeRadius()">Change radius</button>
-<button onclick="changeOpacity()">Change opacity</button>
-<input type="button" value="Click for Heatery" onclick="codeAddress()"/>
-<input id="address" type="textbox" value="" placeholder="Heatery Search"/>
+<div class="Toolbar">
+
+    <div>
+        <div class="input-group input-group-sm">
+            <span class="input-group-btn"><button id="ButtonSearch" class="btn btn-default btn-sm" onclick="codeAddress()" title="heatery"><span class="glyphicon glyphicon-search"></span></button>
+            </span>
+            <input id="address" type="text" class="form-control" style="width: 150px;" placeholder="Find Your Hot Spot.">
+        </div>
+    </div>
+
+    <div>
+        <div class="btn-group">
+            <button id="toggle" class="btn btn-default btn-sm" onclick="toggleHeatmap()" title="heatmap"><span class="glyphicon glyphicon-off
+"></span></button>
+            <button id="radius" class="btn btn-default btn-sm" onclick="changeRadius()" title="radius"><span class="glyphicon glyphicon-fullscreen"></span></button>
+            <button id="opacity" class="btn btn-default btn-sm" onclick="changeOpacity()" title="opacity"><span class="glyphicon glyphicon-adjust"></span></button>
+
+        </div>
+    </div>
 </div>
+
 <input id="pac-input" class="controls" type="text" placeholder="Places Search"/>
 <div id="map-canvas"></div>
-<script src="get_loc.js"></script>
+<script src="js/get_loc.js"></script>
 <script>
 
 //@FIXME Try using the input form to 'POST' the input to php script.
@@ -88,7 +102,7 @@ ga('send', 'pageview');
 /*[x]@TODO Merge geolocation features with existing heatery features*/
 /*@TODO Need an easy way to change search parameters. A slim drop down would be ideal.*/
 /*@TODO Need to see if I can use the autocomplete search box in place of the existing one*/     
-<?php include_once("DB/connections/hm_update.php");?>
+
 var geocoder; 
 var map;  
   function displayMap(coords){
@@ -131,27 +145,7 @@ var map;
         map.mapTypes.set('Cloud', pale_style);
         map.mapTypes.set('Organic', brown_style);
         map.setMapTypeId('Vintage');
-<?php
-for ($i = 0; $i < $mrk_cnt; $i++) {
-echo "var point$i = new google.maps.LatLng($lat[$i], $lng[$i]); \n";
-echo "var date$i = \"$date[$i]\"; \n";
-echo "var fbname$i = \"$fbname[$i]\"; \n";
-echo "var streetText$i = \"$street[$i]\";\n";
-echo "var heateryScore$i = \"$heateryScore[$i]\";\n";
-echo "var infowindow$i = new google.maps.InfoWindow({
-content:  'Reporting Date:'+' '+ date$i + '<br />' + fbname$i + '<br />' + streetText$i + '<br />' + 'Heatery Score:'+' '+ heateryScore$i
-});";
-echo "var marker$i = new google.maps.Marker({
-position: point$i, 
-map: map,
-icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=$i|FFFF00|000'
-});\n";
-echo "google.maps.event.addListener(marker$i, 
-'click', function() {
-infowindow$i.open(map,marker$i);
-});\n";
-}
-?>
+
 //Insert Google Search 
 var markers = [];    
 var input =/**@type {HTMLInputElement}**/(document.getElementById('pac-input')); 
@@ -184,6 +178,6 @@ searchBox.setBounds(bounds);
 }          
 google.maps.event.addDomListener(window, 'load', displayMap);
 </script>
-<script src="ajax.js"></script>
+<script src="js/ajax.js"></script>
 </body>
 </html>

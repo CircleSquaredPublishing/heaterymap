@@ -9,7 +9,7 @@ var address = document.getElementById('address').value;
         
     }, 
     
-    function(results, status) {
+function(results, status) {
 
         if (status == google.maps.GeocoderStatus.OK) {
 
@@ -24,17 +24,17 @@ var address = document.getElementById('address').value;
                 } else {
 
                     alert('Geocode was not successful for the following reason: ' + status);
-
                 }
+        
         var lat = results[0].geometry.location.lat();          
         var lng = results[0].geometry.location.lng();
         var loc = new google.maps.LatLng(lat,lng);
-    /*@NOTE var loc is where the geocoding magic happens. */
-        var fb = "https://graph.facebook.com/v2.4/search?&q=restaurant&type=place&center="+loc+"&distance=5000&fields=talking_about_count,location,name&offset=0&limit=5000&access_token=1452021355091002|x-ZB0iKqWQmYqnJQ-wXoUjl-XtY";
-        fb = fb.replace(/[()]/g, "");
-        console.log(fb);
-   
-    
+/*@NOTE var loc is where the geocoding magic happens. */
+        
+        var fb = "https://graph.facebook.com/v2.4/search?&q=restaurant&type=place&center="+loc+"&distance=5000&fields=talking_about_count,location,name&offset=0&limit=5000&access_token=1452021355091002|x-ZB0iKqWQmYqnJQ-wXoUjl-XtY";fb = fb.replace(/[()]/g, "");
+        
+        
+ 
 $(document).ready(function() {
     $.ajax({
         url: fb,
@@ -62,10 +62,9 @@ for (var i = 0; i < restaurantData.data.length; i++) {
     var latLng = new google.maps.LatLng(lat, lng, wgt);
 
     myData.push(latLng);
-    
-    console.log(wgt);
 
 }
+            
     heatmap = new google.maps.visualization.HeatmapLayer({
 
     data: myData,
@@ -82,10 +81,7 @@ for (var i = 0; i < restaurantData.data.length; i++) {
 
 });
             
-
                     }
-        
-
                 });
             });
         });
