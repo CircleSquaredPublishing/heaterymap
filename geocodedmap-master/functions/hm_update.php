@@ -1,18 +1,5 @@
 <?php
-/*@NOTE This script queries the db and retrieves the info needed for placing the markers and adding content to the infowindows.*/
-$servername="localhost"; 
-$username="root"; 
-$password="root"; 
-$dbname = "social_data";
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Connection failed:" . $conn->connect_error);
-    exit();
-}
-
-include_once("functions/hm_update.php");
-
-/* @TODO Need to integrate dynamic location into the DB query here. */
+include_once("conn.php");
 $res = $conn->query("SELECT DISTINCT fb_loc.`fb_lat`, fb_loc.`fb_lng`, fb_loc.`fb_date`, SQRT(
     POW(69.1 * (fb_loc.`fb_lat` - 26.4), 2) +
     POW(69.1 * (-80.07 - fb_loc.`fb_lng`) * COS(fb_loc.`fb_lat`/ 57.3), 2)) AS distance
@@ -66,4 +53,6 @@ echo "google.maps.event.addListener(marker$i,
 infowindow$i.open(map,marker$i);
 });\n";
 }
+/*@NOTE This script queries the db and retrieves the info needed for placing the markers and adding content to the infowindows.*/
+/* @TODO Need to integrate dynamic location into the DB query here. */
 ?>

@@ -70,7 +70,7 @@ ga('send', 'pageview');
 </div>
 </div>
 </nav>  
-<div class="Toolbar">
+<div class="Toolbar" id="inputs">
 
     <div>
         <div class="input-group input-group-sm">
@@ -89,7 +89,7 @@ ga('send', 'pageview');
 
         </div>
     </div>
-</div>
+</div><!--@end #inputs .Toolbar-->
 
 <input id="pac-input" class="controls" type="text" placeholder="Places Search"/>
 <div id="map-canvas"></div>
