@@ -1,42 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Localhost Heatery Geocode Testing</title>
+<title>Github Master</title>
 <meta charset= "UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!----------SCHEMA TAGS---------->
-<meta name="description" content="See all the hottest restaurants in Delray Beach, FL as calculated by the heatery.io algorithm."/>
-<meta name="keywords" content="Heatery, Delray Beach, Restaurants, Top 10, heatery.io, heatery map"/>
-<meta name="author" content="Delray Beach Heatery Map"/>
-<!----------SCHEMA.ORG MARKUP FOR GOOGLE+---------->
-<meta itemprop="name" content="The Delray Beach Heatery Map">
-<meta itemprop="description" content="Find the Hottest Restaurants in Delray Beach with the heatery.io Heatery Map!">
-<meta itemprop="image" content="http://www.heatery.io/wp-content/uploads/2015/07/ICON-heatery-no-edge-1024x10243-e1435771319636.png">    
-<!----------FACEBOOK OG:TAGS---------->
-<meta property="og:site_name" content="heatery.io Heatery Map" />
-<meta property="og:url" content="http://www.heatery.io/heateryMap/"/>
-<meta property="og:type" content="website"/>
-<meta property="og:title" content="The Delray Beach Heatery Map"/>
-<meta property="og:description" content="Find the Best Places to Be in Delray Beach Like Never Before!" />
-<meta property="og:image" content="http://www.heatery.io/wp-content/uploads/2015/07/Screenshot-2015-07-21-17.26.08.png"/>
-<meta property="fb:app_id" content="1452021355091002"/>
-<!----------TWITTER CARD: TAGS---------->
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:site" content="@DelrayInfo"/>
-<meta name="twitter:title" content="The Delray Beach Heatery Map"/>
-<meta name="twitter:description" content="Find the Hottest Restaurants in Delray Beach with the heatery.io Heatery Map!">
-<meta name="twitter:creator" content="@DelrayInfo"/>
-<meta name="twitter:image:src" content="http://www.heatery.io/wp-content/uploads/2015/07/Screenshot-2015-07-21-17.26.08.png"/>
-<!----------GOOGLE ANALYTICS TRACKING CODE---------->
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-ga('create', 'UA-64702784-1', 'auto');
-ga('send', 'pageview');
-</script>
 <!----------EXTERNAL LIBRARIES, SCRIPTS & STYLESHEETS---------->
+<script src="js/get_loc.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>       
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=false&libraries=visualization,places">
 </script>   
@@ -47,6 +16,7 @@ ga('send', 'pageview');
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
 <script src="js/custom_style.js"></script>
 </head>
+<!----------BEGIN CONTENT---------->  
 <body style="background-color: #000">
 <nav class="navbar navbar-inverse">
 <div class="container-fluid">
@@ -73,14 +43,18 @@ ga('send', 'pageview');
 </div>
 </nav>  
 <div class="Toolbar" id="inputs">
-
-    <div id="geo-search">
+    
+<form action="" method="post">
+    <input type='text' name='address' placeholder='Enter any address here' />
+    <input type='submit' value='Geocode!' />
+</form>
+    <!--<div id="geo-search">
         <div class="input-group input-group-sm">
             <span class="input-group-btn"><button id="ButtonSearch" class="btn btn-default btn-sm" onclick="codeAddress()" title="heatery"><span class="glyphicon glyphicon-search"></span></button>
             </span>
             <input id="address" type="text" class="form-control" style="width: 150px;" placeholder="Find Your Hot Spot.">
-        </div><!--@end .input-group input-group-sm-->
-    </div><!--@end #geo-search-->
+        </div>@end .input-group input-group-sm
+    </div>@end #geo-search-->
 
     <div id="toolbar-btns">
         <div class="btn-group">
@@ -95,15 +69,15 @@ ga('send', 'pageview');
 
 <input id="pac-input" class="controls" type="text" placeholder="Places Search"/>
 <div id="map-canvas"></div><!--@end #map-canvas-->
-<script src="js/get_loc.js"></script>
+
 <script>
 
-//@FIXME Try using the input form to 'POST' the input to php script.
+//[x]@FIXME Try using the input form to 'POST' the input to php script.
 //@NOTE The opening map will be based on the users location assuming they allow access.
 
 /*[x]@TODO Merge geolocation features with existing heatery features*/
 /*@TODO Need an easy way to change search parameters. A slim drop down would be ideal.*/
-/*@TODO Need to see if I can use the autocomplete search box in place of the existing one*/     
+/*[x]@TODO Need to see if I can use the autocomplete search box in place of the existing one*/     
 
 var geocoder; 
 var map;  
