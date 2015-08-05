@@ -54,10 +54,10 @@
 
     <div>
         <div class="btn-group">
-            <button id="toggle" class="btn btn-default btn-sm" onclick="toggleHeatmap()" title="heatmap"><span class="glyphicon glyphicon-off
+            <button id="toggle" class="btn btn-default btn-sm" onclick="toggleHeatmap()" data-toggle="tooltip" title="Heatmap On/Off"><span class="glyphicon glyphicon-off
 "></span></button>
-            <button id="radius" class="btn btn-default btn-sm" onclick="changeRadius()" title="radius"><span class="glyphicon glyphicon-fullscreen"></span></button>
-            <button id="opacity" class="btn btn-default btn-sm" onclick="changeOpacity()" title="opacity"><span class="glyphicon glyphicon-adjust"></span></button>
+            <button id="radius" class="btn btn-default btn-sm" onclick="changeRadius()" data-toggle="tooltip" title="Change Radius"><span class="glyphicon glyphicon-fullscreen"></span></button>
+            <button id="opacity" class="btn btn-default btn-sm" onclick="changeOpacity()" data-toggle="tooltip" title="Change Opacity"><span class="glyphicon glyphicon-adjust"></span></button>
 
         </div><!--@end .btn-group-->
     </div><!--@end #toolbar-btns .btn-group-->
@@ -77,6 +77,11 @@
 
 var geocoder; 
 var map;  
+
+$(function() {
+    $('[data-toggle="tooltip"]').tooltip()
+});
+
   function displayMap(coords){
         var retro_style = new google.maps.StyledMapType(retroStyle,
         {name:"Retro"});
