@@ -1,3 +1,17 @@
+/*
+Template Name: TEMPLATE-heatmap.php
+Author: Circle Squared Data Labs
+Author URI: http://www.heatery.io
+Description: This template includes 6 custom styles plus 3 Traditional Google Maps styles. It has an jQuery AJAX call coded to retrieve public restaurant data from the Facebook Graph API as well as an AutoComplete Search Box, Heatmap Data Visualization Layer, Custom Map Controls for turning the heatmap on/off, increasing/decreasing the heatmap layer radius and also changing the level opaqueness. The toolbar has been configured with links to more content and is styled using Bootstrap. We think this is a nice jumping off point for launching forays into custom data visualizations. 
+Version: 1.0.0
+License: GNU General Public License 2.0
+License URI: license.txt
+Tags: responsive-layout, fluid-layout, custom-background, custom-menu, custom-maps, AJAX, Facebook Graph API, Autocomplete SearchBox, Heatmap Visualizations, Google Maps
+*/
+
+
+/* =PAGE SETTINGS
+-----------------*/
 html, body{
 z-index: 0;
 position: fixed;
@@ -9,7 +23,10 @@ height:100%;
 width:100%;
 text-align:center;
 }
-    
+
+
+/* =MAP SETTINGS
+----------------*/
 #map-canvas {
 position: relative;
 bottom:0;
@@ -18,10 +35,14 @@ width: 100%;
 z-index: -1;
 }
 
+
+/* =AUTO COMPLETE SEARCH BOX
+----------------------------*/
 #pac-input {
-position: absolute;
-margin-top: 5px;
-left: 15px;
+position: relative;
+float: left;
+margin-bottom: 10px;
+margin-left:8px;
 background-color: #fff;
 font-family: Helvetica neue, sans-serif, serif;
 font-size: 12px;
@@ -43,16 +64,19 @@ border: 1px inset #c0c0c0;
 box-sizing: border-box;
 z-index: 5
 }
-    
+
+
+
+/* =NAVBAR & TOOLBAR SETTINGS
+-----------------------------*/
 nav.navbar{
 margin-bottom:0px;    
 }
 
-
-
 .Toolbar
 {
 position: relative;
+float: right;
 display: table;
 }
 
@@ -66,4 +90,21 @@ vertical-align: top;
 .Toolbar, .btn-group, .btn-group-vertical
 {
     vertical-align: inherit;
+}
+
+
+/* =MAP CONTROL SETTINGS
+------------------------*/
+#toggle{
+background-color: #ff0000;
+color: #f8f8f8;
+}
+
+#radius{
+background-color: #ffff00;
+}
+
+#opacity{
+background-color: #006600;
+color: #f8f8f8;
 }

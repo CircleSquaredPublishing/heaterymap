@@ -1,11 +1,11 @@
 
 function codeAddress() {
 
-var address = document.getElementById('address').value;
+var address = document.getElementById("address").value;
 
     geocoder.geocode( {
         
-        'address': address
+        "address": address
         
     }, 
     
@@ -23,7 +23,7 @@ function(results, status) {
     
                 } else {
 
-                    alert('Geocode was not successful for the following reason: ' + status);
+                    alert("Geocode was not successful for the following reason: " + status);
                 }
         
         var lat = results[0].geometry.location.lat();          
@@ -38,6 +38,7 @@ function(results, status) {
 $(document).ready(function() {
     $.ajax({
         url: fb,
+        cache: true,
         dataType: "text",
         success: function(data) {
                 var restaurantData = $.parseJSON(data);
@@ -90,8 +91,8 @@ function toggleHeatmap() {
 heatmap.setMap(heatmap.getMap() ? null : map);
 }
 function changeRadius() {
-heatmap.set('radius', heatmap.get('radius') ? null : 50);
+heatmap.set("radius", heatmap.get("radius") ? null : 50);
 }
 function changeOpacity() {
-heatmap.set('opacity', heatmap.get('opacity') ? null : 0.3);
+heatmap.set("opacity", heatmap.get("opacity") ? null : 0.3);
 }  
