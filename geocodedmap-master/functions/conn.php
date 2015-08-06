@@ -1,5 +1,10 @@
 <?php
-
+/*
+File Name: conn.php
+Description: Database connection script.s
+Author: Circle Squared Data Labs
+Author URI: http://www.heatery.io
+*/
 $servername="localhost"; 
 
 $username="root"; 

@@ -4,18 +4,19 @@
 <title>Github Master</title>
 <meta charset= "UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+    
 <!----------EXTERNAL LIBRARIES, SCRIPTS & STYLESHEETS---------->
-<script src="js/get_loc.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>       
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=false&libraries=visualization,places">
-</script>   
-<link rel="stylesheet" type="text/css" href="css/style.css"/>  
+</script> 
+<link rel="stylesheet" type="text/css" href="css/style.css"/> 
 <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css"/>
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-<script src="js/custom_style.js"></script>
+<script src="js/custom_style.js"></script> 
 </head>
+    
 <!----------BEGIN CONTENT---------->  
 <body style="background-color: #000">
 <nav class="navbar navbar-inverse">
@@ -42,26 +43,21 @@
 </div>
 </div>
 </nav>  
-<div class="Toolbar" id="inputs">
-    
-<form action="" method="post">
-    <input type='text' name='address' placeholder='Enter any address here' />
-    <input type='submit' value='Geocode!' />
-</form>
-    <!--<div id="geo-search">
+<div class="Toolbar">
+    <div>
         <div class="input-group input-group-sm">
-            <span class="input-group-btn"><button id="ButtonSearch" class="btn btn-default btn-sm" onclick="codeAddress()" title="heatery"><span class="glyphicon glyphicon-search"></span></button>
+            <span class="input-group-btn"><button id="ButtonSearch" class="btn btn-default btn-sm" onclick="codeAddress()" title="Suchen"><span class="glyphicon glyphicon-search"></span></button>
             </span>
             <input id="address" type="text" class="form-control" style="width: 150px;" placeholder="Find Your Hot Spot.">
-        </div>@end .input-group input-group-sm
-    </div>@end #geo-search-->
+        </div>
+    </div>
 
-    <div id="toolbar-btns">
+    <div>
         <div class="btn-group">
-            <button id="toggle" class="btn btn-default btn-sm" onclick="toggleHeatmap()" title="heatmap"><span class="glyphicon glyphicon-off
+            <button id="toggle" class="btn btn-default btn-sm" onclick="toggleHeatmap()" data-toggle="tooltip" title="Heatmap On/Off"><span class="glyphicon glyphicon-off
 "></span></button>
-            <button id="radius" class="btn btn-default btn-sm" onclick="changeRadius()" title="radius"><span class="glyphicon glyphicon-fullscreen"></span></button>
-            <button id="opacity" class="btn btn-default btn-sm" onclick="changeOpacity()" title="opacity"><span class="glyphicon glyphicon-adjust"></span></button>
+            <button id="radius" class="btn btn-default btn-sm" onclick="changeRadius()" data-toggle="tooltip" title="Change Radius"><span class="glyphicon glyphicon-fullscreen"></span></button>
+            <button id="opacity" class="btn btn-default btn-sm" onclick="changeOpacity()" data-toggle="tooltip" title="Change Opacity"><span class="glyphicon glyphicon-adjust"></span></button>
 
         </div><!--@end .btn-group-->
     </div><!--@end #toolbar-btns .btn-group-->
@@ -69,65 +65,64 @@
 
 <input id="pac-input" class="controls" type="text" placeholder="Places Search"/>
 <div id="map-canvas"></div><!--@end #map-canvas-->
-
+<script src="js/get_loc.js"></script>
 <script>
 
-//[x]@FIXME Try using the input form to 'POST' the input to php script.
-//@NOTE The opening map will be based on the users location assuming they allow access.
-
-/*[x]@TODO Merge geolocation features with existing heatery features*/
-/*@TODO Need an easy way to change search parameters. A slim drop down would be ideal.*/
-/*[x]@TODO Need to see if I can use the autocomplete search box in place of the existing one*/     
-
+var heatmap;
 var geocoder; 
 var map;  
+
+$(function() {
+    $('[data-toggle="tooltip"]').tooltip()
+});
+
   function displayMap(coords){
         var retro_style = new google.maps.StyledMapType(retroStyle,
-        {name:'Retro'});
+        {name:"Retro"});
         var apple_style = new google.maps.StyledMapType(appleStyle,
-        {name:'Apple'});
+        {name:"Apple"});
         var light_style = new google.maps.StyledMapType(lightStyle,
-        {name:'Dusk'});
+        {name:"Dusk"});
         var old_style = new google.maps.StyledMapType(oldStyle,
-        {name:'Vintage'});
+        {name:"Vintage"});
         var pale_style = new google.maps.StyledMapType(paleStyle,
-        {name:'Cloud'});
+        {name:"Cloud"});
         var brown_style = new google.maps.StyledMapType(brownStyle,
-        {name:'Organic'});
+        {name:"Organic"});
 
     geocoder = new google.maps.Geocoder(); 
-        var userPosition = new google.maps.LatLng(coords.latitude, coords.longitude);
+        var successPosition = new google.maps.LatLng(coords.latitude, coords.longitude);
         var mapOptions = {
         zoom: 13,
-        center: userPosition,
+        center: successPosition,
         panControl: false,
         zoomControl: true,
         mapTypeControl: true,
         mapTypeControlOptions: {
         style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
         position: google.maps.ControlPosition.TOP_RIGHT,
-        mapTypeIds: ['Retro', 'Apple', 'Dusk', 'Vintage','Cloud','Organic', 
+        mapTypeIds: ["Retro", "Apple", "Dusk", "Vintage","Cloud","Organic", 
              google.maps.MapTypeId.ROADMAP, 
              google.maps.MapTypeId.SATELLITE, 
              google.maps.MapTypeId.TERRAIN]
             }
 
         };  
-        map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-        map.mapTypes.set('Retro', retro_style);
-        map.mapTypes.set('Apple', apple_style);
-        map.mapTypes.set('Dusk', light_style);
-        map.mapTypes.set('Vintage', old_style);
-        map.mapTypes.set('Cloud', pale_style);
-        map.mapTypes.set('Organic', brown_style);
-        map.setMapTypeId('Vintage');
+        map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+        map.mapTypes.set("Retro", retro_style);
+        map.mapTypes.set("Apple", apple_style);
+        map.mapTypes.set("Dusk", light_style);
+        map.mapTypes.set("Vintage", old_style);
+        map.mapTypes.set("Cloud", pale_style);
+        map.mapTypes.set("Organic", brown_style);
+        map.setMapTypeId("Vintage");
 
 //Insert Google Search 
 var markers = [];    
-var input =/**@type {HTMLInputElement}**/(document.getElementById('pac-input')); 
-map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+var input =/**@type {HTMLInputElement}**/(document.getElementById("pac-input")); 
+//map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 var searchBox = new google.maps.places.SearchBox((input));
-google.maps.event.addListener(searchBox, 'places_changed', function () {
+google.maps.event.addListener(searchBox, "places_changed", function () {
 var places = searchBox.getPlaces();
 if (places.length == 0) {
 return;
@@ -147,13 +142,13 @@ bounds.extend(place.geometry.location);
 }
 map.fitBounds(bounds);
 });
-google.maps.event.addListener(map, 'bounds_changed', function () {
+google.maps.event.addListener(map, "bounds_changed", function () {
 var bounds = map.getBounds();
 searchBox.setBounds(bounds);
 });
 }          
-google.maps.event.addDomListener(window, 'load', displayMap);
+google.maps.event.addDomListener(window, "load", displayMap);
 </script>
-<script src="js/ajax.js"></script>
+<script src="js/ajax.js"></script> 
 </body>
 </html>

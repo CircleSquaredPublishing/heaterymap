@@ -1,4 +1,10 @@
 <?php
+/*
+File Name: hm_update.php
+Description: Calls db connection script then executes query to return top 10 results. Stores those results in variables. Variable data is used to place map markers.
+Author: Circle Squared Data Labs
+Author URI: http://www.heatery.io
+*/
 
 include_once("conn.php");
 
