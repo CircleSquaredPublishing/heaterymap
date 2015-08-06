@@ -31,7 +31,7 @@ function(results, status) {
         var loc = new google.maps.LatLng(lat,lng);
 /*@NOTE var loc is where the geocoding magic happens. */
         
-        var fb = "https://graph.facebook.com/v2.4/search?&q=restaurant&type=place&center="+loc+"&distance=5000&fields=talking_about_count,location,name&offset=0&limit=5000&access_token=1452021355091002|x-ZB0iKqWQmYqnJQ-wXoUjl-XtY";fb = fb.replace(/[()]/g, "");
+        var fb = "https://graph.facebook.com/v2.4/search?&q=restaurant&type=place&center="+loc+"&distance=5000&fields=talking_about_count,location,name&offset=0&limit=3200&access_token=1452021355091002|x-ZB0iKqWQmYqnJQ-wXoUjl-XtY";fb = fb.replace(/[()]/g, "");
         
         
  
