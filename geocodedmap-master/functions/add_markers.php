@@ -1,5 +1,10 @@
 <?php
-
+/*
+File Name: add_markers.php
+Description: Uses stored variable data from top 10 query to place markers and infowindows on the map.
+Author: Circle Squared Data Labs
+Author URI: http://www.heatery.io
+*/
 for ($i = 0; $i < $mrk_cnt; $i++) {
     
         $icons = array ("1|6f8ba2|fffff3",

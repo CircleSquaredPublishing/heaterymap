@@ -1,4 +1,10 @@
 <?php
+/*
+File Name: post.php
+Description: Posts geocoder input text from #address element.
+Author: Circle Squared Data Labs
+Author URI: http://www.heatery.io
+*/
 
 if ($_POST) {
 
