@@ -68,13 +68,7 @@
 <script src="js/get_loc.js"></script>
 <script>
 
-//[x]@FIXME Try using the input form to 'POST' the input to php script.
-//@NOTE The opening map will be based on the users location assuming they allow access.
-
-/*[x]@TODO Merge geolocation features with existing heatery features*/
-/*@TODO Need an easy way to change search parameters. A slim drop down would be ideal.*/
-/*[x]@TODO Need to see if I can use the autocomplete search box in place of the existing one*/     
-
+var heatmap;
 var geocoder; 
 var map;  
 
