@@ -46,7 +46,7 @@
 <div class="Toolbar">
     <div>
         <div class="input-group input-group-sm">
-            <span class="input-group-btn"><button id="ButtonSearch" class="btn btn-default btn-sm" onclick="codeAddress()" title="Suchen"><span class="glyphicon glyphicon-search"></span></button>
+            <span class="input-group-btn"><button id="ButtonSearch" class="btn btn-default btn-sm" onclick="codeAddress()" title="Search"><span class="glyphicon glyphicon-search"></span></button>
             </span>
             <input id="address" type="text" class="form-control" style="width: 150px;" placeholder="Find Your Hot Spot.">
         </div>
@@ -66,6 +66,10 @@
 <input id="pac-input" class="controls" type="text" placeholder="Places Search"/>
 <div id="map-canvas"></div><!--@end #map-canvas-->
 <script src="js/get_loc.js"></script>
+    
+    
+    
+    
 <script>
 
 var heatmap;
