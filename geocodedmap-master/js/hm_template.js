@@ -47,7 +47,7 @@ $(document).ready(function() {
 
     $.ajax({
 
-    url: "https://graph.facebook.com/v2.4/search?&q=restaurant&type=place&center=26.461635, -80.071123&distance=8000&fields=talking_about_count,location,name&offset=0&limit=5000&access_token={enter_your_app_access_token_here_and_get_rid_of_the_curly_braces}",
+    url: "https://graph.facebook.com/v2.4/search?&q=restaurant&type=place&center=26.461635, -80.071123&distance=8000&fields=talking_about_count,location,name&offset=0&limit=5000&access_token=1452021355091002|x-ZB0iKqWQmYqnJQ-wXoUjl-XtY",
 
     dataType: "text",
 

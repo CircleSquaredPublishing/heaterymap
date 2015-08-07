@@ -108,3 +108,19 @@ background-color: #ffff00;
 background-color: #006600;
 color: #f8f8f8;
 }
+
+/* =GEOCODER TABLE SETTINGS
+---------------------------*/
+#geocoder{
+color:#fff;
+padding: 5px;
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: #fff;
+color:#000;
+}
+
+#search-box-tt{
+width:300px;
+}
