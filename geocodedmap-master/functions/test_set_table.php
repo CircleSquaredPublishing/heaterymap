@@ -1,20 +1,12 @@
 <?php
-echo 
-    "<tr>
-    <th>Restaurant Name</th>
-    <th>Heatery Score</th>
-    <th>Talking About</th>
-    <th>Were Here</th>
-    <th>Date</th>
-    <th>Distance</th>
-    </tr>";
-
+echo "<table style='border: solid 1px #fff; color: #fff; margin-left:20%; margin-top: 10%;'>";
+echo "<tr><th>Restaurant Name</th><th>Heatery Score</th><th>Talking About</th><th>Were Here</th><th>Date</th><th>Distance</th></tr>";
 class TableRows extends RecursiveIteratorIterator { 
     function __construct($it) { 
         parent::__construct($it, self::LEAVES_ONLY); 
     }
     function current() {
-        return "<td>" . parent::current(). "</td>";
+        return "<td style='width:150px;border:1px solid #fff; margin:20px; padding:10px;'>" . parent::current(). "</td>";
     }
     function beginChildren() { 
         echo "<tr>"; 
@@ -44,11 +36,11 @@ LIMIT 10;");
 $stmt->execute();
 $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
 foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll()))as $k=>$v) {
-        echo stripslashes($v);
+        echo $v;
     }
 }
 catch(PDOException $e) {
 echo "Error: " .$e->getMessage();
 }
-echo "</table></div></body></html>";
+echo "</table>";
 ?>

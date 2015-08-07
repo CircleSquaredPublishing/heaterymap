@@ -7,7 +7,7 @@
     
 <!----------EXTERNAL LIBRARIES, SCRIPTS & STYLESHEETS---------->
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
-<link rel="stylesheet" type="text/css" href="/github/geocodedmap-master/css/style.css"/>     
+<link rel="stylesheet" type="text/css" href="../geocodedmap-master/css/style.css"/>     
 </head>
     
 <!----------BEGIN CONTENT----------> 
@@ -75,22 +75,22 @@
         </form>
         <!--@end form for PHP Geocoder-->
 <!----------DB CONNECT---------->    
-<?php require_once "test_connect.php";?>
-    
+<?php require_once "../geocodedmap-master/functions/test_connect.php";?>
+ 
 <?php
 
 /*Posts form input and calls Google Geocoder*/
-require_once "test_post_geocode.php";
+require_once "../geocodedmap-master/functions/test_post_geocode.php";
 
 /*@var $latitude and $longitude are passed into $curl for FB API call*/
-require_once "test_insert.php";
+require_once "../geocodedmap-master/functions/test_insert.php";
 
 /*Sets heatery_score column in DB*/
-require_once "test_set_heatery.php";
+require_once "../geocodedmap-master/functions/test_set_heatery.php";
 
 /*@FIXME Right now the results are display in a table but we need them passed into markers and placed on the map.*/
 /*@FIXME This script needs to be able to pass geocoded data to Google Map Marker objects.*/
-require_once "test_set_table.php";
+require_once "../geocodedmap-master/functions/test_set_table.php";
 
 $conn = null;
 ?>

@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <title>Heatmaps</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=false&libraries=visualization,places"></script>
 <style>
         html,
         body,
@@ -33,12 +35,9 @@
         <button onclick="changeOpacity()">Change opacity</button>
     </div>
     <div id="map-canvas"></div>
-    
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=false&libraries=visualization,places"></script>
+
 <script>
 var map;
-
 function initialize() {
 var mapOptions = {
 zoom: 13,
@@ -124,5 +123,6 @@ heatmap = new google.maps.visualization.HeatmapLayer({
 });
 });
 </script>
+
 </body>
 </html>
