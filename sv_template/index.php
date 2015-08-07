@@ -42,11 +42,11 @@
 
     <span class="icon-bar"></span>  
 
-  </button>
+  </button><!--@end .navbar-toggle-->
 
   <a class="navbar-brand" href="http://www.heatery.io">heatery.io</a>
 
-</div>
+</div><!--@end .navbar-header-->
 
 <div class="collapse navbar-collapse" id="myNavbar">
 
@@ -56,43 +56,22 @@
 
     <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>The Speak Easy</a></li>
 
-  </ul>
+  </ul><!--@end .nav navbar-nav navbar-right-->
 
-</div>
+</div><!--@end .collapse navbar-collapse-->
 
-</div>
+</div><!--@end .container-fluid-->
 
-</nav>
+</nav><!--@end .navbar navbar-inverse-->
 
-<div id="map-canvas"></div>
+<div id="map-canvas"></div><!--@end #map-canvass-->
     
-<div id="dialog-sw-canvas"></div>
+<div id="dialog-sw-canvas"></div><!--@end #dialog-sw-canvas-->
 
 <script src="js/dialog.js"></script>
     
+<!----------BEGIN JAVASCRIPT---------->   
 <script>
-
-/*define dialog
-$(function() {
-    
-    $('#dialog-sw-canvas').dialog({
-        title: 'heatery.io',
-        width: 300,
-        height: 400,
-        closed: true,
-        cache: false,
-        modal: true,
-        onClose: function() {
-            
-            $('#dialog-sw-canvas').empty();
-            
-        }
-        
-    });
-    
-$('#dialog-sw-canvas').dialog('close');
-    
-});*/
 
 var map;
 var marker;
@@ -250,29 +229,8 @@ var features =
     }
 
 google.maps.event.addDomListener(window, 'load', initialize);
-
-/*Display dialog with streetview
-function showStreetView(position) {
     
-    var panoramaOptions = {
-        position: position, 
-        pov: {
-            heading: 90,
-            pitch: 0
-        }
-    };
-    
-    var panorama = new  google.maps.StreetViewPanorama(document.getElementById("dialog-sw-canvas"), panoramaOptions);
-    
-    map.setStreetView(panorama);
-    
-    $( "#dialog-sw-canvas" ).dialog("open");
-    
-    google.maps.event.trigger(panorama,'resize');
-    
-}
-*/
-</script>
+</script><!--@end initialize function-->
 <script src="js/sv_main.js"></script>    
-</body>
-</html>
+</body><!--@end body & content-->
+</html><!--@end html & page-->
