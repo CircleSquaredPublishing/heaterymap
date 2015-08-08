@@ -54,10 +54,10 @@ switch (json_last_error()) {
 echo PHP_EOL;
     
 //BEGIN QUERY10
-$stmt10=$conn->prepare( "INSERT INTO `top10_markers`(`FID`, `fb_name`, `fb_likes`, `fb_were_here`, `fb_talking_about`, `fb_street`, `fb_city`, `fb_state`, `fb_zip`, `fb_lat`, `fb_lng`, `fb_loc_in`)VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)" ); 
+$stmt10=$conn->prepare( "INSERT INTO `top10_markers`(`FID`, `fb_name`, `fb_likes`, `fb_were_here`, `fb_talking_about`, `fb_street`, `fb_city`, `fb_state`, `fb_zip`, `fb_lat`, `fb_lng`)VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)" ); 
     
 $stmt10->
-bind_param("dsiiisssiddd", $FID, $fb_name, $fb_likes, $fb_were_here, $fb_talking_about, $fb_street, $fb_city, $fb_state, $fb_zip, $fb_lat, $fb_lng, $fb_loc_in); 
+bind_param("dsiiisssidd", $FID, $fb_name, $fb_likes, $fb_were_here, $fb_talking_about, $fb_street, $fb_city, $fb_state, $fb_zip, $fb_lat, $fb_lng); 
     
         $FID=mysqli_real_escape_string($conn, $i[id]); 
         $fb_name=mysqli_real_escape_string($conn, $i[name]);
@@ -70,7 +70,6 @@ bind_param("dsiiisssiddd", $FID, $fb_name, $fb_likes, $fb_were_here, $fb_talking
         $fb_zip=mysqli_real_escape_string($conn, $i[location][zip]); 
         $fb_lat=mysqli_real_escape_string($conn, $i[location][latitude]);    
         $fb_lng=mysqli_real_escape_string($conn, $i[location][longitude]);   
-        $fb_loc_in=mysqli_real_escape_string($conn, $i[location][located_in]); 
         $stmt10->execute(); 
     
     }
