@@ -10,6 +10,8 @@ License URI: license.txt
 Tags: responsive-layout, fluid-layout, custom-background, custom-menu, custom-maps, AJAX, Facebook Graph API, Autocomplete SearchBox, Heatmap Visualizations, Google Maps
 
 */
+/*@NOTE Heatmap is generated from a static set of point that will be updated periodically. A dynamic dataset was originally created but we have been unable to address browser crashing issues due to the number of points loaded into the map. It should be noted though that the heatmap display is quite different as far a sdistribution of points is concerned even though the same query was used to generate those points. Both of the above should be addressed because ideally all content would be dynamic.*/
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -54,7 +56,7 @@ Tags: responsive-layout, fluid-layout, custom-background, custom-menu, custom-ma
 </head> 
 <!----------BEGIN CONTENT---------->  
 <body style="background-color: #000">
-    <nav class="navbar navbar-inverse">
+        <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -62,27 +64,53 @@ Tags: responsive-layout, fluid-layout, custom-background, custom-menu, custom-ma
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="http://www.heatery.io/wp-login.php">heatery.io</a>
+                <a class="navbar-brand" href="https://www.heatery.io/wp-login.php">heatery.io</a>
             </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
+            
+<div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="http://www.heatery.io/wp-login.php">Heatery Map</a></li>
-                    <li><a href="http://www.heatery.io/wp-login.php">About</a></li>
-                    <li><a href="http://www.heatery.io/wp-login.php">Top 10</a></li>
-                    <li><a href="http://www.heatery.io/wp-login.php">Home</a></li>
+    <li class="active"><a href="#">The United States Heatery Map</a></li>
+
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="http://www.heatery.io/wp-login.php"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;Client Portal</a></li>
-                    <li><a href="http://www.heatery.io/wp-login.php"><span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;The Speak Easy</a></li>
+                    
+                    <li>
+                        <a href="https://www.heatery.io/wp-login.php">Login</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.heatery.io/wp-login.php?action=register">Register</a>
+                    </li>
+                    
+                    <li data-toggle="tooltip" title="Business partners gain access to rich data sets, custom reports, and personalized tools for analytics. All in addition to the this snazzy portal link!">
+                        <a href="https://www.heatery.io/wp-login.php">
+                            <span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;Client Portal
+                        </a>
+                    </li>
+                    
+                   <li data-toggle="tooltip" title="Just like our business partners, contributors to The Speak Easy get their own snazzy portal link too! To be Speak Easy is to have monkish objectivity. Our Speak Easy crew are heatery algorithm's soul, if algorithms do indeed have sould. Whom amongst you is Speak Easy? They may tell but we never will! Subscribers gain access to all our Speak Easy publications and exclusive member deals. Heatery Business partners will have access to reviews as well as the data our engineers use to feed the heatery model.">
+                        <a href="https://www.heatery.io/wp-login.php">
+                            <span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;The Speak Easy
+                        </a>
+                    </li>
                 </ul>
             </div>
+            
+            
         </div>
     </nav>
     <div id="map-canvas"></div>
     <!--@end #map-canvas-->
-<?php require_once __DIR__ . '/vendor/autoload.php'; ?>    
-<script>    
-var map;
+<?php require_once '../../packages/vendor/autoload.php'; ?> 
+<script src="hm_layer_minified.js"></script>
+<script>  
+/*Tool tip function*/
+$(function() {
+    $('[data-toggle="tooltip"]').tooltip()
+});      
+    
+var map, pointArray, heatmap;
+
 function displayMap(){
     var retro_style = new google.maps.StyledMapType(retroStyle,{name:"Retro"});
     var apple_style = new google.maps.StyledMapType(appleStyle,{name:"Apple"});
@@ -112,7 +140,19 @@ function displayMap(){
             }
 
         };
+    
         map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+var gradientNew=["rgba(0,255,255,0)","rgba(25,22,218,1)","rgba(17,191,225,1)","rgba(16,227,217,1)","rgba(15,229,173,1)","rgba(14,231,128,1)","rgba(13,233,82,1)","rgba(12,235,34,1)","rgba(37,237,11,1)","rgba(85,239,10,1)","rgba(134,241,8,1)","rgba(185,243,7,1)","rgba(237,245,6,1)","rgba(247,203,5,1)","rgba(249,152,3,1)","rgba(251,100,2,1)","rgba(255,127,131,1)","rgba(253,47,1,1)","rgba(255,0,7,1)"];
+var pointArray = new google.maps.MVCArray(heatmapLayer);
+    
+        heatmap = new google.maps.visualization.HeatmapLayer({
+        data: pointArray,
+        radius: 30,
+        opacity: .3,
+        gradient: gradientNew,
+        map: map
+        });
+    
         map.mapTypes.set("Retro", retro_style);
         map.mapTypes.set("Apple", apple_style);
         map.mapTypes.set("Dusk", light_style);
@@ -120,9 +160,11 @@ function displayMap(){
         map.mapTypes.set("Cloud", pale_style);
         map.mapTypes.set("Organic", brown_style);
         map.setMapTypeId("Vintage");
+    
     }   
+    
 google.maps.event.addDomListener(window, "load", displayMap);
-    </script>   
-    <script src="us_city_calls/city_calls_minified.js"></script>
+  
+    </script>
     </body>
 </html>

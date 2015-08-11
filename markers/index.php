@@ -8,26 +8,28 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!----------EXTERNAL LIBRARIES, SCRIPTS & STYLESHEETS---------->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <!--------------------EXTERNAL LIBRARIES, SCRIPTS & STYLESHEETS-------------------->
+    
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script><!--@ end jQuery-->
 
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=false&libraries=visualization,places">
-    </script>
+    </script><!--@ end Google Maps-->
 
-    <link rel="stylesheet" type="text/css" href="../geocodedmap-master/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../geocodedmap-master/css/style.css" /><!--@ end local stylesheet-->
 
-    <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" /><!--@ end jQuery Smoothness stylesheet. Used for street view windows-->
 
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" /><!--@ end Bootstrap CSS-->
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script><!--@ end Bootstrap JS-->
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-    <script src="../geocodedmap-master/js/custom_style.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script><!--@ end jQuery UI-->
+    <script src="../geocodedmap-master/js/custom_style.js"></script><!--@ end Custom Layer JSON-->
 
 </head>
 
-<!----------BEGIN CONTENT---------->
+<!--------------------BEGIN CONTENT-------------------->
 
 <body style="background-color: #000">
 
@@ -56,13 +58,8 @@
 
                 <ul class="nav navbar-nav">
 
-                    <li class="active"><a href="#">Heatery Map</a></li>
+                    <li class="active"><a href="#">BETA: Heatery Map Markers</a></li>
 
-                    <li><a href="#">About</a></li>
-
-                    <li><a href="http://localhost/top10/index.php">Top 10</a></li>
-
-                    <li><a href="#">Home</a></li>
 
                 </ul>
                 <!--@end .nav navbar-nav-->
@@ -87,18 +84,27 @@
 
     <div class="Toolbar">
         <div>
+            
+        <form action="" method="post">
+            
             <div class="input-group input-group-sm">
-                <span class="input-group-btn"><button id="ButtonSearch" class="btn btn-default btn-sm" onclick="codeAddress()" title="Suchen"><span class="glyphicon glyphicon-search"></span></button>
-                </span>
-                <input id="address" type="text" class="form-control" style="width: 150px;" placeholder="Find Your Hot Spot.">
-            </div>
+                
+                <span class="input-group-btn"><input  class="btn btn-success" id="ButtonSearch" type="submit" class="btn btn-default btn-sm" onclick="codeAddress()" value="Get Heatery"><span class="glyphicon glyphicon-search"></span></span>
+                
+                <input name="address" type="text" class="form-control" style="width: 150px;" placeholder="Find Your Hot Spot.">
+                
+            </div><!--@end Input field for PHP Geocoder-->
+        </form><!--@end form for PHP Geocoder-->
         </div>
 
         <div>
             <div class="btn-group">
+                
                 <button id="toggle" class="btn btn-default btn-sm" onclick="toggleHeatmap()" data-toggle="tooltip" title="Heatmap On/Off"><span class="glyphicon glyphicon-off
 "></span></button>
+                
                 <button id="radius" class="btn btn-default btn-sm" onclick="changeRadius()" data-toggle="tooltip" title="Change Radius"><span class="glyphicon glyphicon-fullscreen"></span></button>
+                
                 <button id="opacity" class="btn btn-default btn-sm" onclick="changeOpacity()" data-toggle="tooltip" title="Change Opacity"><span class="glyphicon glyphicon-adjust"></span></button>
 
             </div>
@@ -108,21 +114,10 @@
     </div>
     <!--@end #inputs .Toolbar-->
 
-    <input id="pac-input" class="controls" type="text" placeholder="Places Search" />
-    <!--@end #pac-input-->
+<div id="map-canvas"></div><!--@end #map-canvas-->
 
-    <form action="" method="post">
-        <input type='text' name='address' placeholder='Enter any address here' />
-        <input type='submit' value='Geocode!' />
-    </form>
 
-    <div id="map-canvas"></div>
-    <!--@end #map-canvas-->
-
-    <!----------HTML5 GEOLOCATION CODE---------->
-    <!--<script src="/github/geocodedmap-master/js/get_loc.js"></script>-->
-
-    <?php
+<?php
 if($_POST){
  
     // get latitude, longitude and formatted address
@@ -134,14 +129,14 @@ if($_POST){
         $latitude = $data_arr[0];
         $longitude = $data_arr[1];
         $city = $data_arr[2];
+        
                      
-    ?>
+?>
 
-        <?php require_once '../geocodedmap-master/functions/test_connect.php';?>
-            <?php require_once '../geocodedmap-master/functions/test_select.php';?>
-
-
-
+        <?php require_once '../geocodedmap-master/functions/conn.php';?>
+    
+            <?php require_once '../geocodedmap-master/functions/select.php';?>
+    
                 <script>
                     function init_map() {
                         var myOptions = {
@@ -152,16 +147,15 @@ if($_POST){
                         map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
 
 
-                        <?php require_once '../geocodedmap-master/functions/test_insert.php';?>
-                        <?php require_once '../geocodedmap-master/functions/test_set_heatery.php';?>
-                        <?php require_once '../geocodedmap-master/functions/drop_markers.php';?>
+                        <?php require_once '../geocodedmap-master/functions/insert.php';?>
+
+                        <?php require_once '../geocodedmap-master/functions/add_markers.php';?>
                     }
 
-                    /*@NOTE The initial heatmap is produced by the HTML5 geolocation script and is based on the users current location*/
-                    /*@NOTE The heatmaps delivered from the search box input are produced by the jQuery AJAX function and the call to the FB API.*/
-                    /*@NOTE Map markers are currently being added using the PHP Google Geocoder because the marker data is being sent to the database for storage and processnig.*/
-                    /*@FIXME This script needs PHP geocoder functionality. Try adding Click Event.*/
-                    //Declare variables in the global scope.     
+/*@NOTE The heatmaps delivered from the search box input are produced by the jQuery AJAX function and the call to the FB API.*/
+/*@NOTE Map markers are currently being added using the PHP Google Geocoder because the marker data is being sent to the database for storage and processnig.*/
+/*@FIXME This script needs PHP geocoder functionality. Try adding Click Event.*/
+//Declare variables in the global scope.     
 
                     google.maps.event.addDomListener(window, 'load', init_map);
                 </script>
@@ -176,7 +170,7 @@ if($_POST){
 ?>
 
 
-                    <?php
+<?php
 // function to geocode address, it will return false if unable to geocode address
 function geocode($address){
  
@@ -223,6 +217,9 @@ function geocode($address){
         return false;
     }
 }
+
+/*@FIXME Need to fit bounds to marker spread.*/
+/*@NOTE Uses query_top_ten.php to select results.*/
 ?>
 
 </body>

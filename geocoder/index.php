@@ -40,13 +40,7 @@
 
                 <ul class="nav navbar-nav">
 
-                    <li class="active"><a href="#">Heatery Map</a></li>
-
-                    <li><a href="#">About</a></li>
-
-                    <li><a href="http://localhost/top10/index.php">Top 10</a></li>
-
-                    <li><a href="#">Home</a></li>
+                    <li class="active"><a href="#">BETA: Heatery Map Geocoder Table</a></li>
 
                 </ul>
                 <!--@end .nav navbar-nav-->
@@ -82,13 +76,12 @@
 
             <form action="" method="post">
 
-                <div class="input-group">
+                <div id="gc-input" class="input-group">
 
                     <span class="input-group-btn">
                         
-            <input class="btn btn-success btn-md" type="submit" value="Get Heatery" /><br /></span>
-
-                    <!--@end Button for PHP Geocoder-->
+            <input class="btn btn-success btn-md" type="submit" value="Get Heatery" /><br /></span><!--@end Button for PHP Geocoder-->
+                    
                     <input id="search-box-tt" class="form-control" type="text" name="address" placeholder="Find Your Hot Spot." />
 
                 </div>
@@ -97,26 +90,21 @@
 
             </form>
             <!--@end form for PHP Geocoder-->
-            
-<!----------DB CONNECT---------->    
-<?php require_once "../geocodedmap-master/functions/test_connect.php";?>
- 
-<?php
 
+<!----------DB CONNECT---------->    
+<?php 
+require_once "../geocodedmap-master/functions/conn.php";
+ 
 /*Posts form input and calls Google Geocoder*/
-require_once "../geocodedmap-master/functions/test_post_geocode.php";
+require_once "../geocodedmap-master/functions/post.php";
 
 /*@var $latitude and $longitude are passed into $curl for FB API call*/
-require_once "../geocodedmap-master/functions/test_insert.php";
-
-/*Sets heatery_score column in DB*/
-require_once "../geocodedmap-master/functions/test_set_heatery.php";
-
+require_once "../geocodedmap-master/functions/insert.php";
 /*@FIXME Right now the results are display in a table but we need them passed into markers and placed on the map.*/
 /*@FIXME This script needs to be able to pass geocoded data to Google Map Marker objects.*/
-require_once "../geocodedmap-master/functions/test_set_table.php";
+/*@NOTE The query is called from the table file (gc_set.php), Uses query_distance to deliver results.*/
+require_once "../geocodedmap-master/functions/set.php";
 
-$conn = null;
 ?>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>  
- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>        
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>   

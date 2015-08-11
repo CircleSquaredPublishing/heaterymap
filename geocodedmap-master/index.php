@@ -32,9 +32,7 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">Heatery Map</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="http://localhost/top10/index.php">Top 10</a></li>
-                    <li><a href="#">Home</a></li>
+
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;Client Portal</a></li>
@@ -43,30 +41,30 @@
             </div>
         </div>
     </nav>
-    <div class="Toolbar">
-        <div>
-            <div class="input-group input-group-sm">
-                <span class="input-group-btn"><button id="ButtonSearch" class="btn btn-default btn-sm" onclick="codeAddress()" title="Search"><span class="glyphicon glyphicon-search"></span></button>
-                </span>
-                <input id="address" type="text" class="form-control" style="width: 150px;" placeholder="Find Your Hot Spot.">
-            </div>
+<div class="Toolbar">
+    <div>
+        <div class="input-group input-group-sm">
+            <span class="input-group-btn"><button id="ButtonSearch" class="btn btn-default btn-sm" onclick="codeAddress()" title="Search"><span class="glyphicon glyphicon-search"></span></button>
+            </span>
+            <input id="address" type="text" class="form-control" style="width: 150px;" placeholder="Find Your Hot Spot.">
         </div>
-
-        <div>
-            <div class="btn-group">
-                <button id="toggle" class="btn btn-default btn-sm" onclick="toggleHeatmap()" data-toggle="tooltip" title="Heatmap On/Off"><span class="glyphicon glyphicon-off
-"></span></button>
-                <button id="radius" class="btn btn-default btn-sm" onclick="changeRadius()" data-toggle="tooltip" title="Change Radius"><span class="glyphicon glyphicon-fullscreen"></span></button>
-                <button id="opacity" class="btn btn-default btn-sm" onclick="changeOpacity()" data-toggle="tooltip" title="Change Opacity"><span class="glyphicon glyphicon-adjust"></span></button>
-
-            </div>
-            <!--@end .btn-group-->
-        </div>
-        <!--@end #toolbar-btns .btn-group-->
     </div>
-    <!--@end #inputs .Toolbar-->
 
-    <input id="pac-input" class="controls" type="text" placeholder="Places Search" />
+    <div>
+        <div class="btn-group">
+            <button id="toggle" class="btn btn-default btn-sm" onclick="toggleHeatmap()" data-toggle="tooltip" title="Heatmap On/Off"><span class="glyphicon glyphicon-off
+"></span></button>
+            <button id="radius" class="btn btn-default btn-sm" onclick="changeRadius()" data-toggle="tooltip" title="Change Radius"><span class="glyphicon glyphicon-fullscreen"></span></button>
+            <button id="opacity" class="btn btn-default btn-sm" onclick="changeOpacity()" data-toggle="tooltip" title="Change Opacity"><span class="glyphicon glyphicon-adjust"></span></button>
+
+        </div>
+        <!--@end .btn-group-->
+    </div>
+    <!--@end #toolbar-btns .btn-group-->
+</div>
+<!--@end #inputs .Toolbar-->
+
+    <input id="pac-input" class="controls" type="text" placeholder="Search for Places" autocomplete="on"/>
     <div id="map-canvas"></div>
     <!--@end #map-canvas-->
     <script src="js/get_loc.js"></script>
@@ -98,7 +96,7 @@ $(function() {
     geocoder = new google.maps.Geocoder(); 
         var successPosition = new google.maps.LatLng(coords.latitude, coords.longitude);
         var mapOptions = {
-        zoom: 10,
+        zoom: 13,
         center: successPosition,
         panControl: false,
         zoomControl: true,
