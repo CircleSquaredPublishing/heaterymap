@@ -30,18 +30,12 @@ for ($i = 0; $i<$arrlength; $i++) {
 
     echo "var streetText$i = \"$street[$i]\";\n";
 
-    echo "var heateryScore$i = \"$heateryScore[$i]\";\n";
+    echo "var talking_about$i = \"$talking_about[$i]\";\n";
 
     echo "var infowindow$i = new google.maps.InfoWindow({
     
-                content: 'Reporting Date: '+' 
-                           '+ date$i + '<br />' 
-                            + fbname$i + '<br />' 
-                            + streetText$i + '<br />' 
-                            + 'Heatery Score:'+' 
-                            '+ heateryScore$i
-                            
-                            });";
+    content:  'Reporting Date:'+' '+ date$i + '<br />' + fbname$i + '<br />' + streetText$i + '<br />' + 'Talking About:'+' '+ talking_about$i
+});";
     
 
     echo "var marker$i = new google.maps.Marker({

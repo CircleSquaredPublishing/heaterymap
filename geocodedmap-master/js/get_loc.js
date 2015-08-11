@@ -8,7 +8,7 @@ function getLocation() {
         
         navigator.geolocation.getCurrentPosition(geoSuccess, geoError, {
             maximumAge: 30000, 
-            timeout: 5000,
+            timeout: 10000,
             enableHighAccuracy: true
         
         }                                          
