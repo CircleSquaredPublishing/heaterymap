@@ -146,7 +146,10 @@ if($_POST){
                         };
                         map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
 
-
+                        google.maps.event.addListener(map, 'click', function() {
+                            infowindow.close();
+                            });
+                        
                         <?php require_once '../geocodedmap-master/functions/insert.php';?>
 
                         <?php require_once '../geocodedmap-master/functions/add_markers.php';?>

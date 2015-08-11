@@ -1,6 +1,6 @@
 <?php
 /*
-File Name: gc_conn.php
+File Name: conn.php
 Description: Database connection script.
 Author: Circle Squared Data Labs
 Author URI: http://www.heatery.io

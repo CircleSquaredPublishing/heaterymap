@@ -68,88 +68,101 @@
     <div id="map-canvas"></div>
     <!--@end #map-canvas-->
     <script src="js/get_loc.js"></script>
-    
-<script>
-
+<script> 
 var heatmap;
-var geocoder; 
-var map;  
-
+var geocoder;
+var map;
 $(function() {
     $('[data-toggle="tooltip"]').tooltip()
-});
-
-  function displayMap(coords){
-        var retro_style = new google.maps.StyledMapType(retroStyle,
-        {name:"Retro"});
-        var apple_style = new google.maps.StyledMapType(appleStyle,
-        {name:"Apple"});
-        var light_style = new google.maps.StyledMapType(lightStyle,
-        {name:"Dusk"});
-        var old_style = new google.maps.StyledMapType(oldStyle,
-        {name:"Vintage"});
-        var pale_style = new google.maps.StyledMapType(paleStyle,
-        {name:"Cloud"});
-        var brown_style = new google.maps.StyledMapType(brownStyle,
-        {name:"Organic"});
-
-    geocoder = new google.maps.Geocoder(); 
-        var successPosition = new google.maps.LatLng(coords.latitude, coords.longitude);
-        var mapOptions = {
-        zoom: 13,
-        center: successPosition,
-        panControl: false,
-        zoomControl: true,
-        mapTypeControl: true,
-        mapTypeControlOptions: {
-        style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
-        position: google.maps.ControlPosition.TOP_RIGHT,
-        mapTypeIds: ["Retro", "Apple", "Dusk", "Vintage","Cloud","Organic", 
-             google.maps.MapTypeId.ROADMAP, 
-             google.maps.MapTypeId.SATELLITE, 
-             google.maps.MapTypeId.TERRAIN]
+}
+);
+/************************************************************\
+*
+\************************************************************/
+function displayMap(coords){
+    var retro_style = new google.maps.StyledMapType(retroStyle,  {
+        name:"Retro"
+    }
+    );
+    var apple_style = new google.maps.StyledMapType(appleStyle,  {
+        name:"Apple"
+    }
+    );
+    var light_style = new google.maps.StyledMapType(lightStyle,  {
+        name:"Dusk"
+    }
+    );
+    var old_style = new google.maps.StyledMapType(oldStyle,  {
+        name:"Vintage"
+    }
+    );
+    var pale_style = new google.maps.StyledMapType(paleStyle,  {
+        name:"Cloud"
+    }
+    );
+    var brown_style = new google.maps.StyledMapType(brownStyle,  {
+        name:"Organic"
+    }
+    );
+    geocoder = new google.maps.Geocoder();
+    var successPosition = new google.maps.LatLng(coords.latitude, coords.longitude);
+    var mapOptions = {
+        zoom: 13,  center: successPosition,  panControl: false,  zoomControl: true,  mapTypeControl: true,  mapTypeControlOptions: {
+            style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,  position: google.maps.ControlPosition.TOP_RIGHT,  mapTypeIds: ["Retro", "Apple", "Dusk", "Vintage","Cloud","Organic",    google.maps.MapTypeId.ROADMAP,    google.maps.MapTypeId.SATELLITE,    google.maps.MapTypeId.TERRAIN]
+        }
+    }
+    ;
+    map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+    map.mapTypes.set("Retro", retro_style);
+    map.mapTypes.set("Apple", apple_style);
+    map.mapTypes.set("Dusk", light_style);
+    map.mapTypes.set("Vintage", old_style);
+    map.mapTypes.set("Cloud", pale_style);
+    map.mapTypes.set("Organic", brown_style);
+    map.setMapTypeId("Vintage");
+    //Insert Google Search  var markers = [];
+    var input =/**@type {
+        HTMLInputElement
+    }
+    **/(document.getElementById("pac-input"));
+    //map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+    var searchBox = new google.maps.places.SearchBox((input));
+    google.maps.event.addListener(searchBox, "places_changed", /************************************************************\
+    *
+    \************************************************************/
+    function () {
+        var places = searchBox.getPlaces();
+        if (places.length == 0) {
+            return;
+        }
+        for (var i = 0, marker;
+        marker = markers[i];
+        i++) {
+            marker.setMap(null);
+        }
+        var bounds = new google.maps.LatLngBounds();
+        for (var i = 0, place;
+        place = places[i];
+        i++) {
+            var marker = new google.maps.Marker({
+                map: map, title: place.name, position: place.geometry.location
             }
-
-        };  
-        map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-        map.mapTypes.set("Retro", retro_style);
-        map.mapTypes.set("Apple", apple_style);
-        map.mapTypes.set("Dusk", light_style);
-        map.mapTypes.set("Vintage", old_style);
-        map.mapTypes.set("Cloud", pale_style);
-        map.mapTypes.set("Organic", brown_style);
-        map.setMapTypeId("Vintage");
-
-//Insert Google Search 
-var markers = [];    
-var input =/**@type {HTMLInputElement}**/(document.getElementById("pac-input")); 
-//map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-var searchBox = new google.maps.places.SearchBox((input));
-google.maps.event.addListener(searchBox, "places_changed", function () {
-var places = searchBox.getPlaces();
-if (places.length == 0) {
-return;
+            );
+            markers.push(marker);
+            bounds.extend(place.geometry.location);
+        }
+        map.fitBounds(bounds);
+    }
+    );
+    google.maps.event.addListener(map, "bounds_changed", /************************************************************\
+    *
+    \************************************************************/
+    function () {
+        var bounds = map.getBounds();
+        searchBox.setBounds(bounds);
+    }
+    );
 }
-for (var i = 0, marker; marker = markers[i]; i++) {
-marker.setMap(null);
-}
-var bounds = new google.maps.LatLngBounds();
-for (var i = 0, place; place = places[i]; i++) {
-var marker = new google.maps.Marker({
-map: map,
-title: place.name,
-position: place.geometry.location
-});
-markers.push(marker);
-bounds.extend(place.geometry.location);
-}
-map.fitBounds(bounds);
-});
-google.maps.event.addListener(map, "bounds_changed", function () {
-var bounds = map.getBounds();
-searchBox.setBounds(bounds);
-});
-}          
 google.maps.event.addDomListener(window, "load", displayMap);
 </script>
 <script src="js/ajax.js"></script> 
