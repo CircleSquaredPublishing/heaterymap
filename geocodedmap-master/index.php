@@ -98,7 +98,7 @@ $(function() {
     geocoder = new google.maps.Geocoder(); 
         var successPosition = new google.maps.LatLng(coords.latitude, coords.longitude);
         var mapOptions = {
-        zoom: 13,
+        zoom: 10,
         center: successPosition,
         panControl: false,
         zoomControl: true,

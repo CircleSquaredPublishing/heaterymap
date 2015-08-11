@@ -2,7 +2,7 @@
 Template Name: TEMPLATE-heatmap.php
 Author: Circle Squared Data Labs
 Author URI: http://www.heatery.io
-Description: This template includes 6 custom styles plus 3 Traditional Google Maps styles. It has an jQuery AJAX call coded to retrieve public restaurant data from the Facebook Graph API as well as an AutoComplete Search Box, Heatmap Data Visualization Layer, Custom Map Controls for turning the heatmap on/off, increasing/decreasing the heatmap layer radius and also changing the level opaqueness. The toolbar has been configured with links to more content and is styled using Bootstrap. We think this is a nice jumping off point for launching forays into custom data visualizations. 
+Description: This is the stylesheet for the TEMPLATE-heatmap file.This template includes 6 custom styles plus 3 Traditional Google Maps styles. It has an jQuery AJAX call coded to retrieve public restaurant data from the Facebook Graph API as well as an AutoComplete Search Box, Heatmap Data Visualization Layer, Custom Map Controls for turning the heatmap on/off, increasing/decreasing the heatmap layer radius and also changing the level opaqueness. The toolbar has been configured with links to more content and is styled using Bootstrap. We think this is a nice jumping off point for launching forays into custom data visualizations. 
 Version: 1.0.0
 License: GNU General Public License 2.0
 License URI: license.txt
