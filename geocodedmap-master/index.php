@@ -63,12 +63,7 @@
     <!--@end #toolbar-btns .btn-group-->
 </div>
 <!--@end #inputs .Toolbar-->
-
-    <input id="pac-input" class="controls" type="text" placeholder="Search for Places" autocomplete="on"/>
-    <div id="map-canvas"></div>
-    <!--@end #map-canvas-->
-    <script src="js/get_loc.js"></script>
-    
+<script src="js/get_loc.js"></script>
 <script>
 
 var heatmap;
@@ -153,5 +148,9 @@ searchBox.setBounds(bounds);
 google.maps.event.addDomListener(window, "load", displayMap);
 </script>
 <script src="js/ajax.js"></script> 
+
+    <input id="pac-input" class="controls" type="text" placeholder="Search for Places" autocomplete="on"/>
+    <div id="map-canvas"></div>
+    <!--@end #map-canvas-->
 </body>
 </html>

@@ -1,0 +1,7 @@
+<markers>
+  <!-- Dont use copy and paste on this XML file, use "View Source" or "Save As"
+       What the browser displays is *interpreted* XML, not XML source. -->
+ <marker lat="26.461905" lng="-80.071007" html="15 NE 2nd Ave"  label="El Camino" />
+ <marker lat="26.461515" lng="-80.072876" html="4 E Atlantic Ave" label="Tryst Delray" />
+ <marker lat="26.460928" lng="-80.058586" html="40 S Ocean Blvd Atlantic Ave"  label="Bostons On The Beach" />
+</markers> 

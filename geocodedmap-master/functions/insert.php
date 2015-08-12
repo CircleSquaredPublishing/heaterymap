@@ -31,6 +31,27 @@ json_decode($i, true);
 echo PHP_EOL;
     
 //BEGIN QUERY10
+$stmt10=$conn->prepare( "INSERT INTO `locations`(fid, locname, lat, lng, address, city, state, postal)VALUES(?,?,?,?,?,?,?,?)" ); 
+    
+$stmt10->
+bind_param("dsddsssi", $fid, $locname, $lat, $lng, $address, $city, $state, $postal); 
+    
+        $fid=mysqli_real_escape_string($conn, $i['id']); 
+        $locname=mysqli_real_escape_string($conn, $i['name']);
+        $lat=mysqli_real_escape_string($conn, $i['location']['latitude']); 
+        $lng=mysqli_real_escape_string($conn, $i['location']['longitude']);
+        $address=mysqli_real_escape_string($conn, $i['location']['street']); 
+        $city=mysqli_real_escape_string($conn, $i['location']['city']);    
+        $state=mysqli_real_escape_string($conn, $i['location']['state']);  
+        $postal=mysqli_real_escape_string($conn, $i['location']['zip']); 
+        $stmt10->execute(); 
+    
+    }
+
+$stmt10->close();    
+require_once '../../jQuery-Store-Locator-Plugin-master/dist/data/output_json.php';
+/*    
+//BEGIN QUERY10
 $stmt10=$conn->prepare( "INSERT INTO `top10_markers`(`FID`, `fb_name`, `fb_likes`, `fb_were_here`, `fb_talking_about`, `fb_street`, `fb_city`, `fb_state`, `fb_zip`, `fb_lat`, `fb_lng`)VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)" ); 
     
 $stmt10->
@@ -52,5 +73,4 @@ bind_param("dsiiisssidd", $FID, $fb_name, $fb_likes, $fb_were_here, $fb_talking_
     }
 
 $stmt10->close();
-
-include_once("update_hs.php");
+*/?>

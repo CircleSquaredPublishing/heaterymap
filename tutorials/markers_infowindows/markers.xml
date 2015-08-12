@@ -1,0 +1,835 @@
+<?xml version="1.0"?>
+
+<!--
+-
+- Sequel Pro XML dump
+- Version 4135
+-
+- http://www.sequelpro.com/
+- http://code.google.com/p/sequel-pro/
+-
+- Host: localhost (MySQL 5.5.42)
+- Database: social_data
+- Generation Time Time: 2015-08-11 19:47:31 +0000
+-
+-->
+
+<mysqldump xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<database name="social_data">
+
+	<table_structure name="markers">
+		<field field="id" type="int(11)" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="name" type="varchar(60)" null="NO" key="" default="<null>" extra="" />
+		<field field="address" type="varchar(80)" null="NO" key="" default="<null>" extra="" />
+		<field field="lat" type="float(10,6)" null="NO" key="" default="<null>" extra="" />
+		<field field="lng" type="float(10,6)" null="NO" key="" default="<null>" extra="" />
+
+		<options name="markers" engine="MyISAM" version="10" row_format="Dynamic" rows="57021" avg_row_length="54" data_length="3114360" max_data_length="281474976710655" index_length="588800" data_free="0" create_time="2015-08-11 13:04:24" update_time="2015-08-11 13:39:12" collation="latin1_swedish_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_data name="markers">
+
+	<row>
+		<field name="id">1</field>
+		<field name="name">Lincoln Memorial</field>
+		<field name="address">Lincoln Memorial Cir</field>
+		<field name="lat">38.889301</field>
+		<field name="lng">-77.050110</field>
+	</row>
+
+	<row>
+		<field name="id">2</field>
+		<field name="name">Mio Restaurant &amp; Cafe</field>
+		<field name="address">1110 Vermont Ave NW, Suite 1</field>
+		<field name="lat">38.904049</field>
+		<field name="lng">-77.032936</field>
+	</row>
+
+	<row>
+		<field name="id">3</field>
+		<field name="name">Floriana Restaurant DC</field>
+		<field name="address">1602 17th St NW</field>
+		<field name="lat">38.911331</field>
+		<field name="lng">-77.038773</field>
+	</row>
+
+	<row>
+		<field name="id">4</field>
+		<field name="name">Stans Restaurant &amp; Bar</field>
+		<field name="address">1029 Vermont Ave NW</field>
+		<field name="lat">38.903530</field>
+		<field name="lng">-77.032806</field>
+	</row>
+
+	<row>
+		<field name="id">5</field>
+		<field name="name">Cuba Libre Restaurant &amp; Rum Bar DC</field>
+		<field name="address">801 9th St NW</field>
+		<field name="lat">38.899963</field>
+		<field name="lng">-77.023972</field>
+	</row>
+
+	<row>
+		<field name="id">6</field>
+		<field name="name">Mastro\'s Restaurants</field>
+		<field name="address">600 13th St NW</field>
+		<field name="lat">38.897831</field>
+		<field name="lng">-77.029968</field>
+	</row>
+
+	<row>
+		<field name="id">7</field>
+		<field name="name">Clyde\'s Restaurant Group</field>
+		<field name="address">3236 M Street, NW</field>
+		<field name="lat">38.904900</field>
+		<field name="lng">-77.064018</field>
+	</row>
+
+	<row>
+		<field name="id">8</field>
+		<field name="name">Cities Restaurant and Lounge</field>
+		<field name="address">919 19 ST NW</field>
+		<field name="lat">38.901604</field>
+		<field name="lng">-77.043312</field>
+	</row>
+
+	<row>
+		<field name="id">9</field>
+		<field name="name">Alero Restaurant</field>
+		<field name="address">1301 U St NW Washington DC 20009</field>
+		<field name="lat">38.917068</field>
+		<field name="lng">-77.029846</field>
+	</row>
+
+	<row>
+		<field name="id">10</field>
+		<field name="name">The Palm Restaurant Washington DC</field>
+		<field name="address">1225 19th Street, NW</field>
+		<field name="lat">38.906651</field>
+		<field name="lng">-77.043030</field>
+	</row>
+
+	<row>
+		<field name="id">11</field>
+		<field name="name">Trio Restaurant</field>
+		<field name="address">1537 17th St NW (Q &amp; 17th Sts)</field>
+		<field name="lat">38.911057</field>
+		<field name="lng">-77.038345</field>
+	</row>
+
+	<row>
+		<field name="id">12</field>
+		<field name="name">Zentan Restaurant</field>
+		<field name="address">1155 14th St NW</field>
+		<field name="lat">38.905384</field>
+		<field name="lng">-77.031883</field>
+	</row>
+
+	<row>
+		<field name="id">13</field>
+		<field name="name">James Hoban\'s Irish Restaurant &amp; Bar</field>
+		<field name="address">1 Dupont Cir NW</field>
+		<field name="lat">38.908913</field>
+		<field name="lng">-77.044075</field>
+	</row>
+
+	<row>
+		<field name="id">14</field>
+		<field name="name">Iron Gate Restaurant</field>
+		<field name="address">1734 N St NW </field>
+		<field name="lat">38.907047</field>
+		<field name="lng">-77.039909</field>
+	</row>
+
+	<row>
+		<field name="id">15</field>
+		<field name="name">Barcode</field>
+		<field name="address">1101 17th Street, NW</field>
+		<field name="lat">38.903759</field>
+		<field name="lng">-77.038139</field>
+	</row>
+
+	<row>
+		<field name="id">16</field>
+		<field name="name">OYA RESTAURANT &amp; LOUNGE</field>
+		<field name="address">777 9th St NW</field>
+		<field name="lat">38.899540</field>
+		<field name="lng">-77.023857</field>
+	</row>
+
+	<row>
+		<field name="id">17</field>
+		<field name="name">Bua Thai restaurant</field>
+		<field name="address">1635 P St NW</field>
+		<field name="lat">38.909901</field>
+		<field name="lng">-77.038040</field>
+	</row>
+
+	<row>
+		<field name="id">18</field>
+		<field name="name">i RICCHI  RESTAURANT</field>
+		<field name="address">1220 19th St NW</field>
+		<field name="lat">38.906620</field>
+		<field name="lng">-77.043877</field>
+	</row>
+
+	<row>
+		<field name="id">19</field>
+		<field name="name">The Meeting Place Restaurant and Bar</field>
+		<field name="address">NEXT TO 1707 L St NW</field>
+		<field name="lat">38.904041</field>
+		<field name="lng">-77.039223</field>
+	</row>
+
+	<row>
+		<field name="id">20</field>
+		<field name="name">14K Restaurant &amp; Lounge</field>
+		<field name="address">1375 K St NW</field>
+		<field name="lat">38.902763</field>
+		<field name="lng">-77.031555</field>
+	</row>
+
+	<row>
+		<field name="id">21</field>
+		<field name="name">Bombay Club Restaurant</field>
+		<field name="address">815 Connecticut Ave NW</field>
+		<field name="lat">38.900959</field>
+		<field name="lng">-77.037949</field>
+	</row>
+
+	<row>
+		<field name="id">22</field>
+		<field name="name">Policy Restaurant and Lounge</field>
+		<field name="address">1904 14th Street, NW</field>
+		<field name="lat">38.915779</field>
+		<field name="lng">-77.032288</field>
+	</row>
+
+	<row>
+		<field name="id">23</field>
+		<field name="name">Zaytinya</field>
+		<field name="address">701 9th St NW</field>
+		<field name="lat">38.898621</field>
+		<field name="lng">-77.023643</field>
+	</row>
+
+	<row>
+		<field name="id">24</field>
+		<field name="name">Rasika Restaurant</field>
+		<field name="address">633 D St NW</field>
+		<field name="lat">38.895020</field>
+		<field name="lng">-77.021271</field>
+	</row>
+
+	<row>
+		<field name="id">25</field>
+		<field name="name">Irish Channel Restaurant and Pub</field>
+		<field name="address">500 H St NW</field>
+		<field name="lat">38.899471</field>
+		<field name="lng">-77.019234</field>
+	</row>
+
+	<row>
+		<field name="id">26</field>
+		<field name="name">Plume</field>
+		<field name="address">1200 16th St NW</field>
+		<field name="lat">38.905869</field>
+		<field name="lng">-77.036629</field>
+	</row>
+
+	<row>
+		<field name="id">27</field>
+		<field name="name">El Chalan Restaurant</field>
+		<field name="address">1924 I St NW</field>
+		<field name="lat">38.901138</field>
+		<field name="lng">-77.044571</field>
+	</row>
+
+	<row>
+		<field name="id">28</field>
+		<field name="name">Zengo Restaurant</field>
+		<field name="address">781 7th St NW</field>
+		<field name="lat">38.899475</field>
+		<field name="lng">-77.021774</field>
+	</row>
+
+	<row>
+		<field name="id">29</field>
+		<field name="name">Carmine\'s Italian Restaurant</field>
+		<field name="address">425 7th St NW</field>
+		<field name="lat">38.895660</field>
+		<field name="lng">-77.021904</field>
+	</row>
+
+	<row>
+		<field name="id">30</field>
+		<field name="name">Commissary</field>
+		<field name="address">1443 P St NW</field>
+		<field name="lat">38.909786</field>
+		<field name="lng">-77.033409</field>
+	</row>
+
+	<row>
+		<field name="id">31</field>
+		<field name="name">Panache DC</field>
+		<field name="address">1725 Desales St NW </field>
+		<field name="lat">38.904961</field>
+		<field name="lng">-77.039742</field>
+	</row>
+
+	<row>
+		<field name="id">32</field>
+		<field name="name">Komi</field>
+		<field name="address">1509 17th St</field>
+		<field name="lat">38.910118</field>
+		<field name="lng">-77.038132</field>
+	</row>
+
+	<row>
+		<field name="id">33</field>
+		<field name="name">1789 Restaurant</field>
+		<field name="address">1226 36th St NW</field>
+		<field name="lat">38.906017</field>
+		<field name="lng">-77.070381</field>
+	</row>
+
+	<row>
+		<field name="id">34</field>
+		<field name="name">Georgia Brown\'s</field>
+		<field name="address">950 15th Street, NW</field>
+		<field name="lat">38.901901</field>
+		<field name="lng">-77.034767</field>
+	</row>
+
+	<row>
+		<field name="id">35</field>
+		<field name="name">Nando\'s PERi-PERi 18th Street</field>
+		<field name="address">1210 18th St NW</field>
+		<field name="lat">38.906139</field>
+		<field name="lng">-77.042053</field>
+	</row>
+
+	<row>
+		<field name="id">36</field>
+		<field name="name">National Restaurant Association</field>
+		<field name="address">2055 L St NW</field>
+		<field name="lat">38.904099</field>
+		<field name="lng">-77.046120</field>
+	</row>
+
+	<row>
+		<field name="id">37</field>
+		<field name="name">America\'s Restaurant Advocates</field>
+		<field name="address">2055 L Street, NW, Suite 700</field>
+		<field name="lat">38.904099</field>
+		<field name="lng">-77.046120</field>
+	</row>
+
+	<row>
+		<field name="id">38</field>
+		<field name="name">National Restaurant Association Educational Foundation</field>
+		<field name="address">2055 L Street, NW, 7th Floor</field>
+		<field name="lat">38.904099</field>
+		<field name="lng">-77.046120</field>
+	</row>
+
+	<row>
+		<field name="id">39</field>
+		<field name="name">Union Station, Washington D.C.</field>
+		<field name="address">50 Massachusetts Ave NE</field>
+		<field name="lat">38.898388</field>
+		<field name="lng">-77.006020</field>
+	</row>
+
+	<row>
+		<field name="id">40</field>
+		<field name="name">Old Ebbitt Grill</field>
+		<field name="address">675 15th Street, NW</field>
+		<field name="lat">38.898018</field>
+		<field name="lng">-77.033386</field>
+	</row>
+
+	<row>
+		<field name="id">41</field>
+		<field name="name">Founding Farmers</field>
+		<field name="address">1924 Pennsylvania Ave NW</field>
+		<field name="lat">38.900600</field>
+		<field name="lng">-77.044533</field>
+	</row>
+
+	<row>
+		<field name="id">42</field>
+		<field name="name">The Hamilton</field>
+		<field name="address">600 14th Street, NW</field>
+		<field name="lat">38.897480</field>
+		<field name="lng">-77.032097</field>
+	</row>
+
+	<row>
+		<field name="id">43</field>
+		<field name="name">Hard Rock Cafe Washington D.C.</field>
+		<field name="address">999 E St NW</field>
+		<field name="lat">38.896317</field>
+		<field name="lng">-77.026062</field>
+	</row>
+
+	<row>
+		<field name="id">44</field>
+		<field name="name">Le Diplomate</field>
+		<field name="address">1601 14th Street, NW</field>
+		<field name="lat">38.911350</field>
+		<field name="lng">-77.031570</field>
+	</row>
+
+	<row>
+		<field name="id">45</field>
+		<field name="name">Lauriol Plaza</field>
+		<field name="address">1835 18th St NW</field>
+		<field name="lat">38.915310</field>
+		<field name="lng">-77.041351</field>
+	</row>
+
+	<row>
+		<field name="id">46</field>
+		<field name="name">El Centro D. F.</field>
+		<field name="address">1819 14th St NW</field>
+		<field name="lat">38.914719</field>
+		<field name="lng">-77.031616</field>
+	</row>
+
+	<row>
+		<field name="id">47</field>
+		<field name="name">Fogo de Chão D.C.</field>
+		<field name="address">1101 Pennsylvania Ave NW</field>
+		<field name="lat">38.895351</field>
+		<field name="lng">-77.027412</field>
+	</row>
+
+	<row>
+		<field name="id">48</field>
+		<field name="name">Farmers Fishers Bakers</field>
+		<field name="address">3000 K St NW the Washington Harbour at the Georgetown Waterfront</field>
+		<field name="lat">38.901405</field>
+		<field name="lng">-77.060036</field>
+	</row>
+
+	<row>
+		<field name="id">49</field>
+		<field name="name">Barcelona 14th Street</field>
+		<field name="address">1622 14th St NW</field>
+		<field name="lat">38.912071</field>
+		<field name="lng">-77.032379</field>
+	</row>
+
+	<row>
+		<field name="id">50</field>
+		<field name="name">Wingo\'s</field>
+		<field name="address">3207 O St NW</field>
+		<field name="lat">38.907951</field>
+		<field name="lng">-77.063988</field>
+	</row>
+
+	<row>
+		<field name="id">51</field>
+		<field name="name">Holiday Inn Washington DC - Central / White House - Downtown</field>
+		<field name="address">1501 Rhode Island Ave NW</field>
+		<field name="lat">38.907894</field>
+		<field name="lng">-77.034767</field>
+	</row>
+
+	<row>
+		<field name="id">52</field>
+		<field name="name">Oyamel Cocina Mexicana</field>
+		<field name="address">401 7th St NW</field>
+		<field name="lat">38.895100</field>
+		<field name="lng">-77.021652</field>
+	</row>
+
+	<row>
+		<field name="id">53</field>
+		<field name="name">Clyde\'s in Washington DC</field>
+		<field name="address">Gallery Place/Chinatown</field>
+		<field name="lat">38.898823</field>
+		<field name="lng">-77.021805</field>
+	</row>
+
+	<row>
+		<field name="id">54</field>
+		<field name="name">The DC Improv Comedy Club</field>
+		<field name="address">1140 Connecticut Ave NW</field>
+		<field name="lat">38.905121</field>
+		<field name="lng">-77.040855</field>
+	</row>
+
+	<row>
+		<field name="id">55</field>
+		<field name="name">Filomena Ristorante</field>
+		<field name="address">1063 Wisconsin Ave NW</field>
+		<field name="lat">38.904415</field>
+		<field name="lng">-77.062614</field>
+	</row>
+
+	<row>
+		<field name="id">56</field>
+		<field name="name">Ted\'s Bulletin</field>
+		<field name="address">1818 14th St NW</field>
+		<field name="lat">38.914783</field>
+		<field name="lng">-77.032051</field>
+	</row>
+
+	<row>
+		<field name="id">57</field>
+		<field name="name">Lima Lounge</field>
+		<field name="address">1401 K St NW</field>
+		<field name="lat">38.902763</field>
+		<field name="lng">-77.032227</field>
+	</row>
+
+	<row>
+		<field name="id">58</field>
+		<field name="name">Jaleo DC</field>
+		<field name="address">480 7th St NW</field>
+		<field name="lat">38.896122</field>
+		<field name="lng">-77.022018</field>
+	</row>
+
+	<row>
+		<field name="id">59</field>
+		<field name="name">Tony &amp; Joe\'s Seafood Place</field>
+		<field name="address">3000 K St NW</field>
+		<field name="lat">38.901299</field>
+		<field name="lng">-77.059921</field>
+	</row>
+
+	<row>
+		<field name="id">60</field>
+		<field name="name">Nick\'s Riverside Grill</field>
+		<field name="address">3050 K St NW</field>
+		<field name="lat">38.901386</field>
+		<field name="lng">-77.060303</field>
+	</row>
+
+	<row>
+		<field name="id">61</field>
+		<field name="name">Daikaya</field>
+		<field name="address">705 6th St NW</field>
+		<field name="lat">38.898552</field>
+		<field name="lng">-77.019608</field>
+	</row>
+
+	<row>
+		<field name="id">62</field>
+		<field name="name">Joe\'s Seafood, Prime Steak &amp; Stone Crab DC</field>
+		<field name="address">750 15th St NW</field>
+		<field name="lat">38.900124</field>
+		<field name="lng">-77.033798</field>
+	</row>
+
+	<row>
+		<field name="id">63</field>
+		<field name="name">Gordon Biersch - Washington, DC</field>
+		<field name="address">900 F St NW</field>
+		<field name="lat">38.897209</field>
+		<field name="lng">-77.023964</field>
+	</row>
+
+	<row>
+		<field name="id">64</field>
+		<field name="name">The Capital Grille - Washington, DC</field>
+		<field name="address">601 Pennsylvania Ave NW</field>
+		<field name="lat">38.892960</field>
+		<field name="lng">-77.020096</field>
+	</row>
+
+	<row>
+		<field name="id">65</field>
+		<field name="name">Fiola Mare DC</field>
+		<field name="address">3100 K St NW</field>
+		<field name="lat">38.901642</field>
+		<field name="lng">-77.061066</field>
+	</row>
+
+	<row>
+		<field name="id">66</field>
+		<field name="name">China Chilcano</field>
+		<field name="address">418 7th St NW</field>
+		<field name="lat">38.895199</field>
+		<field name="lng">-77.022041</field>
+	</row>
+
+	<row>
+		<field name="id">67</field>
+		<field name="name">ChurchKey</field>
+		<field name="address">1337 14th St NW</field>
+		<field name="lat">38.908482</field>
+		<field name="lng">-77.031479</field>
+	</row>
+
+	<row>
+		<field name="id">68</field>
+		<field name="name">Elephant &amp; Castle: Penn Ave</field>
+		<field name="address">1201 Pennsylvania Ave NW</field>
+		<field name="lat">38.895329</field>
+		<field name="lng">-77.028412</field>
+	</row>
+
+	<row>
+		<field name="id">69</field>
+		<field name="name">Sign of the Whale DC</field>
+		<field name="address">1825 M St NW</field>
+		<field name="lat">38.905918</field>
+		<field name="lng">-77.042770</field>
+	</row>
+
+	<row>
+		<field name="id">70</field>
+		<field name="name">Matchbox 14th</field>
+		<field name="address">1901 14th St NW</field>
+		<field name="lat">38.915741</field>
+		<field name="lng">-77.031570</field>
+	</row>
+
+	<row>
+		<field name="id">71</field>
+		<field name="name">Boqueria</field>
+		<field name="address">1837 M St NW</field>
+		<field name="lat">38.905918</field>
+		<field name="lng">-77.043129</field>
+	</row>
+
+	<row>
+		<field name="id">72</field>
+		<field name="name">Annie\'s Paramount Steak House</field>
+		<field name="address">1609 17th St NW</field>
+		<field name="lat">38.911598</field>
+		<field name="lng">-77.038116</field>
+	</row>
+
+	<row>
+		<field name="id">73</field>
+		<field name="name">Blue Duck Tavern</field>
+		<field name="address">1201 24th St NW</field>
+		<field name="lat">38.905418</field>
+		<field name="lng">-77.051353</field>
+	</row>
+
+	<row>
+		<field name="id">74</field>
+		<field name="name">Open City DC</field>
+		<field name="address">2331 Calvert St NW</field>
+		<field name="lat">38.923717</field>
+		<field name="lng">-77.052299</field>
+	</row>
+
+	<row>
+		<field name="id">75</field>
+		<field name="name">Dirty Martini</field>
+		<field name="address">1223 Connecticut Ave NW</field>
+		<field name="lat">38.906712</field>
+		<field name="lng">-77.041168</field>
+	</row>
+
+	<row>
+		<field name="id">76</field>
+		<field name="name">Chaplin\'s</field>
+		<field name="address">1501 9th St NW</field>
+		<field name="lat">38.909790</field>
+		<field name="lng">-77.023651</field>
+	</row>
+
+	<row>
+		<field name="id">77</field>
+		<field name="name">Redline DC</field>
+		<field name="address">707 G Street, NW</field>
+		<field name="lat">38.898575</field>
+		<field name="lng">-77.022118</field>
+	</row>
+
+	<row>
+		<field name="id">78</field>
+		<field name="name">Co Co. Sala</field>
+		<field name="address">929 F St NW</field>
+		<field name="lat">38.897476</field>
+		<field name="lng">-77.025185</field>
+	</row>
+
+	<row>
+		<field name="id">79</field>
+		<field name="name">Graffiato</field>
+		<field name="address">707 6th St NW</field>
+		<field name="lat">38.898594</field>
+		<field name="lng">-77.019890</field>
+	</row>
+
+	<row>
+		<field name="id">80</field>
+		<field name="name">J.Paul\'s Georgetown</field>
+		<field name="address">3218 M Street, NW</field>
+		<field name="lat">38.904911</field>
+		<field name="lng">-77.063492</field>
+	</row>
+
+	<row>
+		<field name="id">81</field>
+		<field name="name">The St. Regis Washington, D.C.</field>
+		<field name="address">923 16th &amp; K Streets NW</field>
+		<field name="lat">38.902191</field>
+		<field name="lng">-77.036415</field>
+	</row>
+
+	<row>
+		<field name="id">82</field>
+		<field name="name">Hank\'s Oyster Bar</field>
+		<field name="address">1624 Q St NW</field>
+		<field name="lat">38.911102</field>
+		<field name="lng">-77.038132</field>
+	</row>
+
+	<row>
+		<field name="id">83</field>
+		<field name="name">Rebellion DC</field>
+		<field name="address">1836 18th St NW</field>
+		<field name="lat">38.915226</field>
+		<field name="lng">-77.041786</field>
+	</row>
+
+	<row>
+		<field name="id">84</field>
+		<field name="name">Pearl Dive Oyster Palace</field>
+		<field name="address">1612 14th St NW</field>
+		<field name="lat">38.911648</field>
+		<field name="lng">-77.032104</field>
+	</row>
+
+	<row>
+		<field name="id">85</field>
+		<field name="name">LOOK Supper Club</field>
+		<field name="address">1909 K St NW</field>
+		<field name="lat">38.902882</field>
+		<field name="lng">-77.044067</field>
+	</row>
+
+	<row>
+		<field name="id">86</field>
+		<field name="name">Rasika West End</field>
+		<field name="address">1190 New Hampshire Avenue, NW</field>
+		<field name="lat">38.905186</field>
+		<field name="lng">-77.047791</field>
+	</row>
+
+	<row>
+		<field name="id">87</field>
+		<field name="name">Beacon Bar &amp; Grill</field>
+		<field name="address">1615 Rhode Island Avenue, NW (In the Beacon Hotel)</field>
+		<field name="lat">38.907028</field>
+		<field name="lng">-77.038040</field>
+	</row>
+
+	<row>
+		<field name="id">88</field>
+		<field name="name">Bistrot Du Coin</field>
+		<field name="address">1738 Connecticut Ave NW</field>
+		<field name="lat">38.913731</field>
+		<field name="lng">-77.046272</field>
+	</row>
+
+	<row>
+		<field name="id">89</field>
+		<field name="name">The Pig</field>
+		<field name="address">1320 14th St NW</field>
+		<field name="lat">38.907970</field>
+		<field name="lng">-77.032120</field>
+	</row>
+
+	<row>
+		<field name="id">90</field>
+		<field name="name">Bar Dupont</field>
+		<field name="address">1500 New Hampshire Ave NW</field>
+		<field name="lat">38.910286</field>
+		<field name="lng">-77.043282</field>
+	</row>
+
+	<row>
+		<field name="id">91</field>
+		<field name="name">Fig &amp; Olive D.C</field>
+		<field name="address">934 Palmer Alley, NW </field>
+		<field name="lat">38.898682</field>
+		<field name="lng">-77.025993</field>
+	</row>
+
+	<row>
+		<field name="id">92</field>
+		<field name="name">Teddy &amp; The Bully Bar</field>
+		<field name="address">1200 19th St NW</field>
+		<field name="lat">38.906101</field>
+		<field name="lng">-77.043907</field>
+	</row>
+
+	<row>
+		<field name="id">93</field>
+		<field name="name">Lincoln\'s Waffle Shop</field>
+		<field name="address">504 10th St NW</field>
+		<field name="lat">38.896500</field>
+		<field name="lng">-77.026268</field>
+	</row>
+
+	<row>
+		<field name="id">94</field>
+		<field name="name">STK</field>
+		<field name="address">1250 Connecticut Ave NW</field>
+		<field name="lat">38.907276</field>
+		<field name="lng">-77.042168</field>
+	</row>
+
+	<row>
+		<field name="id">95</field>
+		<field name="name">Yummi Crawfish</field>
+		<field name="address">1529 Wisconsin Ave NW</field>
+		<field name="lat">38.910000</field>
+		<field name="lng">-77.064339</field>
+	</row>
+
+	<row>
+		<field name="id">96</field>
+		<field name="name">Blackfinn Ameripub - DC</field>
+		<field name="address">1620 I St NW</field>
+		<field name="lat">38.901382</field>
+		<field name="lng">-77.037704</field>
+	</row>
+
+	<row>
+		<field name="id">97</field>
+		<field name="name">District Commons</field>
+		<field name="address">2200 Pennsylvania Avenue, NW</field>
+		<field name="lat">38.902275</field>
+		<field name="lng">-77.049683</field>
+	</row>
+
+	<row>
+		<field name="id">98</field>
+		<field name="name">Del Frisco\'s Double Eagle Steak House Washington D.C.</field>
+		<field name="address">950 I St NW, Suite 501</field>
+		<field name="lat">38.900715</field>
+		<field name="lng">-77.025002</field>
+	</row>
+
+	<row>
+		<field name="id">99</field>
+		<field name="name">Buca di Beppo Washington, DC</field>
+		<field name="address">1825 Connecticut Ave NW</field>
+		<field name="lat">38.914803</field>
+		<field name="lng">-77.046059</field>
+	</row>
+
+	<row>
+		<field name="id">100</field>
+		<field name="name">Ben\'s Next Door</field>
+		<field name="address">1211 U St NW</field>
+		<field name="lat">38.917320</field>
+		<field name="lng">-77.028687</field>
+	</row>
+
+	</table_data>
+
+</database>
+</mysqldump>
