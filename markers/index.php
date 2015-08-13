@@ -114,9 +114,6 @@
     </div>
     <!--@end #inputs .Toolbar-->
 
-<div id="map-canvas"></div><!--@end #map-canvas-->
-
-
 <?php
 if($_POST){
  
@@ -138,6 +135,35 @@ if($_POST){
             <?php require_once '../geocodedmap-master/functions/select.php';?>
     
                 <script>
+<<<<<<< HEAD
+function init_map() {
+var retro_style = new google.maps.StyledMapType(retroStyle, {  name:"Retro"  }  );
+var apple_style = new google.maps.StyledMapType(appleStyle, {  name:"Apple"  }  );
+var light_style = new google.maps.StyledMapType(lightStyle, {  name:"Dusk"  }  );
+var old_style = new google.maps.StyledMapType(oldStyle, {  name:"Vintage"  }  );
+var pale_style = new google.maps.StyledMapType(paleStyle, {  name:"Cloud"  }  );
+var brown_style = new google.maps.StyledMapType(brownStyle, {  name:"Organic"  }  );
+var myOptions = {
+zoom: 14,
+center: new google.maps.LatLng(<?php echo $latitude; ?>, <?php echo $longitude; ?>),
+panControl: false, 
+zoomControl: true, 
+mapTypeControl: true, 
+mapTypeControlOptions: {  
+style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,                 position: google.maps.ControlPosition.TOP_RIGHT, mapTypeIds: ["Retro", "Apple", "Dusk", "Vintage","Cloud","Organic", google.maps.MapTypeId.ROADMAP, google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.TERRAIN]  
+}  
+};
+
+map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
+map.mapTypes.set("Retro", retro_style);
+map.mapTypes.set("Apple", apple_style);
+map.mapTypes.set("Dusk", light_style);
+map.mapTypes.set("Vintage", old_style);
+map.mapTypes.set("Cloud", pale_style);
+map.mapTypes.set("Organic", brown_style);
+map.setMapTypeId("Vintage");
+
+=======
                     function init_map() {
                         var myOptions = {
                             zoom: 14,
@@ -146,7 +172,11 @@ if($_POST){
                         };
                         map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
 
-
+                        google.maps.event.addListener(map, 'click', function() {
+                            infowindow.close();
+                            });
+                        
+>>>>>>> origin/master
                         <?php require_once '../geocodedmap-master/functions/insert.php';?>
 
                         <?php require_once '../geocodedmap-master/functions/add_markers.php';?>
@@ -221,7 +251,7 @@ function geocode($address){
 /*@FIXME Need to fit bounds to marker spread.*/
 /*@NOTE Uses query_top_ten.php to select results.*/
 ?>
-
+<div id="map-canvas"></div><!--@end #map-canvas-->
 </body>
 
 </html>

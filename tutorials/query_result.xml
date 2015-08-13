@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+
+<!--
+-
+- Sequel Pro XML dump
+- Version 4135
+-
+- http://www.sequelpro.com/
+- http://code.google.com/p/sequel-pro/
+-
+- Host: localhost (MySQL 5.5.42)
+- Database: social_data
+- Generation Time Time: 2015-08-11 23:30:24 +0000
+-
+-->
+
+<resultset statement="SELECT DISTINCT 
+fb_name, 
+fb_lat,
+fb_lng,
+fb_street, 
+fb_talking_about,
+fb_date
+FROM top10_markers 
+WHERE 
+fb_date = CURDATE()
+AND
+fb_city = 'Delray Beach'
+ORDER BY fb_talking_about DESC 
+LIMIT 10" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<row>
+		<field name="fb_name">El Camino</field>
+		<field name="fb_lat">26.461905</field>
+		<field name="fb_lng">-80.071007</field>
+		<field name="fb_street">15 NE 2nd Ave</field>
+		<field name="fb_talking_about">947</field>
+		<field name="fb_date">2015-08-11</field>
+	</row>
+
+	<row>
+		<field name="fb_name">Tryst Delray</field>
+		<field name="fb_lat">26.461515</field>
+		<field name="fb_lng">-80.072876</field>
+		<field name="fb_street">4 E Atlantic Ave</field>
+		<field name="fb_talking_about">646</field>
+		<field name="fb_date">2015-08-11</field>
+	</row>
+
+	<row>
+		<field name="fb_name">Hudson at Waterway East</field>
+		<field name="fb_lat">26.461185</field>
+		<field name="fb_lng">-80.063805</field>
+		<field name="fb_street">900 East Atlantic Ave â€“ Suite 22</field>
+		<field name="fb_talking_about">473</field>
+		<field name="fb_date">2015-08-11</field>
+	</row>
+
+	<row>
+		<field name="fb_name">Lemongrass Asian Bistro</field>
+		<field name="fb_lat">26.461578</field>
+		<field name="fb_lng">-80.068565</field>
+		<field name="fb_street">420 E Atlantic Ave</field>
+		<field name="fb_talking_about">405</field>
+		<field name="fb_date">2015-08-11</field>
+	</row>
+
+	<row>
+		<field name="fb_name">Salt7</field>
+		<field name="fb_lat">26.460421</field>
+		<field name="fb_lng">-80.071243</field>
+		<field name="fb_street">32 SE 2nd Ave</field>
+		<field name="fb_talking_about">400</field>
+		<field name="fb_date">2015-08-11</field>
+	</row>
+
+	<row>
+		<field name="fb_name">Max\'s Harvest</field>
+		<field name="fb_lat">26.464760</field>
+		<field name="fb_lng">-80.070930</field>
+		<field name="fb_street">169 NE 2nd Ave</field>
+		<field name="fb_talking_about">393</field>
+		<field name="fb_date">2015-08-11</field>
+	</row>
+
+	<row>
+		<field name="fb_name">Dada</field>
+		<field name="fb_lat">26.463280</field>
+		<field name="fb_lng">-80.073441</field>
+		<field name="fb_street">52 N Swinton Ave</field>
+		<field name="fb_talking_about">336</field>
+		<field name="fb_date">2015-08-11</field>
+	</row>
+
+	<row>
+		<field name="fb_name">Bostons On The Beach Delray Beach Florida</field>
+		<field name="fb_lat">26.460928</field>
+		<field name="fb_lng">-80.058586</field>
+		<field name="fb_street">40 S Ocean Blvd</field>
+		<field name="fb_talking_about">324</field>
+		<field name="fb_date">2015-08-11</field>
+	</row>
+
+	<row>
+		<field name="fb_name">Deck 84</field>
+		<field name="fb_lat">26.461506</field>
+		<field name="fb_lng">-80.064598</field>
+		<field name="fb_street">840 E Atlantic Ave</field>
+		<field name="fb_talking_about">310</field>
+		<field name="fb_date">2015-08-11</field>
+	</row>
+
+	<row>
+		<field name="fb_name">Sandbar at Boston\'s</field>
+		<field name="fb_lat">26.460911</field>
+		<field name="fb_lng">-80.058731</field>
+		<field name="fb_street">40 S Ocean Blvd</field>
+		<field name="fb_talking_about">305</field>
+		<field name="fb_date">2015-08-11</field>
+	</row>
+
+</resultset>
