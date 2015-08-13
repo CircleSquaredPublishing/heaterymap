@@ -47,16 +47,16 @@ Tags: responsive-layout, fluid-layout, custom-background, custom-menu, custom-ma
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>       
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=false&libraries=visualization,places">
 </script> 
-<link rel="stylesheet" type="text/css" href="/github/geocodedmap-master/css/style.css"/> 
+<link rel="stylesheet" type="text/css" href="https://www.heatery.io/css/style.css"/> 
 <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css"/>
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-<script src="/github/geocodedmap-master/js/custom_style.js"></script> 
+<script src="https://www.heatery.io/js/custom_style.js"></script> 
 </head> 
 <!----------BEGIN CONTENT---------->  
 <body style="background-color: #000">
-        <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -88,7 +88,7 @@ Tags: responsive-layout, fluid-layout, custom-background, custom-menu, custom-ma
                         </a>
                     </li>
                     
-                   <li data-toggle="tooltip" title="Just like our business partners, contributors to The Speak Easy get their own snazzy portal link too! To be Speak Easy is to have monkish objectivity. Our Speak Easy crew are heatery algorithm's soul, if algorithms do indeed have sould. Whom amongst you is Speak Easy? They may tell but we never will! Subscribers gain access to all our Speak Easy publications and exclusive member deals. Heatery Business partners will have access to reviews as well as the data our engineers use to feed the heatery model.">
+                   <li data-toggle="tooltip" title="Just like our business partners, contributors to The Speak Easy get their own snazzy portal link too! The Speak Easy is our hand selected crew of objective critics who play an integral role in refining the heatery algorithm. Who are our critics? We will never tell...but our Blind Tiger members gain access to their reviews. Heatery Business partners will have access to reviews as well as the data our engineers use to feed the heatery model.">
                         <a href="https://www.heatery.io/wp-login.php">
                             <span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;The Speak Easy
                         </a>
@@ -101,16 +101,14 @@ Tags: responsive-layout, fluid-layout, custom-background, custom-menu, custom-ma
     </nav>
     <div id="map-canvas"></div>
     <!--@end #map-canvas-->
-<?php require_once '../../packages/vendor/autoload.php'; ?> 
-<script src="hm_layer_minified.js"></script>
-<script>  
-/*Tool tip function*/
+<script src="https://www.heatery.io/js/hm_layer_minified.js"></script>
+<script>
+    
 $(function() {
     $('[data-toggle="tooltip"]').tooltip()
-});      
+});    
     
 var map, pointArray, heatmap;
-
 function displayMap(){
     var retro_style = new google.maps.StyledMapType(retroStyle,{name:"Retro"});
     var apple_style = new google.maps.StyledMapType(appleStyle,{name:"Apple"});
@@ -140,9 +138,9 @@ function displayMap(){
             }
 
         };
-    
         map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-var gradientNew=["rgba(0,255,255,0)","rgba(25,22,218,1)","rgba(17,191,225,1)","rgba(16,227,217,1)","rgba(15,229,173,1)","rgba(14,231,128,1)","rgba(13,233,82,1)","rgba(12,235,34,1)","rgba(37,237,11,1)","rgba(85,239,10,1)","rgba(134,241,8,1)","rgba(185,243,7,1)","rgba(237,245,6,1)","rgba(247,203,5,1)","rgba(249,152,3,1)","rgba(251,100,2,1)","rgba(255,127,131,1)","rgba(253,47,1,1)","rgba(255,0,7,1)"];
+    
+        var gradientNew=["rgba(0,255,255,0)","rgba(25,22,218,1)","rgba(17,191,225,1)","rgba(16,227,217,1)","rgba(15,229,173,1)","rgba(14,231,128,1)","rgba(13,233,82,1)","rgba(12,235,34,1)","rgba(37,237,11,1)","rgba(85,239,10,1)","rgba(134,241,8,1)","rgba(185,243,7,1)","rgba(237,245,6,1)","rgba(247,203,5,1)","rgba(249,152,3,1)","rgba(251,100,2,1)","rgba(255,127,131,1)","rgba(253,47,1,1)","rgba(255,0,7,1)"];
 var pointArray = new google.maps.MVCArray(heatmapLayer);
     
         heatmap = new google.maps.visualization.HeatmapLayer({
@@ -160,11 +158,8 @@ var pointArray = new google.maps.MVCArray(heatmapLayer);
         map.mapTypes.set("Cloud", pale_style);
         map.mapTypes.set("Organic", brown_style);
         map.setMapTypeId("Vintage");
-    
     }   
-    
 google.maps.event.addDomListener(window, "load", displayMap);
-  
-    </script>
+    </script>   
     </body>
 </html>

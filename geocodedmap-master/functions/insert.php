@@ -55,6 +55,10 @@ $stmt10=$conn->prepare( "INSERT INTO `top10_markers`(`FID`, `fb_name`, `fb_likes
     $stmt10->execute();
 }
 $stmt10->close();
+<<<<<<< HEAD
+?>
+=======
 */
 ?>
 
+>>>>>>> master
