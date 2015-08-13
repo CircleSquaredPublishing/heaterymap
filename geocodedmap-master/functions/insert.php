@@ -52,5 +52,4 @@ bind_param("dsiiisssidd", $FID, $fb_name, $fb_likes, $fb_were_here, $fb_talking_
     }
 
 $stmt10->close();
-
-include_once("update_hs.php");
+?>
