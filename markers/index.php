@@ -135,7 +135,7 @@ if($_POST){
             <?php require_once '../geocodedmap-master/functions/select.php';?>
     
                 <script>
-<<<<<<< HEAD
+
 function init_map() {
 var retro_style = new google.maps.StyledMapType(retroStyle, {  name:"Retro"  }  );
 var apple_style = new google.maps.StyledMapType(appleStyle, {  name:"Apple"  }  );
@@ -161,27 +161,13 @@ map.mapTypes.set("Dusk", light_style);
 map.mapTypes.set("Vintage", old_style);
 map.mapTypes.set("Cloud", pale_style);
 map.mapTypes.set("Organic", brown_style);
-map.setMapTypeId("Vintage");
+map.setMapTypeId("Vintage");    
 
-=======
-                    function init_map() {
-                        var myOptions = {
-                            zoom: 14,
-                            center: new google.maps.LatLng(<?php echo $latitude; ?>, <?php echo $longitude; ?>),
-                            mapTypeId: google.maps.MapTypeId.ROADMAP
-                        };
-                        map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
-
-                        google.maps.event.addListener(map, 'click', function() {
-                            infowindow.close();
-                            });
-                        
->>>>>>> origin/master
                         <?php require_once '../geocodedmap-master/functions/insert.php';?>
 
                         <?php require_once '../geocodedmap-master/functions/add_markers.php';?>
-                    }
-
+                    
+}
 /*@NOTE The heatmaps delivered from the search box input are produced by the jQuery AJAX function and the call to the FB API.*/
 /*@NOTE Map markers are currently being added using the PHP Google Geocoder because the marker data is being sent to the database for storage and processnig.*/
 /*@FIXME This script needs PHP geocoder functionality. Try adding Click Event.*/

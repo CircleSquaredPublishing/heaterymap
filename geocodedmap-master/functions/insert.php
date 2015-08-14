@@ -3,7 +3,7 @@
 $table = basename(__FILE__, '.php');
 $name = ($table . '.json');
 $fp = fopen( $name, 'w' );
-$curl=curl_init('https://graph.facebook.com/v2.4/search?q=restaurant&type=place&distance=5000&center='. $latitude . ',' . $longitude . '&fields=location,name,likes,talking_about_count&limit=250&access_token=1452021355091002|x-ZB0iKqWQmYqnJQ-wXoUjl-XtY');
+$curl=curl_init('https://graph.facebook.com/v2.4/search?q=restaurant&type=place&distance=5000&center='. $latitude . ',' . $longitude . '&fields=location,name,likes,talking_about_count,were_here_count&limit=250&access_token=1452021355091002|x-ZB0iKqWQmYqnJQ-wXoUjl-XtY');
 curl_setopt($curl, CURLOPT_URL);
 curl_setopt($curl, CURLOPT_FILE, $fp);
 curl_exec($curl);
@@ -13,52 +13,21 @@ $fb_array=json_decode($results, true);
 foreach ($fb_array[data] as $i) {
 json_decode($i, true);
 echo PHP_EOL;
-    
-//BEGIN QUERY10
-$stmt10=$conn->prepare( "INSERT INTO `locations`(fid, locname, lat, lng, address, city, state, postal)VALUES(?,?,?,?,?,?,?,?)" ); 
-    
-$stmt10->
-bind_param("dsddsssi", $fid, $locname, $lat, $lng, $address, $city, $state, $postal); 
-    
-        $fid=mysqli_real_escape_string($conn, $i['id']); 
-        $locname=mysqli_real_escape_string($conn, $i['name']);
-        $lat=mysqli_real_escape_string($conn, $i['location']['latitude']); 
-        $lng=mysqli_real_escape_string($conn, $i['location']['longitude']);
-        $address=mysqli_real_escape_string($conn, $i['location']['street']); 
-        $city=mysqli_real_escape_string($conn, $i['location']['city']);    
-        $state=mysqli_real_escape_string($conn, $i['location']['state']);  
-        $postal=mysqli_real_escape_string($conn, $i['location']['zip']); 
-        $stmt10->execute(); 
-    
-    }
-
-$stmt10->close();    
-require_once '../../jQuery-Store-Locator-Plugin-master/dist/data/output_json.php';
-
-/*
-    json_decode($i, true);
-    echo PHP_EOL;
-    //BEGIN QUERY10 
+//BEGIN QUERY10 
 $stmt10=$conn->prepare( "INSERT INTO `top10_markers`(`FID`, `fb_name`, `fb_likes`, `fb_were_here`, `fb_talking_about`, `fb_street`, `fb_city`, `fb_state`, `fb_zip`, `fb_lat`, `fb_lng`)VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)" );
-    $stmt10-> bind_param("dsiiisssidd", $FID, $fb_name, $fb_likes, $fb_were_here, $fb_talking_about, $fb_street, $fb_city, $fb_state, $fb_zip, $fb_lat, $fb_lng);
-    $FID=mysqli_real_escape_string($conn, $i['id']);
-    $fb_name=mysqli_real_escape_string($conn, $i['name']);
-    $fb_likes=mysqli_real_escape_string($conn, $i['likes']);
-    $fb_were_here=mysqli_real_escape_string($conn, $i['were_here_count']);
-    $fb_talking_about=mysqli_real_escape_string($conn, $i['talking_about_count']);
-    $fb_street=mysqli_real_escape_string($conn, $i['location']['street']);
-    $fb_city=mysqli_real_escape_string($conn, $i['location']['city']);
-    $fb_state=mysqli_real_escape_string($conn, $i['location']['state']);
-    $fb_zip=mysqli_real_escape_string($conn, $i['location']['zip']);
-    $fb_lat=mysqli_real_escape_string($conn, $i['location']['latitude']);
-    $fb_lng=mysqli_real_escape_string($conn, $i['location']['longitude']);
-    $stmt10->execute();
+$stmt10-> bind_param("dsiiisssidd", $FID, $fb_name, $fb_likes, $fb_were_here, $fb_talking_about, $fb_street, $fb_city, $fb_state, $fb_zip, $fb_lat, $fb_lng);
+$FID=mysqli_real_escape_string($conn, $i['id']);
+$fb_name=mysqli_real_escape_string($conn, $i['name']);
+$fb_likes=mysqli_real_escape_string($conn, $i['likes']);
+$fb_were_here=mysqli_real_escape_string($conn, $i['were_here_count']);
+$fb_talking_about=mysqli_real_escape_string($conn, $i['talking_about_count']);
+$fb_street=mysqli_real_escape_string($conn, $i['location']['street']);
+$fb_city=mysqli_real_escape_string($conn, $i['location']['city']);
+$fb_state=mysqli_real_escape_string($conn, $i['location']['state']);
+$fb_zip=mysqli_real_escape_string($conn, $i['location']['zip']);
+$fb_lat=mysqli_real_escape_string($conn, $i['location']['latitude']);
+$fb_lng=mysqli_real_escape_string($conn, $i['location']['longitude']);
+$stmt10->execute();
 }
 $stmt10->close();
-<<<<<<< HEAD
 ?>
-=======
-*/
-?>
-
->>>>>>> master
