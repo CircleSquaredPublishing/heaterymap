@@ -1,6 +1,9 @@
 
 /************************************************************\
-*
+*The codeAddress Function captures user input from the address
+text input element and passes it to the google geocoder. This 
+enables heatmaps to be created based on user input (ie we are
+not bound by hard coded locations).
 \************************************************************/
 function codeAddress() {
     var address = document.getElementById("address").value;
@@ -21,7 +24,6 @@ function codeAddress() {
         var lat = results[0].geometry.location.lat();
         var lng = results[0].geometry.location.lng();
         var loc = new google.maps.LatLng(lat,lng);
-        /*@NOTE var loc is where the geocoding magic happens. */    
         var fb = "https://graph.facebook.com/v2.4/search?&q=restaurant&type=place&center="+loc+"&distance=5000&fields=talking_about_count,location,name&offset=0&limit=3200&access_token=1452021355091002|x-ZB0iKqWQmYqnJQ-wXoUjl-XtY";
         fb = fb.replace(/[()]/g, "");
         $(document).ready(function() {
@@ -54,20 +56,26 @@ function codeAddress() {
     );
 }
 /************************************************************\
-*
+*The toggleHeatmap()function turns the heatmap layer on/off.
 \************************************************************/
 function toggleHeatmap() {
     heatmap.setMap(heatmap.getMap() ? null : map);
 }
 /************************************************************\
-*
+*The changeRadius() function increases radius of influence for
+each point returned in the heatmap layer. An incremental slider 
+would be better here.
 \************************************************************/
 function changeRadius() {
     heatmap.set("radius", heatmap.get("radius") ? null : 50);
 }
 /************************************************************\
-*
+*The changeOpacity() function increases and decreases the 
+heatmap layer transparency. An incremental slider would be 
+better here.
 \************************************************************/
 function changeOpacity() {
     heatmap.set("opacity", heatmap.get("opacity") ? null : 0.3);
 }
+/*@TODO Look into adding slider for changeRadius() function.*/
+/*@TODO Look into adding slider for changeOpacity() function.*/
