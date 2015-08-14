@@ -1,5 +1,13 @@
 <?php 
-/* File Name: insert.php Description: Inserts Facebook Graph API data into social_data database. Used only for geocoding purposes. Data is sent to specific table that is not normalized. It is our thoughts that a non normalized table will be better for this specific application since the number of concurrent users could be many and will never be known. All other data wil be stored in normalized tables within the social_data database. These tables will be utilized for features that are unlkiely to see the high volume demand and expedited turnaround time. Of course all is subject to change once in production. Author: Circle Squared Data Labs Author URI: http://www.heatery.io */ 
+
+/* 
+File Name: insert.php 
+Description: Inserts Facebook Graph API data into social_data database. Used only for geocoding purposes. Data is sent to specific table that is not normalized. It is our thoughts that a non normalized table will be better for this specific application since the number of concurrent users could be many and will never be known. All other data wil be stored in normalized tables within the social_data database. These tables will be utilized for features that are unlkiely to see the high volume demand and expedited turnaround time. Of course all is subject to change once in production. 
+Author: Circle Squared Data Labs 
+Author URI: http://www.heatery.io 
+*/ 
+
+
 $table = basename(__FILE__, '.php');
 $name = ($table . '.json');
 $fp = fopen( $name, 'w' );

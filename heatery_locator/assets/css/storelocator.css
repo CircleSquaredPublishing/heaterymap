@@ -132,7 +132,7 @@
   margin: 3% 4%;
   cursor: pointer;
   width: 92%;
-  border: 1px solid #ffffff;
+  overflow-x: hidden;
   /* Adding this to prevent moving li elements when adding the list-focus class*/
 }
 .bh-sl-container .bh-sl-loc-list .list-label {

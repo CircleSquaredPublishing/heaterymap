@@ -1,3 +1,7 @@
+<?php
+/*@NOTE This page shows heatmap layer based on FB API results based on Geocoded results from user input. There is no relevant data displayed though, only the layer.*/
+?>
+
 <!DOCTYPE html>
 <html>
 <head>

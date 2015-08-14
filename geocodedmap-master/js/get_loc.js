@@ -46,9 +46,7 @@ function geoSuccess(position) {
         });
     });
 }
-/************************************************************\
-*
-\************************************************************/
+
 function geoError(error) {
     var retro_style = new google.maps.StyledMapType(retroStyle,  {
         name:"Retro"

@@ -1,13 +1,15 @@
-<?php 
-$servername="localhost";
-$username="root";
-$password="root";
-$dbname = "social_data";
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Connection failed:" . $conn->connect_error);
-    exit();
-}
+<?php
+
+/* 
+File Name: post.php 
+Description: Connects to database then passes the user input into the Google geocoder. The values stored in the $latitude and $longitude variables are passed into the FB API call as location parameters. The call the the FB API takes place in the insert.php file.
+Author: Circle Squared Data Labs 
+Author URI: http://www.heatery.io 
+*/ 
+
+
+require '/Users/admin/Documents/conn.php';
+
 if( $_POST ) {
     $data_arr = geocode( $_POST['address'] );
     if( $data_arr ) {
@@ -19,24 +21,21 @@ if( $_POST ) {
     else {
     }
 }
-/************************************************************\
-*
-\************************************************************/
+
 function geocode($address){
     $address = urlencode($address);
-    $url = "http://maps.google.com/maps/api/geocode/json?sensor=false&address={
-        $address
-    }
-    ";
+    $url = "http://maps.google.com/maps/api/geocode/json?sensor=false&address={$address}";
     $resp_json = file_get_contents($url);
     $resp = json_decode($resp_json, true);
-    if($resp['status']='OK'){
-        // get the important data  $lati = $resp['results'][0]['geometry']['location']['lat'];
+    
+    if($resp['status']='OK'){  
+        $lati = $resp['results'][0]['geometry']['location']['lat'];
         $longi = $resp['results'][0]['geometry']['location']['lng'];
         $formatted_address = $resp['results'][0]['formatted_address'];
+        
         if($lati && $longi && $formatted_address){
             $data_arr = array();
-            array_push(  $data_arr,   $lati,   $longi,  $formatted_address  );
+            array_push($data_arr,$lati,$longi,$formatted_address);
             return $data_arr;
         }
         else{

@@ -2,8 +2,8 @@ $(function() {
     
     $('#dialog-sw-canvas').dialog({
         title: 'heatery.io',
-        width: 300,
-        height: 400,
+        width: 400,
+        height: 300,
         closed: true,
         cache: false,
         modal: true,

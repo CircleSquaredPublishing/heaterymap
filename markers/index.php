@@ -1,3 +1,10 @@
+<?php
+/*@NOTE The heatmaps delivered from the search box input are produced by the jQuery AJAX function and the call to the FB API.*/
+/*@NOTE Map markers are currently being added using the PHP Google Geocoder because the marker data is being sent to the database for storage and processnig.*/
+/*@FIXME This script needs PHP geocoder functionality. Try adding Click Event.*/
+/*@FIXME Need to fit bounds to marker spread.*/
+/*@NOTE Uses query_top_ten.php to select results.*/
+?>
 <!DOCTYPE html>
 <html>
 
@@ -126,8 +133,7 @@ if($_POST){
         $latitude = $data_arr[0];
         $longitude = $data_arr[1];
         $city = $data_arr[2];
-        
-                     
+                       
 ?>
 
         <?php require_once '../geocodedmap-master/functions/conn.php';?>
@@ -136,7 +142,7 @@ if($_POST){
     
                 <script>
 
-function init_map() {
+function displayMap() {
 var retro_style = new google.maps.StyledMapType(retroStyle, {  name:"Retro"  }  );
 var apple_style = new google.maps.StyledMapType(appleStyle, {  name:"Apple"  }  );
 var light_style = new google.maps.StyledMapType(lightStyle, {  name:"Dusk"  }  );
@@ -168,12 +174,10 @@ map.setMapTypeId("Vintage");
                         <?php require_once '../geocodedmap-master/functions/add_markers.php';?>
                     
 }
-/*@NOTE The heatmaps delivered from the search box input are produced by the jQuery AJAX function and the call to the FB API.*/
-/*@NOTE Map markers are currently being added using the PHP Google Geocoder because the marker data is being sent to the database for storage and processnig.*/
-/*@FIXME This script needs PHP geocoder functionality. Try adding Click Event.*/
+
 //Declare variables in the global scope.     
 
-                    google.maps.event.addDomListener(window, 'load', init_map);
+                    google.maps.event.addDomListener(window, 'load', displayMap);
                 </script>
 
                 <?php
@@ -234,8 +238,6 @@ function geocode($address){
     }
 }
 
-/*@FIXME Need to fit bounds to marker spread.*/
-/*@NOTE Uses query_top_ten.php to select results.*/
 ?>
 <div id="map-canvas"></div><!--@end #map-canvas-->
 </body>
