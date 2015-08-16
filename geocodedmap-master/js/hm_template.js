@@ -6,6 +6,17 @@
 *http://stackoverflow.com/questions/23899543/how-do-i-use-jquery-to-iterate-through-nested-json-in-a-single-pass
 */
 
+var map;
+
+function initialize() {
+var mapOptions = {
+zoom: 13,
+center: new google.maps.LatLng(26.461635, -80.071123),
+mapTypeId: google.maps.MapTypeId.SATELLITE
+};
+map = new google.maps.Map(document.getElementById('map-canvas'),
+mapOptions);
+};
 
 /* Heatmap Control Functions
 ----------------------------*/
@@ -40,6 +51,7 @@ heatmap.set('opacity', heatmap.get('opacity') ? null : 0.2);
     
 }
 
+google.maps.event.addDomListener(window, 'load', initialize);
 
 /* jQuery AJAX function that calls the Facebook Graph API
 ---------------------------------------------------------*/
@@ -47,7 +59,7 @@ $(document).ready(function() {
 
     $.ajax({
 
-    url: "https://graph.facebook.com/v2.4/search?&q=restaurant&type=place&center=26.461635, -80.071123&distance=8000&fields=talking_about_count,location,name&offset=0&limit=5000&access_token=1452021355091002|x-ZB0iKqWQmYqnJQ-wXoUjl-XtY",
+    url: "https://graph.facebook.com/v2.4/search?&q=restaurant&type=place&center=26.461635, -80.071123&distance=8000&fields=talking_about_count,location,name&offset=0&limit=250&access_token=1452021355091002|x-ZB0iKqWQmYqnJQ-wXoUjl-XtY",
 
     dataType: "text",
 
