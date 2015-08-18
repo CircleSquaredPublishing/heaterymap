@@ -1,5 +1,3 @@
 <?php /*Silence is almost golden...*/ ?>
-
-</body>
-
+    </body>
 </html>

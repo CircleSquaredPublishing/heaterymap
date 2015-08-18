@@ -2,7 +2,7 @@
 
 $mrk_cnt = 0;
 
-require 'assets/common/queries/mrk_q_top_ten.php';
+require '../assets/db/q_top10.php';
 
 //require 'assets/common/queries/mrk_q_distance.php';
 

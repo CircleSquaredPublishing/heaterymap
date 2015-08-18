@@ -1,4 +1,4 @@
-<?php require 'assets/common/mrk_header.php';?>
+<?php require '../assets/common/header.php';?>
 <?php require 'assets/common/mrk_nav.php';?>
 <?php 
 if($_POST){
@@ -8,7 +8,7 @@ $latitude = $data_arr[0];
 $longitude = $data_arr[1];
 $city = $data_arr[2];
 ?>
-<?php require_once 'assets/common/mrk_conn.php';?>
+<?php require_once '../assets/db/conn.php';?>
 <?php require_once 'assets/common/mrk_select.php';?>
 <script>
 function displayMap() {
@@ -43,7 +43,7 @@ map.mapTypes.set("Vintage", old_style);
 map.mapTypes.set("Cloud", pale_style);
 map.mapTypes.set("Organic", brown_style);
 map.setMapTypeId("Vintage");    
-<?php require_once 'assets/common/mrk_insert.php';?>
+<?php require_once '../assets/db/insert_top10_mrk.php';?>
 <?php require_once 'assets/common/mrk_add.php';?>
 }
 google.maps.event.addDomListener(window, 'load', displayMap);
@@ -78,4 +78,4 @@ return false;
 }
 } 
 ?>
-<?php require 'assets/common/mrk_footer.php';?>
+<?php require '../assets/common/footer.php';?>

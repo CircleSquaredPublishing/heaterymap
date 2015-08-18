@@ -18,21 +18,19 @@
 			</li>
 			<li>&nbsp;</li>
 		</ul>
-		<div class="form-group" style="margin-right:20px;">
-			<form class="form-inline" action="" method="post">
-				<div id="gc-input" class="input-group" style="margin-top:10px; float: right;">
-					<span class="input-group-btn">
+        
+        
+        
+<!-- Different than hm_navbar because this posts to PHP form. -->        
+<div class="form-group" style="margin-right:20px;">
+    <form class="form-inline" action="" method="post">
+        <div id="gc-input" class="input-group" style="margin-top:10px; float: right;">
+            <span class="input-group-btn">
 <input class="btn btn-success btn-md" type="submit" value="Find" />
 </span>
-					<input style="width:250px; " id="search-box-tt" class="form-control" type="text"
-					name="address" placeholder="Your Hot Spot." />
-				</div>
-			</form>
-			<!--<div class="btn-group">
-<button id="btn-on-off" class="btn btn-default btn-md" onclick="toggleHeatmap()" data-toggle="tooltip" title="Heatmap On/Off"><span class="glyphicon glyphicon-off"></span>
-</button>
-<button id="btn-radius" class="btn btn-default btn-md" onclick="changeRadius()" data-toggle="tooltip" title="Change Radius"><span class="glyphicon glyphicon-fullscreen"></span></button>
-<button id="btn-opacity" class="btn btn-default btn-md" onclick="changeOpacity()" data-toggle="tooltip" title="Change Opacity"><span class="glyphicon glyphicon-adjust"></span></button></div>-->
-		</div>
-	</div>
+            <input style="width:250px; " id="search-box-tt" class="form-control" type="text" name="address" placeholder="Your Hot Spot." />
+        </div>
+    </form>
+</div>
+</div>
 </div>

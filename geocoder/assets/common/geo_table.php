@@ -61,7 +61,7 @@ try {
     
     date_default_timezone_set("America/New_York");
     
-    require_once ('queries/geo_q_dist.php');
+    require_once ('../assets/db/q_dist.php');
     
     $stmt->execute();
     

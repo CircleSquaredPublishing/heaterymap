@@ -11,16 +11,18 @@ Tags: responsive-layout, fluid-layout, custom-background, custom-menu, custom-ma
 */
 ?>
 
-<?php require 'assets/common/geo_header.php';?>
+<?php require '../assets/common/header.php';?>
 
-<?php require 'assets/common/geo_nav.php';?>  
+    <?php require 'assets/common/geo_nav.php';?>
 
-<?php require 'assets/common/geo_form.php';?> 
+        <?php require 'assets/common/geo_form.php';?>
 
-<?php require 'assets/common/geo_conn.php';?>
+            <?php require '../assets/db/conn.php';?>
 
-<?php require 'assets/common/geo_post.php';?>
+                <?php require '../assets/db/post.php';?>
 
-<?php require 'assets/common/geo_insert.php';?>
+                    <?php require '../assets/db/insert_top10_mrk.php';?>
 
-<?php require 'assets/common/geo_table.php';?>
+                        <?php require 'assets/common/geo_table.php';?>
+
+                            <?php require '../assets/common/footer.php';?>

@@ -1,6 +1,6 @@
 <?php /*The sidebar for the AJAX markers page.*/ ?>
 
-<div class="container" id="main">
+<div class="container" id="main" style="float:left;">
     
   <div class="row">
       

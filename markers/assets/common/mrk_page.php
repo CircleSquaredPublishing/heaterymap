@@ -1,10 +1,10 @@
 <?php /*Map goes here.*/?>
 <div id="map-canvas"></div>
-<div class="container-fluid" id="main">
+<div class="container" id="main" style="float:left;">
   <div class="row">
   	<div class="col-xs-4" id="left">
-      <h2 style="margin-top:50px;"><?php echo($city);?> Heatery Top Ten</h2><!-- spacing hack -->
-      <!-- item list -->    
+      <h2 style="margin-top:50px;"><?php echo($city);?> Heatery Top Ten</h2>
+  
       <div class="panel panel-default" style="margin-bottom:10px;">
         <div class="panel-heading"><a href="">Restaurant 1</a></div>
       </div>
@@ -218,7 +218,6 @@
         Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
         dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
           Aliquam in felis sit amet augue.</p>
-      <!-- /item list -->
     </div>
     <div class="col-xs-8"><!--map-canvas will be postioned here--></div>
   </div>

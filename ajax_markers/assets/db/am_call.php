@@ -6,16 +6,17 @@ Author: Circle Squared Data Labs
 Author URI: http://www.heatery.io 
 */ 
 
-/*'. $latitude . ',' . $longitude . '*/
+?>
 
-require "../../github/geocodedmap-master/functions/conn.php";
+<?php
+require "/github/assets/db/conn.php";
 
 $table = basename(__FILE__, '.php');
 $name = ($table . '.json');
 $fp = fopen($name, 'w')
     or die ("Failed to create file");
 
-$curl=curl_init('https://graph.facebook.com/v2.4/search?q=restaurant&type=place&distance=3200&center=35.10,-77.06&fields=location,name,likes,talking_about_count,were_here_count,description,general_manager,hours,price_range,parking,picture,cover,restaurant_services,restaurant_specialties,website&limit=5000&access_token=1452021355091002|x-ZB0iKqWQmYqnJQ-wXoUjl-XtY');
+$curl=curl_init('https://graph.facebook.com/v2.4/search?q=restaurant&type=place&distance=3200&center=' . $latitude . ',' . $longitude . ' &fields=location,name,likes,talking_about_count,were_here_count,description,general_manager,hours,price_range,parking,picture,cover,restaurant_services,restaurant_specialties,website&limit=5000&access_token=1452021355091002|x-ZB0iKqWQmYqnJQ-wXoUjl-XtY');
 curl_setopt($curl, CURLOPT_URL);
 curl_setopt($curl, CURLOPT_FILE, $fp);
 curl_exec($curl);
@@ -67,4 +68,4 @@ $stmt1->execute();
 }
 $stmt1->close();
 
-require "ajax_markers_query.php";
+require "am_query.php";
