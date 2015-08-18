@@ -1,7 +1,7 @@
 $(window).load(function ()
 {
 
-	$.get("/ajax_markers/assets/db/am_query.json", function (json)
+	$.get('assets/db/am_query.json', function (json)
 	{
 		var bounds = new google.maps.LatLngBounds();
 		$.each(json, function (key, data)

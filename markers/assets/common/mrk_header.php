@@ -1,5 +1,39 @@
 <?php
-/*
+/*@NOTE The heatmaps delivered from the search box input are produced by the jQuery AJAX function and the call to the FB API.*/
+/*@NOTE Map markers are currently being added using the PHP Google Geocoder because the marker data is being sent to the database for storage and processnig.*/
+/*@FIXME This script needs PHP geocoder functionality. Try adding Click Event.*/
+/*@FIXME Need to fit bounds to marker spread.*/
+/*@NOTE Uses query_top_ten.php to select results.*/
+?>
+<!--<!DOCTYPE html>
+<html>
+<head>
+    <title>GEOCODED MAP MARKERS</title>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=false&libraries=visualization,places">
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+    <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script src="js/custom_style.js"></script>
+
+</head>
+<body style="background-color: #000">-->
+<?php 
+/*------------------------------------------------------------------------------------------------------
 Template Name: Heatery Map
 Author: Circle Squared Data Labs
 Author URI: http://www.heatery.io
@@ -8,12 +42,13 @@ Version: 1.0.0
 License: Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 3.0 License, and code samples are licensed under the Apache 2.0 License.
 License URI: license.txt
 Tags: responsive-layout, fluid-layout, custom-background, custom-menu, custom-maps, AJAX, Facebook Graph API, Heatmap Visualizations, Google Maps, Bootstrap, Heatery, Circle Squared Data Labs, restaurants, social media analysis, spatial data analysis
-*/
+------------------------------------------------------------------------------------------------------*/
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
-<title>AJAX Heatery Markers</title>
+<title>Heatery Markers</title>
     
 <!-- BEGIN META TAGS -->
 <meta charset="UTF-8" />
@@ -72,11 +107,11 @@ Tags: responsive-layout, fluid-layout, custom-background, custom-menu, custom-ma
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
 
 <!-- HEATERY CUSTOM MAP LAYERS -->    
-<script src="/github/ajax_markers/assets/js/am_layers_min.js"></script>
+<script src="/github/markers/assets/js/mrk_layers_min.js"></script>
     
 <!-- HEATERY STYLESHEET -->
-<link rel="stylesheet" type="text/css" href="/github/ajax_markers/assets/css/am_style.css" />
-</head>  
-    
-<!-- BEGIN CONTENT -->    
-<body> 
+<link rel="stylesheet" type="text/css" href="/github/markers/assets/css/mrk_style.css" />
+
+</head>
+<!-- BEGIN CONTENT -->
+<body style="background-color: #000">

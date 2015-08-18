@@ -1,0 +1,3 @@
+#The MySQL GROUP BY clause is used with the SELECT statement to group rows into subgroups by the one or more values of columns or expressions.The MySQL GROUP BY clause is an optional part of the SELECT statement. It must appear after the FROM or WHERE clause. The MySQL GROUP BY clause consists of the GROUP BY keyword followed by a list of comma-separated columns or expressions.The GROUP BY clause returns unique occurrences of status values. It works like the DISTINCT operator.
+
+CREATE TABLE new_temp_table SELECT * FROM old_table GROUP BY select_column;
