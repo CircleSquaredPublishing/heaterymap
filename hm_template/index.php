@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +12,9 @@
     <link rel="stylesheet" href="/jQuery-Plugin-For-Floating-Social-Share-Contact-Sidebar/css/contact-buttons.css">
     <link rel="stylesheet" href="/jQuery-Plugin-For-Floating-Social-Share-Contact-Sidebar/css/demo.css">
 </head>
+=======
+<?php require 'assets/common/hm_tmp_header.php';?>
+>>>>>>> master
 
 <body>
     <div id="panel">
@@ -18,6 +22,7 @@
         <button onclick="changeRadius()">Change radius</button>
         <button onclick="changeOpacity()">Change opacity</button>
     </div>
+<<<<<<< HEAD
     <div id="map-canvas"></div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="/jQuery-Plugin-For-Floating-Social-Share-Contact-Sidebar/js/jquery.contact-buttons.js"></script>
@@ -26,3 +31,8 @@
 </body>
 
 </html>
+=======
+<div id="map-canvas"></div>
+    
+<?php require 'assets/common/hm_tmp_footer.php';?>
+>>>>>>> master

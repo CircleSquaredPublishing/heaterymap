@@ -1,0 +1,16 @@
+UPDATE locations, fb_food_style SET locations.food_styles0 = fb_food_style.food_styles0 WHERE locations.FID = fb_food_style.FID;
+UPDATE locations, fb_food_style SET locations.food_styles1 = fb_food_style.food_styles1 WHERE locations.FID = fb_food_style.FID;
+UPDATE locations, fb_food_style SET locations.food_styles2 = fb_food_style.food_styles2 WHERE locations.FID = fb_food_style.FID;
+UPDATE locations, fb_food_style SET locations.food_styles3 = fb_food_style.food_styles3 WHERE locations.FID = fb_food_style.FID;
+UPDATE locations, fb_food_style SET locations.food_styles4 = fb_food_style.food_styles4 WHERE locations.FID = fb_food_style.FID;
+UPDATE locations, fb_food_style SET locations.food_styles5 = fb_food_style.food_styles5 WHERE locations.FID = fb_food_style.FID;
+UPDATE locations, fb_food_style SET locations.food_styles6 = fb_food_style.food_styles6 WHERE locations.FID = fb_food_style.FID;
+UPDATE locations, fb_food_style SET locations.food_styles7 = fb_food_style.food_styles7 WHERE locations.FID = fb_food_style.FID;
+UPDATE locations, fb_food_style SET locations.food_styles8 = fb_food_style.food_styles8 WHERE locations.FID = fb_food_style.FID;
+UPDATE locations, fb_food_style SET locations.food_styles9 = fb_food_style.food_styles9 WHERE locations.FID = fb_food_style.FID;
+UPDATE locations, fb_food_style SET locations.food_styles10 = fb_food_style.food_styles10 WHERE locations.FID = fb_food_style.FID;
+UPDATE locations, fb_food_style SET locations.food_styles11 = fb_food_style.food_styles11 WHERE locations.FID = fb_food_style.FID;
+UPDATE locations, fb_food_style SET locations.food_styles12 = fb_food_style.food_styles12 WHERE locations.FID = fb_food_style.FID;
+UPDATE locations, fb_food_style SET locations.food_styles13 = fb_food_style.food_styles13 WHERE locations.FID = fb_food_style.FID;
+UPDATE locations, fb_food_style SET locations.food_styles14 = fb_food_style.food_styles14 WHERE locations.FID = fb_food_style.FID;
+UPDATE locations, fb_food_style SET locations.food_styles15= fb_food_style.food_styles15 WHERE locations.FID = fb_food_style.FID;

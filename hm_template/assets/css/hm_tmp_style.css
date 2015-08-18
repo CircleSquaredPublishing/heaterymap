@@ -1,0 +1,124 @@
+/*------------------------------------ 
+This is the stylesheet for hm_template.
+-------------------------------------*/
+html,
+body,
+#map-canvas {
+height: 100%;
+margin: 0px;
+padding: 0px;
+}
+
+        
+#panel {
+position: absolute;
+top: 5px;
+left: 50%;
+margin-left: -180px;
+z-index: 5;
+background-color: #fff;
+padding: 5px;
+border: 1px solid #999;
+}
+
+/*------------------- 
+Begin Social Sidebar.
+---------------------*/
+ 
+#contact-buttons-bar {
+  position: fixed;
+  top: 120px;
+  left: -50px;
+  width: 50px;
+}
+
+
+#contact-buttons-bar.slide-on-scroll {
+  position: absolute;
+}
+
+.contact-button-link  {
+  display: block;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  margin-bottom: 1px;
+  text-align: center;
+  line-height: 50px;
+  font-size: 22px;
+  background: #8e8e93;
+  color: #fff;
+  position: relative;
+  left: 0;
+  
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  
+  -webkit-transition: all 250ms;
+     -moz-transition: all 250ms;
+          transition: all 250ms;
+}
+.contact-button-link:hover,
+.contact-button-link:focus,
+.contact-button-link:active {
+  color: #fff;
+  padding-left: 20px;
+  width: 70px;
+}
+.contact-button-link.cb-hidden {
+  left: -50px;
+}
+.contact-button-link.facebook {
+  background: #3b5998;
+}
+.contact-button-link.linkedin {
+  background: #0077b5;
+}
+.contact-button-link.gplus {
+  background: #db4437;
+}
+
+.contact-button-link.git {
+  background: #4C414A;
+}
+
+.contact-button-link.pinterest {
+  background: #C92228;
+}
+
+
+.contact-button-link.twitter {
+  background: #4099FF;
+}
+
+.contact-button-link.email {
+  background: #AAB846;
+}
+
+.contact-button-link.separated {
+  margin-top: 1em;
+}
+
+.contact-button-link.phone_separated {
+  margin-top: 1em;
+  background: #7D1111;
+  color:#fff;
+}
+
+.show-hide-contact-bar,
+.contact-button-link.show-hide-contact-bar:focus,
+.contact-button-link.show-hide-contact-bar:active {
+  background: transparent;
+  color: #000;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  width: 50px;
+}
+.contact-button-link.show-hide-contact-bar:hover {
+  color: #000;
+  background: #ccc;
+  padding: 0;
+  width: 50px;
+}
