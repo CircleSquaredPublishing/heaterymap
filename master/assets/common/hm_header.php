@@ -1,5 +1,5 @@
-<?php
-/*
+<?php 
+/*------------------------------------------------------------------------------------------------------
 Template Name: Heatery Map
 Author: Circle Squared Data Labs
 Author URI: http://www.heatery.io
@@ -8,12 +8,13 @@ Version: 1.0.0
 License: Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 3.0 License, and code samples are licensed under the Apache 2.0 License.
 License URI: license.txt
 Tags: responsive-layout, fluid-layout, custom-background, custom-menu, custom-maps, AJAX, Facebook Graph API, Heatmap Visualizations, Google Maps, Bootstrap, Heatery, Circle Squared Data Labs, restaurants, social media analysis, spatial data analysis
-*/
+------------------------------------------------------------------------------------------------------*/
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
-<title>AJAX Heatery Markers</title>
+<title>Github Master</title>
     
 <!-- BEGIN META TAGS -->
 <meta charset="UTF-8" />
@@ -72,11 +73,11 @@ Tags: responsive-layout, fluid-layout, custom-background, custom-menu, custom-ma
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
 
 <!-- HEATERY CUSTOM MAP LAYERS -->    
-<script src="/github/ajax_markers/assets/js/am_layers_min.js"></script>
+<script src="/github/master/assets/js/hm_layers_min.js"></script>
     
 <!-- HEATERY STYLESHEET -->
-<link rel="stylesheet" type="text/css" href="/github/ajax_markers/assets/css/am_style.css" />
-</head>  
-    
-<!-- BEGIN CONTENT -->    
-<body> 
+<link rel="stylesheet" type="text/css" href="/github/master/assets/css/hm_style.css" />
+
+</head>
+<!-- BEGIN CONTENT -->
+<body style="background-color: #000">
