@@ -1,21 +1,22 @@
 <?php 
 
 echo 
-    "<table 
-    style='border: solid 1px #fff;
-    color: #fff;
-    margin-left:20%;
-    margin-top: 10%;'>";
+    "<div class='container'>
+	   <div class='row'>
+    	   <div class='table-responsive'>
+                <table class='table-bordered table-hover'>";
 
 echo 
-    "<tr>
-    <th>Restaurant Name</th>
-    <th>Heatery Score</th>
+    "<thead>
+    <tr>
+    <th>Establishment</th>
     <th>Talking About</th>
     <th>Were Here</th>
-    <th>Date</th>
-    <th>km from center</th>
-    </tr>";
+    <th>Likes</th>
+    <th>Miles from City Center</th>
+    </tr>
+    </thead>
+    <tbody>";
 
 class TableRows extends RecursiveIteratorIterator {
     
@@ -29,13 +30,7 @@ class TableRows extends RecursiveIteratorIterator {
         
         return 
             
-    "<td 
-    style='width:150px;
-    border:1px solid #fff;
-    margin:20px;
-    padding:10px;
-    
-    '>" . parent::current(). "</td>";
+    "<td style='padding:10px; margin:5px;'>" . parent::current(). "</td>";
         
     }
   
@@ -54,8 +49,9 @@ class TableRows extends RecursiveIteratorIterator {
 }
 
 try {
+
     
-    $conn= new PDO("mysql:host=$servername; dbname=$dbname",$username,$password);
+$conn= new PDO("mysql:host=$servername; dbname=$dbname",$username,$password);
     
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
@@ -76,11 +72,11 @@ try {
 
 catch(PDOException $e) {
     
-    echo "Error: " .$e->getMessage();
+    //echo "Error: " .$e->getMessage();
     
 }
 
-echo "</table>";
+echo "</tbody></table></div></div></div></div>";
 
 $conn=null;
 

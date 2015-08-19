@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     
-<title>STREET VIEW INFOWINDOWS</title>
+<title>Streetview</title>
     
 <meta charset= "UTF-8">
     

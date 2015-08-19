@@ -12,6 +12,8 @@ Tags: responsive-layout, fluid-layout, custom-background, custom-menu, custom-ma
 */
 ?>
 
+<?php $pg_title = 'Github Master';?>
+
 <?php require '../assets/common/header.php';?>
 
     <?php require 'assets/common/hm_navbar.php';?>

@@ -8,6 +8,9 @@ Author URI: http://www.heatery.io
 */ 
 
 require '../assets/db/conn.php';
+date_default_timezone_set('America/New_York');
+$today = date('l, F jS');
+
 
 if( $_POST ) {
     
@@ -19,9 +22,9 @@ if( $_POST ) {
         
         $longitude = $data_arr[1];
         
-        $formatted_address = $data_arr[2];
+        $city = $data_arr[2];
         
-        echo "Here are the top ten hot spots within 10km of " . $formatted_address .".";
+        echo "<div id='response' class='col-md-12'>The Heatery Top Ten within 10 km of $city <br /> On this Beautiful $today.</div></div>";
         
         } else {
         
@@ -44,13 +47,13 @@ function geocode($address) {
         
         $longi = $resp['results'][0]['geometry']['location']['lng'];
         
-        $formatted_address = $resp['results'][0]['formatted_address'];
+        $city = $resp['results']['0']['address_components']['0']['long_name'];
         
-    if ($lati && $longi && $formatted_address) {
+    if($lati && $longi && $city){
         
             $data_arr = array();
         
-            array_push($data_arr,$lati,$longi,$formatted_address);
+            array_push($data_arr, $lati, $longi, $city);
         
             return $data_arr;
         

@@ -11,6 +11,10 @@ Tags: responsive-layout, fluid-layout, custom-background, custom-menu, custom-ma
 */
 ?>
 
+<?php $pg_title = 'Top Ten Table';?>
+
+<link rel="stylesheet" href="assets/css/geo_style.css"/>
+
 <?php require '../assets/common/header.php';?>
 
     <?php require 'assets/common/geo_nav.php';?>
@@ -26,3 +30,6 @@ Tags: responsive-layout, fluid-layout, custom-background, custom-menu, custom-ma
                         <?php require 'assets/common/geo_table.php';?>
 
                             <?php require '../assets/common/footer.php';?>
+<!-- BEGIN CONTENT -->
+
+<body id="gc_body">

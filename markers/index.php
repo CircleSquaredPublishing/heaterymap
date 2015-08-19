@@ -1,15 +1,29 @@
+<?php $pg_title = 'PHP Markers';?>
+
 <?php require '../assets/common/header.php';?>
+<!-- BEGIN CONTENT -->
+
+<body style="background-color: #000">
+    
 <?php require 'assets/common/mrk_nav.php';?>
+    
 <?php 
+
 if($_POST){
-$data_arr = geocode($_POST['address']);
-if($data_arr){
-$latitude = $data_arr[0];
-$longitude = $data_arr[1];
-$city = $data_arr[2];
-?>
+    
+    $data_arr = geocode($_POST['address']);
+    
+        if($data_arr){
+
+            $latitude = $data_arr[0];
+            $longitude = $data_arr[1];
+            $city = $data_arr[2];
+        ?>
+    
 <?php require_once '../assets/db/conn.php';?>
+    
 <?php require_once 'assets/common/mrk_select.php';?>
+    
 <script>
 function displayMap() {
 var retro_style = new google.maps.StyledMapType(retroStyle, {  name:"Retro"  }  );
@@ -43,7 +57,9 @@ map.mapTypes.set("Vintage", old_style);
 map.mapTypes.set("Cloud", pale_style);
 map.mapTypes.set("Organic", brown_style);
 map.setMapTypeId("Vintage");    
+    
 <?php require_once '../assets/db/insert_top10_mrk.php';?>
+    
 <?php require_once 'assets/common/mrk_add.php';?>
 }
 google.maps.event.addDomListener(window, 'load', displayMap);

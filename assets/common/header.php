@@ -15,7 +15,15 @@ Tags: responsive-layout, fluid-layout, custom-background, custom-menu, custom-ma
 <html>
 
 <head>
-<title>Github Master</title>
+<title>
+<?php 
+if(isset($pg_title) && is_string($pg_title)) {
+    echo $pg_title;
+} else {
+    echo 'Find Your Hot Spot.';
+}
+?>
+</title>
 
 <!-- BEGIN META TAGS -->
 <meta charset="UTF-8" />
@@ -86,6 +94,3 @@ Tags: responsive-layout, fluid-layout, custom-background, custom-menu, custom-ma
 <![endif]-->
     
 </head>
-<!-- BEGIN CONTENT -->
-
-<body style="background-color: #000">

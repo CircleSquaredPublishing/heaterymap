@@ -16,10 +16,11 @@ Tags: responsive-layout, fluid-layout, custom-background, custom-menu, custom-ma
 html,
 body {
     height: 100%;
-    /* text-align:center; */
+    background-color: #000;
+    
 }
 body {
-    padding-top: 50px;
+     padding-top: 50px; 
     /*padding for navbar*/
 }
 
@@ -156,25 +157,6 @@ a {
     /* margin-top: 25px; */
 }
 
-/* =GEOCODER TABLE SETTINGS
----------------------------*/
-
-#geocoder {
-    color: #fff;
-    padding: 5px;
-}
-.table-hover tbody tr:hover td,
-.table-hover tbody tr:hover th {
-    background-color: #fff;
-    color: #000;
-}
-#gc-input {
-    width: 400px;
-    margin-left: 32%;
-}
-#info {
-    color: #fff;
-}
 
 /*=STREETVIEW INFOWINDOW SETTINGS
 ----------------------------------*/

@@ -12,6 +12,8 @@ Tags: responsive-layout, fluid-layout, custom-background, custom-menu, custom-ma
 */
 ?>
 
+<?php $pg_title = 'AJAX Markers';?>
+
 <?php require '../assets/common/header.php'; ?>
 
     <link rel="stylesheet" href="assets/css/inf_win_style.css" />
@@ -27,3 +29,7 @@ Tags: responsive-layout, fluid-layout, custom-background, custom-menu, custom-ma
             <script src="assets/js/am_query.js"></script>
 
             <?php require '../assets/common/footer.php';?>
+
+<!-- BEGIN CONTENT -->
+
+<body style="background-color: #000">

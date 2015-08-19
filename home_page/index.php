@@ -11,6 +11,9 @@ License URI: license.txt
 Tags: responsive-layout, fluid-layout, custom-background, custom-menu, custom-maps, AJAX, Facebook Graph API, Heatmap Visualizations, Google Maps, Bootstrap, Heatery, Circle Squared Data Labs, restaurants, social media analysis, spatial data analysis
 */
 ?>
+
+<?php $pg_title = 'heatery.io';?>
+
 <?php require 'assets/common/hp_header.php';?>
 
     <?php require 'assets/common/hp_navbar.php';?>
