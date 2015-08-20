@@ -63,8 +63,8 @@ if(isset($pg_title) && is_string($pg_title)) {
 <!-- GOOGLE MAPS V3.EXP INCLUDES VISUALIZATION AND PLACES LIBRARIES  -->
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=false&libraries=visualization,places"></script>
 
-<!-- JQUERY SMOOTHNESS THEME USED FOR STYLING STREETVIEW INSIDE INFOWINDOWS -->
-<link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+<!-- JQUERYUI 1.11.4 SMOOTHNESS THEME USED FOR STYLING STREETVIEW INSIDE INFOWINDOWS -->
+<link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css" />
 
 <!-- BOOTSTRAP 3.3.5 MINIFIED CSS -->
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
@@ -78,8 +78,8 @@ if(isset($pg_title) && is_string($pg_title)) {
 <!-- BOOTSTRAP 3.3.5 MINIFIED JS -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-<!-- JQUERY 1.11.2 MINIFIED JS -->
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<!-- JQUERY 1.11.4 MINIFIED JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 
 <!-- HEATERY CUSTOM MAP LAYERS -->
 <script src="/github/assets/js/map_layers_min.js"></script>

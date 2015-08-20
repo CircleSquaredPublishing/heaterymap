@@ -19,6 +19,7 @@ foreach ($fb_array[data] as $i) {
 json_decode($i, true);
 echo PHP_EOL;
 //BEGIN QUERY10 
+//Insert the data held in the variables into the db
 $stmt10=$conn->prepare( "INSERT INTO `top10_markers`(`FID`, `fb_name`, `fb_likes`, `fb_were_here`, `fb_talking_about`, `fb_street`, `fb_city`, `fb_state`, `fb_zip`, `fb_lat`, `fb_lng`)VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)" );
 $stmt10-> bind_param("dsiiisssidd", $FID, $fb_name, $fb_likes, $fb_were_here, $fb_talking_about, $fb_street, $fb_city, $fb_state, $fb_zip, $fb_lat, $fb_lng);
 $FID=mysqli_real_escape_string($conn, $i['id']);
@@ -35,4 +36,5 @@ $fb_lng=mysqli_real_escape_string($conn, $i['location']['longitude']);
 $stmt10->execute();
 }
 $stmt10->close();
+//At this point we should have fresh data in the db based on the geocoded position.
 ?>

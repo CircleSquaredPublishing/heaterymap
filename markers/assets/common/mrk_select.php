@@ -2,12 +2,12 @@
 
 $mrk_cnt = 0;
 
-require '../assets/db/q_top10.php';
+//require '../assets/db/q_top10.php';
 
-//require 'assets/common/queries/mrk_q_distance.php';
+require '../assets/db/q_dist.php';
 
 while    
-    ($obj = $stmt->fetch_object()) {
+    ($obj = $stmt->fetch_object()) {//get the data and store it in variables
     
     $fbname[$mrk_cnt] = $obj->fb_name;
     
@@ -19,7 +19,13 @@ while
     
     $talking_about[$mrk_cnt] = $obj->fb_talking_about;
     
+    $likes[$mrk_cnt] = $obj->fb_likes;
+    
+    $were_here[$mrk_cnt] = $obj->fb_were_here;
+    
     $date[$mrk_cnt] = $obj->fb_date;
+    
+    $distance[$mrk_cnt] = $obj->distance;
     
     $mrk_cnt++;
     

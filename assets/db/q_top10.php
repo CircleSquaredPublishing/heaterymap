@@ -13,7 +13,7 @@ FROM top10_markers
 WHERE 
 fb_date = CURDATE()
 AND
-fb_city = '$city'
+fb_city = '$city' 
 ORDER BY fb_talking_about DESC 
-LIMIT 10;");
+LIMIT 10"); //Pass $city variable here. We were passing $city because at the time we didn't have a way to query based on $lat and $lng but now we do so maybe this is no longer necessary. [8-19-15];
 ?>

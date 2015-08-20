@@ -57,7 +57,7 @@ $conn= new PDO("mysql:host=$servername; dbname=$dbname",$username,$password);
     
     date_default_timezone_set("America/New_York");
     
-    require_once ('../assets/db/q_dist.php');
+    require_once ('../assets/db/q_dist_geo_table.php');
     
     $stmt->execute();
     

@@ -23,10 +23,12 @@
 
     $arrlength=count($icons);
 
-for ($i = 0;$i<$arrlength;$i++) {
+for ($i = 0;$i<$arrlength;$i++) {//variable data coming from mrk_select
 
     echo "var point$i = new google.maps.LatLng(\"$lat[$i]\",\"$lng[$i]\"); \n";
 
+    //echo "var distance$i = \"$distance[$i]\"; \n";
+    
     echo "var date$i = \"$date[$i]\"; \n";
 
     echo "var fbname$i = \"$fbname[$i]\"; \n";
@@ -34,8 +36,12 @@ for ($i = 0;$i<$arrlength;$i++) {
     echo "var streetText$i = \"$street[$i]\";\n";
 
     echo "var talking_about$i = \"$talking_about[$i]\";\n";
+    
+    echo "var likes$i = \"$likes[$i]\";\n";
+    
+    echo "var were_here$i = \"$were_here[$i]\";\n";
 
-    echo "var html$i = 'Reporting Date:' + ' ' + \"$date[$i]\" + '<br />' + \"$fbname[$i]\" + '<br />' + \"$street[$i]\" + '<br />' + 'Talking About:' + ' ' + \"$talking_about[$i]\";\n";
+    echo "var html$i = 'Reporting Date: ' + ' ' + \"$date[$i]\" + '<br />'  +  \"$fbname[$i]\" + '<br />' + \"$street[$i]\" + '<br />' + 'Talking About: ' + ' ' + \"$talking_about[$i]\"  + '<br />' + 'Likes: ' + '' + \"$likes[$i]\" + '<br />' + 'Were Here: ' + \"$were_here[$i]\";\n";
 
     echo "var marker$i = new google.maps.Marker({
     position: point$i,   

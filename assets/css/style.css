@@ -17,10 +17,9 @@ html,
 body {
     height: 100%;
     background-color: #000;
-    
 }
 body {
-     padding-top: 50px; 
+    padding-top: 50px;
     /*padding for navbar*/
 }
 
@@ -60,8 +59,9 @@ body {
 }
 .navbar-custom li>a:hover,
 .navbar-custom li>a:focus {
-    color: #989898;
-    color: #989898;
+    background-color: #7A6448;
+    color: #b0b0b0;
+    color: #b0b0b0;
 }
 .navbar-custom a {
     color: #989898;
@@ -126,17 +126,101 @@ hr {
 /* =MAP CONTROL SETTINGS
 ------------------------*/
 
+#address {
+    border-color: #C1B398;
+    color: #666;
+}
+#address:hover {
+    border-color: #E33258;
+}
+
+/*-----------------------------*/
+
+#btn-search {
+    border-color: #C1B398;
+    background-color: #6C6352;
+    color: #C1B398;
+}
+#btn-search:hover {
+    border-color: #C1B398;
+    background-color: #C1B398;
+    color: #FBEEC2;
+}
+
+/*-----------------------------*/
+
+#get_heatery {
+    border-color: #C1B398;
+    background-color: #E33258;
+    color: #E1F5C4;
+}
+#get_heatery:hover {
+    background-color: #4B3E4D;
+    color: #C1B398;
+}
+
+/*-----------------------------*/
+
+#get_markers {
+    border-color: #C1B398;
+    background-color: #CCBF82;
+    color: #E1F5C4;
+}
+#get_markers:hover {
+    background-color: #67917A;
+    color: #C1B398;
+}
+
+/*-----------------------------*/
+
+#get_location {
+    border-color: #C1B398;
+    background-color: #B8AF03;
+    color: #E1F5C4;
+}
+#get_location:hover {
+    background-color: #CFD5E1;
+    color: #6C788E;
+}
+
+/*-----------------------------*/
+
 #btn-on-off {
-    background-color: #F35A5C;
-    color: #f8f8f8;
+    border-color: #C1B398;
+    background-color: #7888A9;
+    color: #C1B398;
 }
+#btn-on-off:hover {
+    background-color: #EBEBE0;
+    color: #7C7F86;
+}
+
+/*-----------------------------*/
+
 #btn-radius {
-    background-color: #F3C343;
+    border-color: #C1B398;
+    background-color: #67917A;
+    color: #C1B398;
 }
+#btn-radius:hover {
+    background-color: #CCBF82;
+    color: #E1F5C4;
+}
+
+/*-----------------------------*/
+
 #btn-opacity {
-    background-color: #4A8A7C;
-    color: #f8f8f8;
+    border-color: #C1B398;
+    background-color: #4B3E4D;
+    color: #C1B398;
 }
+#btn-opacity:hover {
+    background-color: #E33258;
+    color: #E1F5C4;
+}
+
+/*-----------------------------*/
+
 div .panel panel-default {
     margin-bottom: 10px;
 }
@@ -154,9 +238,7 @@ a {
     color: #D5DED9;
     background-color: #7A6A53;
     border-color: #7A6A53;
-    /* margin-top: 25px; */
 }
-
 
 /*=STREETVIEW INFOWINDOW SETTINGS
 ----------------------------------*/
@@ -173,11 +255,8 @@ a {
     margin-bottom: 100px;
 }
 
-/*!
- * Start Bootstrap - Simple Sidebar HTML Template (http://startbootstrap.com)
- * Code licensed under the Apache License v2.0.
- * For details, see http://www.apache.org/licenses/LICENSE-2.0.
- */
+/*=SIMPLE SIDEBAR SETTINGS
+--------------------------*/
 
 
 /* Toggle Styles */
