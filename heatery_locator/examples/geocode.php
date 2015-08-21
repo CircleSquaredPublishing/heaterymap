@@ -47,5 +47,24 @@ height:50px;
     <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
     <script src="../assets/js/geocode.js"></script>
+      
+      
+<?php      
+$stmt = $conn->query("SELECT 
+fb_name,  
+fb_date,
+fb_lat,
+fb_lng,
+fb_city,
+fb_street,
+fb_talking_about, 
+fb_were_here,
+fb_likes,
+TRUNCATE((SQRT ( POW ( 69.1 * ( fb_lat - $latitude ), 2 ) + POW ( 69.1 * ( $longitude - fb_lng ) * COS ( fb_lat/ 57.3 ), 2 ) ) * 0.621371),2)
+AS distance 
+FROM top10_markers 
+WHERE fb_date = CURDATE() HAVING distance < 1
+ORDER BY fb_talking_about DESC LIMIT 10");
+?>
   </body>
 </html>
