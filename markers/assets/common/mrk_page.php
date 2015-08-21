@@ -56,9 +56,9 @@
 <button id="btn-opacity" class="btn btn-default btn-md" type="button" onclick="" data-toggle="tooltip" title="Change Opacity"><span class="glyphicon glyphicon-adjust"></span>
 </button>
     </div>
-      </div>
-
-      <div class="panel panel-default" style="margin-bottom:5px;">
+      </div>       
+        
+<div class="panel panel-default" style="margin-bottom:5px;">
         <div class="panel-heading"><div id="mrk_sidebar9"></div>
           <div id="mrk_sidebar1"></div>
       </div>

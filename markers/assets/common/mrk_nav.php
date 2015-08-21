@@ -53,3 +53,25 @@
 </div>
 <!--@end .navbar navbar-custom navbar-fixed-top -->
 </div>
+<!-- Modal 
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+       <h3 class="modal-title" id="myModalLabel">heatery.io </h3>
+      </div>
+      <div class="modal-body"><h4>
+        Welcome to the Heatery Map. To get started enter a location name you are interested into the search box and click Find.</h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+ <script type="text/javascript">
+    $(window).load(function(){
+        $('#myModal').modal('show');
+    });
+</script> -->

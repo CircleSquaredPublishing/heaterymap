@@ -223,8 +223,6 @@ for (var i = 0; i < restaurantData.data.length; i++) {
         var lat = restaurantData.data[i].location.latitude;
         var lng = restaurantData.data[i].location.longitude;
         var wgt = restaurantData.data[i].talking_about_count;
-        //var name = restaurantData.data[i].name;
-        //var address = restaurantData.data[i].location.street;
         var latLng = new google.maps.LatLng(lat, lng, wgt);
         myData.push(latLng);
         }

@@ -45,7 +45,7 @@ Tags: responsive-layout, fluid-layout, custom-background, custom-menu, custom-ma
             '//www.google-analytics.com/analytics.js', 'ga');
         ga('create', 'UA-64702784-1', 'auto');
         ga('send', 'pageview');
-    </script>
+</script>
     
 <!-- - - - - - - - - - - EXTERNAL ASSETS - - - - - - - - - - -->
     

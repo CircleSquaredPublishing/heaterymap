@@ -62,6 +62,9 @@ if(isset($pg_title) && is_string($pg_title)) {
 
 <!-- GOOGLE MAPS V3.EXP INCLUDES VISUALIZATION AND PLACES LIBRARIES  -->
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=false&libraries=visualization,places"></script>
+ 
+<!-- GOOGLE MAPS MARKER CLUSTERER LIBRARY  -->    
+<script src="https://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclustererplus/src/markerclusterer.js"></script>
 
 <!-- JQUERYUI 1.11.4 SMOOTHNESS THEME USED FOR STYLING STREETVIEW INSIDE INFOWINDOWS -->
 <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css" />
