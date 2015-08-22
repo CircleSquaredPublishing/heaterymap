@@ -1,6 +1,134 @@
 <?php $pg_title = 'PHP Markers';?>
 <?php require '../assets/common/header.php';?>
+<style>
+    #main {
+    float: left;
+    }
 
+    #left {
+    margin-top: 30px;
+    min-width: 200px;
+    }
+
+    .panel-default>.panel-heading {
+    color: #D5DED9;
+    background-color: rgba(82,66,4,0.7);
+    border-color: transparent;
+    }
+
+    .panel-default {
+    background-color: transparent;
+    border-color: transparent;
+    }
+
+    #info_head {
+    color: #D5DED9;
+    margin: 0px;
+    background-color: rgba(82,66,4,0.7);
+    border-color: transparent;
+    width:300px;
+    }
+
+    .btn-group {
+    padding:10px;
+    text-align:center;
+    margin-left:5%;
+    margin-right:5%;
+    }
+    
+    #mrk_controls {
+    background-color: #B2D0DB;
+    }
+    
+    .dropdown-menu{
+     background-color:rgba(82,66,4,0.7);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: center;
+    list-style: none;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    }
+
+    #info_panel{
+    width:300px;
+    }
+
+    #info_card{
+    }
+
+    #iw-container {
+        margin-bottom: 10px;
+    }
+
+    .iw-title{
+        color: #524204;
+        font-weight: 200;
+        background-color: #B2D0DB;
+        font-size: 13px;
+        padding: 5px;
+        margin-top:10px;
+    }
+
+    .iw-content{
+    width:100%;
+    font-size: 12px;
+    line-height: 18px;
+    padding-top: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    }
+
+    #inf_table{
+    text-align: center;
+    color: #524204;
+    font-weight: 200;
+    }
+
+    tbody{
+   background-color:#8C670E;
+    }
+
+    tr{
+
+    }
+
+    tr :nth-child(1){
+    width:33.33333%;
+    }
+    
+        tr :nth-child(2){
+    width:33.33333%;
+    }
+    
+        tr :nth-child(3){
+    width:33.33333%;
+    }
+
+    th{
+    background-color: #d1b166;
+    text-align: center;
+    color: #524204;
+    }
+
+    td{
+width:100%;
+text-align:center;
+padding:5px;
+color:#D5DED9;
+    }
+
+</style>
 <!-- BEGIN CONTENT -->
 <body style="background-color:#666;">
 
@@ -35,7 +163,6 @@ var brown_style = new google.maps.StyledMapType(brownStyle,{name:"Organic"});
 var myOptions = {
     zoom: 14,
     center: new google.maps.LatLng(<?php echo $latitude; ?>, <?php echo $longitude;?>),
-    scrollwheel: false,
     panControl: false,
     zoomControl: true,
         zoomControlOptions: {
@@ -79,8 +206,6 @@ for (var i = 0; i < restaurantData.data.length; i++) {
         var lat = restaurantData.data[i].location.latitude;
         var lng = restaurantData.data[i].location.longitude;
         var wgt = restaurantData.data[i].talking_about_count;
-        //var name = restaurantData.data[i].name;
-        //var address = restaurantData.data[i].location.street;
         var latLng = new google.maps.LatLng(lat, lng, wgt);
         myData.push(latLng);
         }
@@ -95,6 +220,18 @@ for (var i = 0; i < restaurantData.data.length; i++) {
             }
         });
     }); 
+$("#btn-on-off").click(function() {
+    heatmap.setMap(heatmap.getMap() ? null : map);
+    });
+$("#btn-radius").click(function() {
+    heatmap.set("radius", heatmap.get("radius") ? null : 60);
+    });
+$("#btn-opacity").click(function() {
+    heatmap.set("opacity", heatmap.get("opacity") ? null : 0.3);
+    });
+    
+    
+    
 google.maps.event.addDomListener(window, 'load', displayMap); 
     
 </script>

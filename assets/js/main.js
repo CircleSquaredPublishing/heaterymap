@@ -39,6 +39,9 @@ function displayMap(coords)
 	{
 		name: "Organic"
 	});
+    var mono_style = new google.maps.StyledMapType(monoStyle,{
+        name: "Mono"
+    });
 	var successPosition = new google.maps.LatLng(coords.latitude, coords.longitude);
 
 	var mapOptions = {
@@ -57,7 +60,7 @@ function displayMap(coords)
 		{
 			position: google.maps.ControlPosition.RIGHT_TOP,
 			style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
-			mapTypeIds: ["Retro", "Apple", "Dusk", "Vintage", "Cloud", "Organic",
+			mapTypeIds: ["Retro", "Apple", "Dusk", "Vintage", "Cloud", "Organic", "Mono",
 				google.maps.MapTypeId.ROADMAP, google.maps.MapTypeId.SATELLITE, google.maps
 				.MapTypeId.TERRAIN
 			]
@@ -72,6 +75,7 @@ function displayMap(coords)
 	map.mapTypes.set("Vintage", old_style);
 	map.mapTypes.set("Cloud", pale_style);
 	map.mapTypes.set("Organic", brown_style);
+    map.mapTypes.set("Mono", mono_style);
 	map.setMapTypeId("Vintage");
 
 }

@@ -3,8 +3,8 @@
 }
 .gm-style-iw {
     width: 350px !important;
-    /* top: 15px !important; */
-    /* left: 0px !important; */
+    top: 15px !important; 
+    left: 0px !important; 
     background-color: #fff;
     box-shadow: 0 1px 6px rgba(178, 178, 178, 0.6);
     border: 1px solid #FFEDD5;
@@ -13,13 +13,62 @@
 #iw-container {
     margin-bottom: 10px;
 }
+
+.panel {
+background-color: transparent;
+}
+
+.panel-default{
+border-color: transparent;
+width: inherit;
+max-width: inherit;
+min-width: inherit;
+}
+
+.panel-default>.panel-heading {
+    color: #D5DED9;
+    margin: 0px;
+    background-color: #524204;
+    border-color: transparent;
+
+}
+
+#left {
+    max-width: 500px;
+    width: 450px;
+    min-width: 350px;
+}
+
+#info_head {
+
+    margin-top: 50px;
+    max-width: inherit;
+    width: inherit;
+    min-width: inherit;
+
+}
+
+#info_card {
+    max-width: inherit;
+    width: inherit;
+    min-width: inherit;
+}
+
+
+#iw-container {
+    margin-bottom: 50px;
+    background-color: #8c670e;
+    /* max-width: inherit; */
+    /* width: inherit; */
+    /* min-width: inherit; */
+}
 #iw-container .iw-title {
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 22px;
     font-weight: 400;
     padding: 10px;
-    background-color: #8A5E2F;
-    color: white;
+    background-color: #b2d0db;
+    color: #524204;
     margin: 0;
     border-radius: 2px 2px 0 0;
 }
@@ -27,9 +76,10 @@
     font-size: 13px;
     line-height: 18px;
     font-weight: 400;
-    margin-right: 1px;
-    padding: 15px 5px 20px 15px;
-    max-height: 140px;
+    padding-top: 10px;
+    margin-right: 2px;
+    padding: 5px;
+    max-height: 250px;
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -53,16 +103,49 @@
     background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
     background: -ms-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
 }
-#inf_table,
-tr,
-td,
-th {
-    border: 1px solid #0c1c01;
+
+
+
+#inf_table,tr,td,{
     text-align: center;
+    color: #524204;
+    font-weight: 200;
+    background-color: #3796c6;
+    
 }
 table {
-    border-color: #80473C;
+    max-width: 450px;
+
+    width: 100%;
+    margin-top: 10px;
 }
 th {
-    background-color: #FFCA7C;
+    background-color: #d1b166;
+    text-align: center;
+    color: #524204;
+    font-weight: 300;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

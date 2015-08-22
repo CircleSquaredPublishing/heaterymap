@@ -8,7 +8,7 @@ Author URI: http://www.heatery.io
 $table = basename(__FILE__, '.php');
 $name = ('assets/common/' . $table . '.json');
 $fp = fopen( $name, 'w' );
-$curl=curl_init('https://graph.facebook.com/v2.4/search?q=restaurant&type=place&distance=5000&center='. $latitude . ',' . $longitude . '&fields=location,name,likes,talking_about_count,were_here_count&limit=250&access_token=1452021355091002|x-ZB0iKqWQmYqnJQ-wXoUjl-XtY');
+$curl=curl_init('https://graph.facebook.com/v2.4/search?q=restaurant&type=place&distance=8000&center='. $latitude . ',' . $longitude . '&fields=location,name,likes,talking_about_count,were_here_count,description,website&limit=250&access_token=1452021355091002|x-ZB0iKqWQmYqnJQ-wXoUjl-XtY');
 curl_setopt($curl, CURLOPT_URL);
 curl_setopt($curl, CURLOPT_FILE, $fp);
 curl_exec($curl);
@@ -20,9 +20,11 @@ json_decode($i, true);
 echo PHP_EOL;
 //BEGIN QUERY10 
 //Insert the data held in the variables into the db
-$stmt10=$conn->prepare( "INSERT INTO `top10_markers`(`FID`, `fb_name`, `fb_likes`, `fb_were_here`, `fb_talking_about`, `fb_street`, `fb_city`, `fb_state`, `fb_zip`, `fb_lat`, `fb_lng`)VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)" );
-$stmt10-> bind_param("dsiiisssidd", $FID, $fb_name, $fb_likes, $fb_were_here, $fb_talking_about, $fb_street, $fb_city, $fb_state, $fb_zip, $fb_lat, $fb_lng);
+$stmt10=$conn->prepare("INSERT INTO top10_markers(FID, fb_web,fb_description,fb_name, fb_likes, fb_were_here, fb_talking_about, fb_street, fb_city, fb_state, fb_zip, fb_lat, fb_lng)VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt10-> bind_param("dsssiiisssidd", $FID, $fb_web, $fb_description, $fb_name, $fb_likes, $fb_were_here, $fb_talking_about, $fb_street, $fb_city, $fb_state, $fb_zip, $fb_lat, $fb_lng);
 $FID=mysqli_real_escape_string($conn, $i['id']);
+$fb_web=mysqli_real_escape_string($conn, $i['website']);
+$fb_description=mysqli_real_escape_string($conn, $i['description']);
 $fb_name=mysqli_real_escape_string($conn, $i['name']);
 $fb_likes=mysqli_real_escape_string($conn, $i['likes']);
 $fb_were_here=mysqli_real_escape_string($conn, $i['were_here_count']);
@@ -36,5 +38,4 @@ $fb_lng=mysqli_real_escape_string($conn, $i['location']['longitude']);
 $stmt10->execute();
 }
 $stmt10->close();
-//At this point we should have fresh data in the db based on the geocoded position.
 ?>

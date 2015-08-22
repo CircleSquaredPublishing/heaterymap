@@ -4,6 +4,8 @@ This query is used on the geocoder page table. Distance is factored when determi
 */
 
 $stmt = $conn->query("SELECT 
+fb_web,
+fb_description,
 fb_name,  
 fb_date,
 fb_lat,
@@ -18,3 +20,4 @@ AS distance
 FROM top10_markers 
 WHERE fb_date = CURDATE() HAVING distance < 1
 ORDER BY fb_talking_about DESC LIMIT 10");
+?>

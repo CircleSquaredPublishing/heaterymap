@@ -25,8 +25,13 @@ while
     
     $date[$mrk_cnt] = $obj->fb_date;
     
-    $distance[$mrk_cnt] = $obj->distance;
+    $fb_description[$mrk_cnt] = $obj->fb_description;
+    
+    $fb_web[$mrk_cnt] = $obj->fb_web;
     
     $mrk_cnt++;
-    
 }
+
+print_r($fb_web);
+print_r($fb_description);
+?>

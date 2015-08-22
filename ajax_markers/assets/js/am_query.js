@@ -247,7 +247,6 @@ $("#btn-opacity").click(function() {
     heatmap.set("opacity", heatmap.get("opacity") ? null : 0.3);
     });
     
-    
 $(window).load(function () {
     $.get('assets/db/am_query.json', function (json)
 	{
@@ -304,28 +303,28 @@ $(window).load(function () {
 				'<th>Talking About</th>' +
 				'<th>Price</th>' +
 				'</tr>' +
-				'<td><b>' + likes + '</b></td>' +
-				'<td><b>' + whc + '</b></td>' +
-				'<td><b>' + tac + '</b><br></td><td><b>' + price + '</b><br>' +
-				'</td>' +
-				'</table>' +
-
-				'<b>Description:</b><hr><p>' + description + '</p>' +
+				'<td style="text-align:center; padding:5px 10px">' + likes + '</td>' +
+				'<td style="text-align:center; padding:5px 10px">' + whc + '</td>' +
+				'<td style="text-align:center; padding:5px 10px">' + tac + '</td>' +
+                '<td style="text-align:center; padding:5px 10px">' + price + '</td>' +
+				'</table>' + '<br>' +
 
 				'<div class="iw-subTitle"></div>' +
+                
+                '<a style="color:#b2d0db; letter-spacing: 1.5px;" href=' + website + '>' + website + '</a><hr><br>' +
+                
+                '<b>Description:</b><hr><p>' + description + '</p>'
+            
+                '</div>' + '<div class="iw-bottom-gradient"></div>' + '</div>';
+                
+                /*'<p>' + address + '<br>' + city + ',&nbsp' + state + '&nbsp;' +
+				postal + '<br>' +*/
 
-				'<p>' + address + '<br>' + city + ',&nbsp' + state + '&nbsp;' +
-				postal + '<br>' +
 
-				'<b>Website:&nbsp&nbsp</b>' + '<a style="color:#0C1C01;"href=' +
-				website + '>' + website + '</a><hr><br /></p>' +
+            
+            $('#info_card').append(html);
 
-				'</div>' +
-
-				'<div class="iw-bottom-gradient"></div>' +
-
-				'</div>';
-
+            
 			infoWindow = new google.maps.InfoWindow(
 			{
 				content: html,
