@@ -45,7 +45,7 @@ Tags: responsive-layout, fluid-layout, custom-background, custom-menu, custom-ma
             '//www.google-analytics.com/analytics.js', 'ga');
         ga('create', 'UA-64702784-1', 'auto');
         ga('send', 'pageview');
-    </script>
+</script>
     
 <!-- - - - - - - - - - - EXTERNAL ASSETS - - - - - - - - - - -->
     
@@ -83,7 +83,7 @@ Tags: responsive-layout, fluid-layout, custom-background, custom-menu, custom-ma
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
     
 <!-- HEATERY CUSTOM MAP LAYERS -->    
-<script src="/github/home_page/assets/js/hp_layers_min.js"></script>
+<script src="/github/assets/js/map_layers_min.js"></script>
     
 </head>
 <!-- BEGIN CONTENT -->

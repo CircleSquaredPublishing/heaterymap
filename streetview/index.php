@@ -1,3 +1,5 @@
+<?php $pg_title = 'Streetview';?>
+
 <?php require 'assets/common/sv_header.php';?>
 
     <?php require 'assets/common/sv_nav.php';?>
@@ -14,3 +16,6 @@
         <script src="assets/js/sv_init.js"></script>
 
         <?php require 'assets/common/sv_footer.php';?>
+<!-- BEGIN CONTENT -->
+
+<body style="background-color: #000">

@@ -19,32 +19,49 @@
 			</li>
 			<li>&nbsp;</li>
 		</ul>
-
-		<div class="container" style="margin-right:20px;">
-			<div class="btn-toolbar">
-				<div class="input-group input-group-md" style="width:250px;">
-					<span class="input-group-btn">
-
+        
+        
+        
+<!-- Different than mrk_nav because this calls codeAddress() function. --> 
+<!--<div class="container" style="margin-right:20px;">
+    <div class="btn-toolbar">
+        <div class="input-group input-group-md" style="width:250px;">
+            <span class="input-group-btn">
 <button id="btn-search" class="btn btn-default btn-md" onclick="codeAddress()" title="heatery">Find</button>
-					</span>
-					<input id="address" class="form-control" placeholder="Your Hot Spot." type="text">
-				</div>
-
-				<div class="btn-group">
-
-					<button id="btn-on-off" class="btn btn-default btn-md" onclick="toggleHeatmap()"
-					data-toggle="tooltip" title="Heatmap On/Off"><span class="glyphicon glyphicon-off"></span>
-					</button>
-
-					<button id="btn-radius" class="btn btn-default btn-md" onclick="changeRadius()" data-toggle="tooltip"
-					title="Change Radius"><span class="glyphicon glyphicon-fullscreen"></span>
-					</button>
-
-					<button id="btn-opacity" class="btn btn-default btn-md" onclick="changeOpacity()"
-					data-toggle="tooltip" title="Change Opacity"><span class="glyphicon glyphicon-adjust"></span>
-					</button>
-				</div>
-			</div>
-		</div>
-	</div>
+</span>
+            <input id="address" class="form-control" placeholder="Your Hot Spot." type="text">
+        </div>
+        <div class="btn-group">
+            <button id="btn-on-off" class="btn btn-default btn-md" onclick="toggleHeatmap()" data-toggle="tooltip" title="Heatmap On/Off"><span class="glyphicon glyphicon-off"></span>
+            </button>
+            <button id="btn-radius" class="btn btn-default btn-md" onclick="changeRadius()" data-toggle="tooltip" title="Change Radius"><span class="glyphicon glyphicon-fullscreen"></span>
+            </button>
+            <button id="btn-opacity" class="btn btn-default btn-md" onclick="changeOpacity()" data-toggle="tooltip" title="Change Opacity"><span class="glyphicon glyphicon-adjust"></span>
+            </button>
+        </div>
+    </div>
+</div>-->
+        
+<div class="container" style="margin-right:20px;">
+    <div class="btn-toolbar">
+        <div class="input-group input-group-md" style="width:250px;">
+            <span class="input-group-btn">
+<button id="btn-search" class="btn btn-default btn-md" onclick="codeAddress()" title="heatery"><span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;Find</button>
+            </span>
+            <input id="address" class="form-control" placeholder="Your Hot Spot." type="text">
+        </div>
+        <div class="btn-group">
+            <button id="get_heatery" class="btn btn-default btn-md" type="button" onclick="" data-toggle="tooltip" title="Get Heatery Map"><span class="glyphicon glyphicon-fire"></span>
+            </button>
+            <!--<button id="get_markers" class= "btn btn-default btn-md" type="button" onclick="" data-toggle="tooltip" title="Show/Hide Markers"><span class="glyphicon glyphicon-map-marker"></span></button>-->
+            <button id="btn-on-off" class="btn btn-default btn-md" type="button" onclick="" data-toggle="tooltip" title="Heatmap On/Off"><span class="glyphicon glyphicon-off"></span>
+            </button>
+            <button id="btn-radius" class="btn btn-default btn-md" type="button" onclick="" data-toggle="tooltip" title="Change Radius"><span class="glyphicon glyphicon-fullscreen"></span></button>
+            <button id="btn-opacity" class="btn btn-default btn-md" type="button" onclick="" data-toggle="tooltip" title="Change Opacity"><span class="glyphicon glyphicon-adjust"></span>
+            </button>
+        </div>
+    </div>
+</div>
+        
+</div>
 </div>

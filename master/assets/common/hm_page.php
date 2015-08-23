@@ -1,5 +1,5 @@
 <div id="map-canvas"></div>
-<div class="container-fluid" id="main">
+<div class="container" id="main" style="float:left;">
   <div class="row">
   	<div class="col-xs-4" id="left">
       <h2 style="margin-top:50px;">Heatery Top Ten</h2><!-- spacing hack -->
