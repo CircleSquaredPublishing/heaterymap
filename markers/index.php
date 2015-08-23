@@ -26,8 +26,6 @@ require_once 'assets/common/mrk_conn.php';
         
 require_once 'assets/common/mrk_insert.php';
         
-require_once 'assets/common/mrk_select.php'; 
-        
 require 'assets/common/mrk_main_js.php'; 
         
         
