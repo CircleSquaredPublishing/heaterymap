@@ -7,7 +7,7 @@ Author: Circle Squared Data Labs
 Author URI: http://www.heatery.io 
 */ 
 
-require '../assets/db/conn.php';
+
 date_default_timezone_set('America/New_York');
 $today = date('l, F jS');
 
@@ -24,7 +24,7 @@ if( $_POST ) {
         
         $city = $data_arr[2];
         
-        echo "<div id='response' class='col-md-12'>The Heatery Top Ten within 10 km of $city <br /> On this Beautiful $today.</div></div>";
+        echo "<div class='col-md-12'>The Heatery Top Ten within 10 km of $city on this Beautiful $today.</div></div>";
         
         } else {
         

@@ -8,7 +8,7 @@ Author URI: http://www.heatery.io
 
 
 $table = basename(__FILE__, '.php');
-$name = ('data/' . $table . '.json');
+$name = ('assets/common/data/' . $table . '.json');
 $fp = fopen( $name, 'w' );//Create the file to store the response. Make it writeable.
 
 $ch=curl_init();//Initialize the curl function.
@@ -48,6 +48,5 @@ $fb_lat=mysqli_real_escape_string($conn, $i['location']['latitude']);
 $fb_lng=mysqli_real_escape_string($conn, $i['location']['longitude']);
 $stmt1->execute();
 }
-$results = null;
-$stmt1 = null;
+$stmt1->close();
 ?>

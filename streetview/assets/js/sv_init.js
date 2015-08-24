@@ -45,6 +45,10 @@ function initialize()
 		}
 	};
 	map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+        var mcOptions = {
+        gridSize: 50,
+        maxZoom: 15
+        };
 	map.mapTypes.set('Retro', retro_style);
 	map.mapTypes.set('Apple', apple_style);
 	map.mapTypes.set('Dusk', light_style);
@@ -53,28 +57,22 @@ function initialize()
 	map.mapTypes.set('Organic', brown_style);
 	map.setMapTypeId('Vintage');
 
-	function addMarker(feature)
-	{
-		var marker = new google.maps.Marker(
-		{
+	function addMarker(feature){
+		var marker = new google.maps.Marker({
 			position: feature.position,
 			map: map
-		});
+		      });
+        
 		var infowindow = new google.maps.InfoWindow();
-		var content =
-			'<div id="iwsw" class="iwsw">Street View</div>';
-		google.maps.event.addDomListener(infowindow, 'domready', function ()
-		{
-			$('.iwsw').click(function ()
-			{
-				showStreetView(feature.position);
-			});
-		});
-		google.maps.event.addListener(marker, 'click', (function (marker, content,
-			infowindow)
-		{
-			return function ()
-			{
+        
+		var content = '<div id="iwsw" class="iwsw">Street View</div>';
+        
+		google.maps.event.addDomListener(infowindow, 'domready', function (){
+            
+			$('.iwsw').click(function (){showStreetView(feature.position);});});
+        
+		google.maps.event.addListener(marker, 'click', (function (marker, content,infowindow){
+			return function (){
 				infowindow.setContent(content);
 				infowindow.open(map, marker);
 			};
@@ -231,9 +229,10 @@ function initialize()
 	{
 		position: new google.maps.LatLng(26.458286, -80.110733)
 	}];
-	for (var i = 0, feature; feature = features[i]; i++)
-	{
+	for (var i = 0, feature; feature = features[i]; i++){
 		addMarker(feature);
 	}
+
+    var mc = new MarkerClusterer(map, features, mcOptions);
 }
 google.maps.event.addDomListener(window, 'load', initialize);
