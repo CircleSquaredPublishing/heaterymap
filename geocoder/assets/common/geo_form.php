@@ -13,11 +13,10 @@
                 <form action="" method="post">
                     <div id="gc-input" class="input-group">
                         <span class="input-group-btn">
-<input class="btn btn-success btn-md" type="submit" value="Find" /><br /></span>
+<input class="btn btn-success btn-md" type="submit" value="Find" /></span>
                         <!--@end Button for PHP Geocoder-->
                         <input id="search-box-tt" class="form-control" type="text" name="address" placeholder="Your Hot Spot." />
                     </div>
-                    <br>
                     <!--@end Input field for PHP Geocoder-->
                 </form>
                 <!--@end form for PHP Geocoder-->

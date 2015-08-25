@@ -16,7 +16,7 @@ Tags: responsive-layout, fluid-layout, custom-background, custom-menu, custom-ma
 html,
 body {
     height: 100%;
-    background-color: #000;
+    background-color: #666;
 }
 body {
     padding-top: 50px;

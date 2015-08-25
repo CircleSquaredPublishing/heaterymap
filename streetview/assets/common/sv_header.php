@@ -27,7 +27,7 @@
 
 <script src="/github/streetview/assets/js/sv_layers_min.js"></script>
 
-<?php include '/packages/vendor/autoload.php';?>
+<script src="/github/streetview/assets/js/markerclusterer.js"></script>
 
 </head>
     

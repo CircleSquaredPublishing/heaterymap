@@ -35,7 +35,7 @@ The main navigation bar for our site.
                         </a>
                     </li>
                     
-                   <li data-toggle="tooltip" title="Just like our business partners, contributors to The Speak Easy get their own snazzy portal link too! The Speak Easy is our hand selected crew of objective critics who play an integral role in refining the heatery algorithm. Who are our critics? We will never tell...but our Blind Tiger members gain access to their reviews. Heatery Business partners will have access to reviews as well as the data our engineers use to feed the heatery model.">
+                   <li data-toggle="tooltip" title="A Blind Tiger is Coming Soon!">
                         <a href="https://www.heatery.io/wp-login.php">
                             <span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;The Speak Easy
                         </a>

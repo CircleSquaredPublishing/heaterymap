@@ -51,6 +51,7 @@ The left sidebar for our home page.
 <a href="http://instagram.com/heatery?ref=badge" class="ig-b- ig-b-v-24"><img src="//badges.instagram.com/static/images/ig-badge-view-24.png" alt="Instagram" /></a>
                 </li><!--@end social media buttons-->
                 <li style="color:#989898;"><p>Crafted with<span style="margin-left:-15px; margin-right:-7px; color:#F2BDB9" class="glyphicon glyphicon-heart"></span>&nbsp;&nbsp; by heatery.io</p></li>
+                <li></li>
             </ul>
         
         </div>

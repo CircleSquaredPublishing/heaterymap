@@ -21,15 +21,11 @@ Tags: responsive-layout, fluid-layout, custom-background, custom-menu, custom-ma
 
         <?php require 'assets/common/geo_form.php';?>
 
-            <?php require '../assets/db/conn.php';?>
+            <?php require 'assets/common/conn.php';?>
 
-                <?php require '../assets/db/post.php';?>
-
-                    <?php require '../assets/db/insert_top10_mrk.php';?>
-
-                        <?php require 'assets/common/geo_table.php';?>
+                <?php require 'assets/common/post.php';?>
 
                             <?php require '../assets/common/footer.php';?>
 <!-- BEGIN CONTENT -->
 
-<body id="gc_body">
+<body id="gc_body" style="background-color: #666;">

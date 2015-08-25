@@ -1,9 +1,7 @@
 <?php 
 
 echo 
-    "<div class='container'>
-	   <div class='row'>
-    	   <div class='table-responsive'>
+    "<div class='table-responsive'>
                 <table class='table-bordered table-hover'>";
 
 echo 
@@ -30,7 +28,7 @@ class TableRows extends RecursiveIteratorIterator {
         
         return 
             
-    "<td style='padding:10px; margin:5px;'>" . parent::current(). "</td>";
+    "<td>" . parent::current(). "</td>";
         
     }
   
@@ -57,7 +55,7 @@ $conn= new PDO("mysql:host=$servername; dbname=$dbname",$username,$password);
     
     date_default_timezone_set("America/New_York");
     
-    require_once ('../assets/db/q_dist_geo_table.php');
+    require_once ('/github/assets/db/q_dist_geo_table.php');
     
     $stmt->execute();
     
@@ -76,7 +74,7 @@ catch(PDOException $e) {
     
 }
 
-echo "</tbody></table></div></div></div></div>";
+echo "</tbody></table></div></div>";
 
 $conn=null;
 
