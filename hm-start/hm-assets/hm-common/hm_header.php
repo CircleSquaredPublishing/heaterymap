@@ -11,12 +11,15 @@ Tags: responsive-layout, fluid-layout, custom-background, custom-menu, custom-ma
 ------------------------------------------------------------------------------------------*/
 /*@NOTE Heatmap is generated from a static set of point that will be updated periodically. A dynamic dataset was originally created but we have been unable to address browser crashing issues due to the number of points loaded into the map. It should be noted though that the heatmap display is quite different as far a distribution of points is concerned even though the same query was used to generate those points. Both of the above should be addressed because ideally all content would be dynamic.*/
 ?>
-
 <!DOCTYPE html>
-<html manifest="../../../home_page/assets/common/heatery.appcache">
+<html>
 <head>
 <title>Welcome to heatery.io</title>
-    
+<?php 
+$js_path = '/hm-pages/hm-start/hm-assets/hm-js/';
+$img_path = '/hm-media/hm-img/';  
+$style_path = '/hm-pages/hm-start/hm-assets/hm-css/';
+?>
 <!-- BEGIN META TAGS -->
 <meta charset="UTF-8" />
 <meta name="p:domain_verify" content="99be6fb68b0c975e69a515c6fad020ab"/>
@@ -46,45 +49,27 @@ Tags: responsive-layout, fluid-layout, custom-background, custom-menu, custom-ma
         ga('create', 'UA-64702784-1', 'auto');
         ga('send', 'pageview');
 </script>
-    
-<!-- - - - - - - - - - - EXTERNAL ASSETS - - - - - - - - - - -->
-    
+
 <!-- JQUERY 2.1.4 -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
  
 <!-- GOOGLE MAPS V3.EXP INCLUDES VISUALIZATION AND PLACES LIBRARIES  -->    
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=false&libraries=visualization,places"></script> 
+    
+<!-- GOOGLE FONTS LATO 400 -->    
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400">
 
-<!-- HEATERY STYLESHEET -->
-<link rel="stylesheet" type="text/css" href="../../../home_page/assets/css/hp_style.css"/> 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  
+<!-- GOOGLE FONTS SOURCE SANS PRO 400, 900 -->    
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,900">    
+ 
 <!-- JQUERY SMOOTHNESS THEME USED FOR STYLING STREETVIEW INSIDE INFOWINDOWS -->    
 <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css"/>
 
 <!-- BOOTSTRAP 3.3.5 MINIFIED CSS -->    
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
-
-<!-- GOOGLE FONTS LATO 400 -->    
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400">
-
-<!-- GOOGLE FONTS SOURCE SANS PRO 400, 900 -->    
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,900">
-
-<!-- BOOTSTRAP 3.3.5 MINIFIED JS -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     
-<!-- JQUERY 1.11.2 MINIFIED JS -->    
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-    
-<!-- HEATERY CUSTOM MAP LAYERS -->    
-<script src="../../../home_page/assets/js/map_layers_min.js"></script>
-    
+<link rel="stylesheet" href="<?php echo $style_path . 'hm_style.css';?>"/>    
+  
 </head>
 <!-- BEGIN CONTENT -->
 <body style="background-color: #000">

@@ -64,7 +64,7 @@ function displayMap(){
         mapTypeControl: true,
         mapTypeControlOptions: {
         style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
-        position: google.maps.ControlPosition.TOP_CENTER,
+        position: google.maps.ControlPosition.TOP_LEFT,
         mapTypeIds: ["Retro", "Apple", "Dusk", "Vintage","Cloud","Organic", 
              google.maps.MapTypeId.ROADMAP, 
              google.maps.MapTypeId.SATELLITE, 
@@ -91,7 +91,7 @@ function displayMap(){
         map.mapTypes.set("Vintage", old_style);
         map.mapTypes.set("Cloud", pale_style);
         map.mapTypes.set("Organic", brown_style);
-        map.setMapTypeId("Vintage");
+        map.setMapTypeId("Retro");
     }   
 
 google.maps.event.addDomListener(window, "load", displayMap);
