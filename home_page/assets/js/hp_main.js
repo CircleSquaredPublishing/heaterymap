@@ -47,11 +47,11 @@ function displayMap(){
     var old_style = new google.maps.StyledMapType(oldStyle,{name:"Vintage"});
     var pale_style = new google.maps.StyledMapType(paleStyle,{name:"Cloud"});
     var brown_style = new google.maps.StyledMapType(brownStyle,{name:"Organic"});
-    var center = new google.maps.LatLng(36,-95);
+    var center = new google.maps.LatLng(36,-85);
     var gradientNew=["rgba(0,255,255,0)","rgba(25,22,218,1)","rgba(17,191,225,1)","rgba(16,227,217,1)","rgba(15,229,173,1)","rgba(14,231,128,1)","rgba(13,233,82,1)","rgba(12,235,34,1)","rgba(37,237,11,1)","rgba(85,239,10,1)","rgba(134,241,8,1)","rgba(185,243,7,1)","rgba(237,245,6,1)","rgba(247,203,5,1)","rgba(249,152,3,1)","rgba(251,100,2,1)","rgba(255,127,131,1)","rgba(253,47,1,1)","rgba(255,0,7,1)"];
     
     var mapOptions = {
-        zoom: 5,
+        zoom: 4,
         center: center,
         scrollwheel: false,
         streetViewControl: false,

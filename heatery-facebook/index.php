@@ -70,6 +70,51 @@
 
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js">
 </script>
+    
+<style>
+html, body{
+z-index: 0;
+position: fixed;
+top:0;
+bottom:0;
+left:0;
+right:0;
+height:100%;
+width:100%;
+}
+    
+#map-canvas {
+position: relative;
+bottom:0;
+height: 90%;
+width: 100%;
+z-index: -1;
+}
+
+#pac-input {
+background-color: #fff;
+font-family: Helvetica neue, sans-serif, serif;
+font-size: 12px;
+font-weight: 100;
+text-overflow: ellipsis;
+width: 250px;
+height: 30px;
+}
+
+#pac-input:focus {
+border-color: #4d90fe
+}
+
+.controls {
+box-sizing: border-box;
+
+}
+    
+nav.navbar{
+margin-bottom:0px;    
+}
+
+</style>
 </head>
 <body style="background-color: #000">
 <script>
@@ -105,8 +150,9 @@
 
 <ul class="nav navbar-nav">
 
-
-
+</div>
+    
+</div>
     
 </nav>
 

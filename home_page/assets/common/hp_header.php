@@ -9,11 +9,11 @@ License: Except as otherwise noted, the content of this page is licensed under t
 License URI: license.txt
 Tags: responsive-layout, fluid-layout, custom-background, custom-menu, custom-maps, AJAX, Facebook Graph API, Heatmap Visualizations, Google Maps, Bootstrap, Heatery, Circle Squared Data Labs, restaurants, social media analysis, spatial data analysis
 ------------------------------------------------------------------------------------------*/
-/*@NOTE Heatmap is generated from a static set of point that will be updated periodically. A dynamic dataset was originally created but we have been unable to address browser crashing issues due to the number of points loaded into the map. It should be noted though that the heatmap display is quite different as far a sdistribution of points is concerned even though the same query was used to generate those points. Both of the above should be addressed because ideally all content would be dynamic.*/
+/*@NOTE Heatmap is generated from a static set of point that will be updated periodically. A dynamic dataset was originally created but we have been unable to address browser crashing issues due to the number of points loaded into the map. It should be noted though that the heatmap display is quite different as far a distribution of points is concerned even though the same query was used to generate those points. Both of the above should be addressed because ideally all content would be dynamic.*/
 ?>
 
 <!DOCTYPE html>
-<html>
+<html manifest="../../../home_page/assets/common/heatery.appcache">
 <head>
 <title>Welcome to heatery.io</title>
     
@@ -56,7 +56,7 @@ Tags: responsive-layout, fluid-layout, custom-background, custom-menu, custom-ma
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=false&libraries=visualization,places"></script> 
 
 <!-- HEATERY STYLESHEET -->
-<link rel="stylesheet" type="text/css" href="/github/home_page/assets/css/hp_style.css"/> 
+<link rel="stylesheet" type="text/css" href="../../../home_page/assets/css/hp_style.css"/> 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -71,10 +71,10 @@ Tags: responsive-layout, fluid-layout, custom-background, custom-menu, custom-ma
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
 
 <!-- GOOGLE FONTS LATO 400 -->    
-<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:400">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400">
 
 <!-- GOOGLE FONTS SOURCE SANS PRO 400, 900 -->    
-<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,900">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,900">
 
 <!-- BOOTSTRAP 3.3.5 MINIFIED JS -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -83,7 +83,7 @@ Tags: responsive-layout, fluid-layout, custom-background, custom-menu, custom-ma
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
     
 <!-- HEATERY CUSTOM MAP LAYERS -->    
-<script src="/github/assets/js/map_layers_min.js"></script>
+<script src="../../../home_page/assets/js/map_layers_min.js"></script>
     
 </head>
 <!-- BEGIN CONTENT -->

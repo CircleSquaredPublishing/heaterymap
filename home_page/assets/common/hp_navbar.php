@@ -11,14 +11,16 @@ The main navigation bar for our site.
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+                <ul class="nav navbar-nav">
+    <li>
+        <img style="margin:5px 25px 5px 5px;" width="45" height="45" src="../../../media/img/logo_heatery_lg.png" />
+    </li>
+</ul>
                 <a class="navbar-brand" href="https://www.heatery.io/wp-login.php">heatery.io</a>
             </div>
             
 <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav">
-    <li class="active"><a href="#">The United States Heatery Map</a></li>
 
-                </ul>
                 <ul class="nav navbar-nav navbar-right">
                     
                     <li>
