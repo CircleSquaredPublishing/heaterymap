@@ -70,6 +70,6 @@ if(isset($pg_title) && is_string($pg_title)){
 <!-- HEATERY CUSTOM MAP LAYERS -->
 <script src="hm-assets/hm-js/hm_map_layers_min.js"></script>
 <!-- HEATERY STYLESHEET -->
-<link rel="stylesheet" type="text/css" href= "hm-assets/hm-css/hm_style.css" />
+<link rel="stylesheet" type="text/css" href= "hm-assets/hm-css/hm_belgium.css" />
 </head>
     <body style="background-color:#666;">
