@@ -1,6 +1,6 @@
 <?php 
 /* 
-File Name: add_markers.php 
+File Name: hm_add.php 
 Description: Uses stored variable data from top 10 query to place markers and infowindows on the map. 
 Author: Circle Squared Data Labs 
 Author URI: http://www.heatery.io 
