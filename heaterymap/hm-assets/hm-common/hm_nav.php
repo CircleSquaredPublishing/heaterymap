@@ -50,18 +50,18 @@
 
                     <ul id="hm_navbar_dropdown_ul" class="dropdown-menu">
 
-                        <li><a href="#">Action</a>
+                        <li><a href="#">Facebook</a>
 
                         </li>
 
-                        <li><a href="#">Another action</a>
+                        <li><a href="#">Twitter</a>
 
                         </li>
-                        <li><a href="#">Something else here</a>
+                        <li><a href="#">Instagram</a>
 
                         </li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#">Separated link</a>
+                        <li><a href="#">Data Analysis Portal</a>
 
                         </li>
 
@@ -132,17 +132,20 @@
  
             <ul class="nav navbar-nav navbar-right">
                 
+<button id="btn-on-off" type="button" class="btn btn-default navbar-btn" onclick="" data-toggle="tooltip" title="Heatmap On/Off">
+
+    <span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;Heatery On/Off
+
+</button>                
+                
+                
 <button id="btn-heatery" class="btn btn-default navbar-btn" type="button" onclick="" data-toggle="tooltip" title="Get Heatery Map">
 
     <span class="glyphicon glyphicon-fire"></span>&nbsp;&nbsp;Get Heatery Map
 
 </button>
                 
-<button id="btn-on-off" type="button" class="btn btn-default navbar-btn" onclick="" data-toggle="tooltip" title="Heatmap On/Off">
 
-    <span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;Heatery On/Off
-
-</button>
                 
                    <form id="gc-form" class="navbar-form navbar-left" role="search" method="post">
                 
