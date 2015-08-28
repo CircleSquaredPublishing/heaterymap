@@ -1,7 +1,7 @@
 <script>
     var map;
     var marker;
-    var infoWindow;
+    var infowindow = new google.maps.InfoWindow();
 
     function displayMap() {
         var retro_style = new google.maps.StyledMapType(retroStyle, {
