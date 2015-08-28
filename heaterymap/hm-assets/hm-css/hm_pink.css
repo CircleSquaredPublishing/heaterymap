@@ -1,0 +1,184 @@
+/*
+File Name: hm_pink.css
+Author: Circle Squared Data Labs
+Author URI: http://www.heatery.io
+Description: This is the heatery map Soft Pink stylesheet. It is a light theme with pink backgrounds and ever 'pinker' fonts.
+The primary colors used are:
+background-color:
+color:
+border-color:
+Version: 1.0.0
+License: GNU General Public License 2.0
+License URI: license.txt
+Tags: responsive-layout, fluid-layout, custom-background, custom-menu, custom-maps, AJAX, Facebook Graph API, Autocomplete SearchBox, Heatmap Visualizations, Google Maps
+*/
+
+html,body {
+height: 100%;
+background-color: #666;
+font-family: Helvetica Neue, Arial, sans-serif;
+font-weight:200;
+}
+
+body {
+padding-top: 50px;
+padding-bottom:50px;
+}
+
+#hm_navbar_top, #hm_navbar_bottom{
+background-color: rgb(128,88,65);
+border-color: transparent !important;
+color: #F5A2A2;
+}
+
+#hm_navbar_brand_img{
+height:45px;
+width:45px;
+margin-top: -11px;
+}
+
+.navbar-default .navbar-nav>li>a {
+color: #D5DED9;
+}
+
+#hm_navbar_top li>a:hover,
+#hm_navbar_top .active>a,
+#hm_navbar_top li>a:focus,
+#hm_navbar_bottom li>a:hover,
+#hm_navbar_bottom .active>a,
+#hm_navbar_bottom li>a:focus {
+background-color: #dcf7f3;
+color: #805841;
+
+}
+
+#hm_navbar_dropdown_ul {
+background-color: rgba(128,88,65,0.7);
+padding: 8px;
+}
+
+#hm_navbar_dropdown, #hm_dropup_dev, #hm_dropup_blog {
+background-color: rgb(128,88,65);
+}
+
+.dropdown-menu>li>a {
+color: #DCF7F3 !important;
+}
+
+#map-canvas {
+width: 100%;
+height: calc(100% - 0);
+position: absolute;
+right: 0px;
+top: 50px;
+bottom: 50px;
+overflow: hidden;
+}
+
+#main, #main>.row {
+height: 100%;
+}
+
+#main>.row {
+overflow-y: scroll;
+}
+
+#main {
+float: left;
+}
+
+#left {
+margin-top: 30px;
+}
+
+#gc-search-box {
+width: 250px;
+background-color: #ffd8d8;
+border: none;
+color: rgb(28, 33, 48) !important;
+letter-spacing: 1.5px;
+}
+
+#btn-heatery, #btn-on-off{
+float: right;
+margin-right:10px;
+padding-left: 5px;
+padding-right: 5px;
+width: 145px;
+}
+
+#btn-heatery, #btn-on-off, #btn-find, #btn-belgium, #btn-redee, #btn-pink, #btn-roots {
+background-color: #F5A2A2;
+border-color: transparent;
+color: #666;
+font-family: Helvetica Neue, Arial, sans-serif;
+font-weight:200;
+}
+
+#btn-heatery:hover, #btn-on-off:hover, #btn-find:hover, #btn-belgium:hover, #btn-redee:hover, #btn-pink:hover, #btn-roots:hover {
+background-color: #dcf7f3;
+color: rgba(28, 33, 48, 0.7);
+border: 1px solid #D5DED9;
+}
+
+#btn-belgium, #btn-redee, #btn-pink, #btn-roots {
+text-align:left;
+width:100%;
+border-color: #D5DED9;
+}
+
+#btn-belgium, #btn-redee, #btn-pink {
+margin-bottom: 8px;
+}
+
+.panel-default {
+background-color: transparent;
+border-color: transparent;
+}
+
+#info_head, #info_card {
+background-color: rgba(128,88,65,0.7);
+border-color: transparent;
+color: #dcf7f3;
+padding: 10px;
+border-radius: 3px;
+}
+
+#sb-content {
+font-size: 12px;
+line-height: 18px;
+max-height: 175px;
+overflow-y: auto;
+}
+
+#sb-title {
+background-color: #dcf7f3;
+color:rgb(128,88,65);
+font-weight: 400;
+font-size: 14px;
+padding: 5px;
+margin-top: 10px;
+}
+
+p {
+padding-right: 10px;
+text-align: justify;
+color: #D5DED9;
+}
+
+hr {
+margin-top: 5px;
+margin-bottom: 10px;
+border-top: 1px solid #f5a2a2;
+}
+
+a {
+color: #D5DED9;
+text-decoration: none;
+font-size: 14px;
+font-weight: 200;
+}
+
+a:hover {
+color: #F5a2a2;
+}

@@ -1,5 +1,6 @@
 NOTES.txt
 DESIGN.md
+<<<<<<< HEAD
 portability_checklist.md
 hm_standards.md
 *.json
@@ -7,3 +8,6 @@ hm_standards.md
 CHANGELOG.md
 
 heaterymap/testfile.php
+=======
+
+>>>>>>> develop
