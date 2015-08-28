@@ -53,23 +53,33 @@ if(isset($pg_title) && is_string($pg_title)){
 <!-- - - - - - - - - - - EXTERNAL ASSETS - - - - - - - - - - -->
 <!-- JQUERY 2.1.4 -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    
 <!-- GOOGLE MAPS V3.EXP INCLUDES VISUALIZATION AND PLACES LIBRARIES  -->
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=false&libraries=visualization,places"></script>
+    
 <!-- BOOTSTRAP 3.3.5 MINIFIED CSS -->
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    
 <!-- JQUERY-UI 1.11.4 SMOOTHNESS THEME JS -->    
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">    
+    
 <!-- GOOGLE FONTS LATO 400 -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400">
+    
 <!-- GOOGLE FONTS SOURCE SANS PRO 400, 900 -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,900">
+    
 <!-- BOOTSTRAP 3.3.5 MINIFIED JS -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    
 <!-- JQUERY 1.11.4 MINIFIED JS -->
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    
 <!-- HEATERY CUSTOM MAP LAYERS -->
-<script src="hm-assets/hm-js/hm_map_layers_min.js"></script>
+<script src="/github/heaterymap/hm-assets/hm-js/hm_map_layers_min.js"></script>
+    
 <!-- HEATERY STYLESHEET -->
-<link rel="stylesheet" type="text/css" href= "hm-assets/hm-css/hm_belgium.css" />
+<link rel="stylesheet" type="text/css" href= "/github/heaterymap/hm-assets/hm-css/hm_belgium.css" />
 </head>
+    
     <body style="background-color:#666;">
