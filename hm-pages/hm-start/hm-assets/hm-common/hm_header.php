@@ -14,12 +14,15 @@ Tags: responsive-layout, fluid-layout, custom-background, custom-menu, custom-ma
 <!DOCTYPE html>
 <html>
 <head>
-<title>Welcome to heatery.io</title>
+<title>
 <?php 
-$js_path = '/hm-pages/hm-start/hm-assets/hm-js/';
-$img_path = '/hm-media/hm-img/';  
-$style_path = '/hm-pages/hm-start/hm-assets/hm-css/';
+if(isset($pg_title) && is_string($pg_title)){
+    echo $pg_title;
+}else{
+    echo 'Find Your Hot Spot.';
+}
 ?>
+</title>
 <!-- BEGIN META TAGS -->
 <meta charset="UTF-8" />
 <meta name="p:domain_verify" content="99be6fb68b0c975e69a515c6fad020ab"/>
@@ -49,27 +52,24 @@ $style_path = '/hm-pages/hm-start/hm-assets/hm-css/';
         ga('create', 'UA-64702784-1', 'auto');
         ga('send', 'pageview');
 </script>
-
+<!-- - - - - - - - - - - EXTERNAL ASSETS - - - - - - - - - - -->
 <!-- JQUERY 2.1.4 -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
- 
+    
 <!-- GOOGLE MAPS V3.EXP INCLUDES VISUALIZATION AND PLACES LIBRARIES  -->    
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=false&libraries=visualization,places"></script> 
-    
-<!-- GOOGLE FONTS LATO 400 -->    
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400">
-
-<!-- GOOGLE FONTS SOURCE SANS PRO 400, 900 -->    
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,900">    
- 
-<!-- JQUERY SMOOTHNESS THEME USED FOR STYLING STREETVIEW INSIDE INFOWINDOWS -->    
-<link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css"/>
+       
+<!-- JQUERY UI-DARKNESS THEME  -->    
+<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.4/themes/ui-darkness/jquery-ui.css"/>
 
 <!-- BOOTSTRAP 3.3.5 MINIFIED CSS -->    
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+ 
+<!-- START PAGE STYLESHEET -->    
+<link rel="stylesheet" href="<?php echo $style_path . 'hm_style.css';?>"/>  
     
-<link rel="stylesheet" href="<?php echo $style_path . 'hm_style.css';?>"/>    
-  
+<!-- HEATERY STYLESHEET -->    
+<link rel="stylesheet" type="text/css" href= "/github/heaterymap/hm-assets/hm-css/hm_belgium.css" />
 </head>
 <!-- BEGIN CONTENT -->
 <body style="background-color: #000">
