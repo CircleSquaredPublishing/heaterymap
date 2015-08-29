@@ -6,13 +6,13 @@ Author: Circle Squared Data Labs
 Author URI: http://www.heatery.io 
 */ 
 
-$stmt = "SELECT fb_web,fb_cover,fb_description,fb_name,fb_date,fb_lat,fb_lng,fb_city,fb_state,fb_street,fb_zip,fb_talking_about,fb_were_here,fb_likes,
+$stmt = "SELECT fb_web,fb_cover,fb_about,fb_culinary_team,fb_description,fb_name,fb_date,fb_lat,fb_lng,fb_city,fb_state,fb_street,fb_zip,fb_talking_about,fb_were_here,fb_likes,
 TRUNCATE((SQRT(POW(69.1 * (fb_lat - $latitude),2) + POW(69.1 *( $longitude - fb_lng) * COS(fb_lat/57.3), 2)) * 0.621371),2)
 AS distance FROM top10_markers WHERE fb_date = CURDATE() HAVING distance < 1 ORDER BY fb_talking_about DESC LIMIT 10";
 
 if ($result = $conn->query($stmt)) {
     
-$fb_web=$fb_cover=$fb_description=$fb_name=$fb_date=$fb_lat=$fb_lng=$fb_city=$fb_state=$fb_zip=$fb_street=$fb_talking_about=$fb_were_here=$fb_likes=array();
+$fb_web=$fb_cover=$fb_about=$fb_culinary_team=$fb_description=$fb_name=$fb_date=$fb_lat=$fb_lng=$fb_city=$fb_state=$fb_zip=$fb_street=$fb_talking_about=$fb_were_here=$fb_likes=array();
 
 $c = 0;
 
@@ -32,6 +32,8 @@ $c = 0;
             $fb_web[$c] = $obj->fb_web;
             $fb_web_parse[$c] = (parse_url($obj->fb_web, PHP_URL_HOST));
             $fb_cover[$c] = $obj->fb_cover;
+            $fb_about[$c] = $obj->fb_about;
+            $fb_culinary_team[$c] = $obj->fb_culinary_team;
             ++$c;
             } 
         $result->close();
@@ -84,23 +86,79 @@ $icons = array (    "number_1.png",     "number_2.png",     "number_3.png",     
             echo "var fb_web_parse$i = \"$fb_web_parse[$i]\";\n";
             
             echo "var fb_cover$i = \"$fb_cover[$i]\";\n";
+            
+            echo "var fb_about$i = \"$fb_about[$i]\";\n";
+            
+            echo "var fb_culinary_team$i = \"{$fb_culinary_team[$i]}\";\n";
 
-            echo "var html$i= '<div id=\"iw-container\">' +
+            echo "var html$i= 
+            
+            '<div id=\"iw_container\" class=\"container-fluid\">' +
+            
+            '<div class=\"row\"><div class=\"col-xs-12\">' + 
+            
+            '<div id=\"iw_title\">' + \"$j.&nbsp;$fb_name[$i]\" +  '</div></div></div>' +
+            
+            '<p></p>' + 
+            
+            '<div class=\"row\"><div class=\"col-xs-12\">' + \"$fb_street[$i]\" + ',&nbsp;' + \"$fb_zip[$i]\" + '<hr>' +
+            
+            '<div id=\"iw_content\" class=\"container-fluid\">' +
+            
+            '<table id= \"info_table\" class=\"table-striped table-hover table-bordered table-condensed table-responsive\">' +
+            
+            '<thead>' +
+            
+            '<tr>' +
+            
+            '<th>Likes</th>' +
+            
+            '<th>Were' + '<br>' + 'Here</th>' +
+            
+            '<th>Talking' + '<br>' + 'About</th>' +
+            
+            '</tr>' + '</thead>' + 
+            
+            '<tbody>' +
+            
+            '<td>' + \"$fb_likes[$i]\" + '</td>' +
+            
+            '<td>' +\"$fb_were_here[$i]\" + '</td>' +
+            
+            '<td>' + \"$fb_talking_about[$i]\" + '</td>' + 
+            
+            '</tbody>' +
+            
+            '</table></div></div><hr>';\n";  
+            
 
-                    '<div class=\"iw-title\">' + \"$j.&nbsp;$fb_name[$i]\" +  '<p></p>' + \"$fb_street[$i]\" + ',&nbsp;' + \"$fb_zip[$i]\" + '<hr></div>' + 
-                    '<div class=\"iw-content\">' +
-                    '<table class=\"table-striped table-bordered table-condensed\" id= \"inf_table\">' +
-                    '<tr>' +
-                    '<th>Likes</th>' +
-                    '<th>Were' + '<br>' + 'Here</th>' +
-                    '<th>Talking' + '<br>' + 'About</th>' +
-                    '</tr>' +
-                    '<td>' + \"$fb_likes[$i]\" + '</td>' +
-                    '<td>' +\"$fb_were_here[$i]\" + '</td>' +
-                    '<td>' + \"$fb_talking_about[$i]\" + '</td>' +
-                    '</table></div></div><hr>';\n";     
-
-            echo  "var infoCard$i = '<div class=\"container-fluid\"><div class=\"row\"><div id=\"sb-title\" class=\"col-xs-12\">' +  \"$j.&nbsp;$fb_name[$i]\" + '</div></div>'  + '<div class=\"row\"><div class=\"col-xs-12\">' + '<p></p><a id=\"sb_link\" href=' + \"$fb_web[$i]\" + '>' + \"$fb_web_parse[$i]\" +  '</a>' + '<hr></div></div>' + '<div class=\"row\"><div class=\"col-xs-12\">' + '<img id=\"fb_cover\" src=\"$fb_cover[$i]\"/>' + '</div></div>' + '<hr>' + '<div class=\"row\"><div class=\"col-xs-12\"><div id=\"sb-content\">' + '<p>' + \"$fb_description[$i]\" + '</p>' + '</div></div></div></div>'; \n";
+            echo  "var infoCard$i = 
+            
+            '<div class=\"container-fluid\"><div class=\"row\">' + 
+            
+            '<div id=\"sb-title\" class=\"col-xs-12\">' +  \"$j.&nbsp;$fb_name[$i]\" + '</div></div>' +
+            
+            '<div class=\"row\"><div class=\"col-xs-12\">' + '<p></p>' + 
+            
+            '<a id=\"sb_link\" href=' + \"$fb_web[$i]\" + '>' + \"$fb_web_parse[$i]\" +  '</a>' + '<hr></div></div>' +
+            
+            '<div class=\"row\"><div class=\"col-xs-12\">' + \"$fb_culinary_team[$i]\" + 
+            
+            '<hr></div></div>' + 
+            
+            '<div class=\"row\"><div class=\"col-xs-12\">' + 
+            
+            '<img id=\"fb_cover\" src=\"$fb_cover[$i]\"/>' + 
+            
+            '</div></div>' + '<hr>' + 
+            
+            '<div class=\"row\"><div class=\"col-xs-12\"><div id=\"sb-content\">' + 
+            
+            '<p>' + \"$fb_about[$i]\" + '<hr>' + \"$fb_description[$i]\" + '</p>' + 
+            
+            '</div></div></div></div>'; \n";
+            
+            
             echo "$('#info_card').append(infoCard$i); \n";
 
             
