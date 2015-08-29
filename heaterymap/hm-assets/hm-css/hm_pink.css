@@ -174,6 +174,11 @@ padding: 10px;
 border-radius: 3px;
 }
 
+#fb_cover{
+width: 100%;
+padding-bottom: 10px;
+}
+
 #sb-content {
 font-size: 12px;
 line-height: 18px;
@@ -188,6 +193,19 @@ font-weight: 400;
 font-size: 14px;
 padding: 5px;
 margin-top: 10px;
+}
+
+/*Start infowindow style*/
+#iw_container{
+}
+
+#iw_title{
+}
+
+#iw_content{
+}
+
+#info_table{
 }
 
 /*Start Bootstrap Sidebar -- Toggle Styles */
