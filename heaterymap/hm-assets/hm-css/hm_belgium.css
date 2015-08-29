@@ -44,6 +44,11 @@ a:hover {
 color: #B2D0DB;
 }
 
+img{
+width: 100%;
+padding-bottom: 10px;
+}
+
 .navbar-default .navbar-nav>li>a {
 color:#DCF7F3;
 }
