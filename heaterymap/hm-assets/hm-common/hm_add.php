@@ -6,13 +6,13 @@ Author: Circle Squared Data Labs
 Author URI: http://www.heatery.io 
 */ 
 
-$stmt = "SELECT fb_web,fb_description,fb_name,fb_date,fb_lat,fb_lng,fb_city,fb_state,fb_street,fb_zip,fb_talking_about,fb_were_here,fb_likes,
+$stmt = "SELECT fb_web,fb_cover,fb_description,fb_name,fb_date,fb_lat,fb_lng,fb_city,fb_state,fb_street,fb_zip,fb_talking_about,fb_were_here,fb_likes,
 TRUNCATE((SQRT(POW(69.1 * (fb_lat - $latitude),2) + POW(69.1 *( $longitude - fb_lng) * COS(fb_lat/57.3), 2)) * 0.621371),2)
 AS distance FROM top10_markers WHERE fb_date = CURDATE() HAVING distance < 1 ORDER BY fb_talking_about DESC LIMIT 10";
 
 if ($result = $conn->query($stmt)) {
     
-$fb_web=$fb_description=$fb_name=$fb_date=$fb_lat=$fb_lng=$fb_city=$fb_state=$fb_zip=$fb_street=$fb_talking_about=$fb_were_here=$fb_likes=array();
+$fb_web=$fb_cover=$fb_description=$fb_name=$fb_date=$fb_lat=$fb_lng=$fb_city=$fb_state=$fb_zip=$fb_street=$fb_talking_about=$fb_were_here=$fb_likes=array();
 
 $c = 0;
 
@@ -31,6 +31,7 @@ $c = 0;
             $fb_description[$c] = $obj->fb_description;
             $fb_web[$c] = $obj->fb_web;
             $fb_web_parse[$c] = (parse_url($obj->fb_web, PHP_URL_HOST));
+            $fb_cover[$c] = $obj->fb_cover;
             ++$c;
             } 
         $result->close();
@@ -39,7 +40,7 @@ $conn->close();
 
 for ($i = 0; $i < $c; $i++) {
 
-$icons = array ("number_1.png","number_2.png","number_3.png","number_4.png","number_5.png","number_6.png","number_7.png","number_8.png","number_9.png","number_10.png");
+$icons = array (    "number_1.png",     "number_2.png",     "number_3.png",     "number_4.png" ,"number_5.png",     "number_6.png",     "number_7.png",     "number_8.png",    "number_9.png" ,"number_10.png"/*,    "number_11.png",   "number_12.png",     "number_13.png",   "number_14.png"	,"number_15.png"	,"number_16.png"	,"number_17.png"	,"number_18.png"	,"number_19.png"	,"number_20.png"	,"number_21.png"	,"number_22.png"	,"number_23.png"	,"number_24.png"	,"number_25.png"	,"number_26.png"	,"number_27.png"	,"number_28.png"	,"number_29.png"	,"number_30.png"	,"number_31.png"	,"number_32.png"	,"number_33.png"	,"number_34.png"	,"number_35.png"	,"number_36.png"	,"number_37.png"	,"number_38.png"	,"number_39.png"	,"number_40.png"	,"number_41.png"	,"number_42.png"	,"number_43.png"	,"number_44.png"	,"number_45.png"	,"number_46.png"	,"number_47.png"	,"number_48.png"	,"number_49.png"	,"number_50.png"	,"number_51.png"	,"number_52.png"	,"number_53.png"	,"number_54.png"	,"number_55.png"	,"number_56.png"	,"number_57.png"	,"number_58.png"	,"number_59.png"	,"number_60.png"	,"number_61.png"	,"number_62.png"	,"number_63.png"	,"number_64.png"	,"number_65.png"	,"number_66.png"	,"number_67.png"	,"number_68.png"	,"number_69.png"	,"number_70.png"	,"number_71.png"	,"number_72.png"	,"number_73.png"	,"number_74.png"	,"number_75.png"	,"number_76.png"	,"number_77.png"	,"number_78.png"	,"number_79.png"	,"number_80.png"	,"number_81.png"	,"number_82.png"	,"number_83.png"	,"number_84.png"	,"number_85.png"	,"number_86.png"	,"number_87.png"	,"number_88.png"	,"number_89.png"	,"number_90.png"	,"number_91.png"	,"number_92.png"	,"number_93.png"	,"number_94.png"	,"number_95.png"	,"number_96.png"	,"number_97.png"	,"number_98.png"	,"number_99.png"	,"number_100.png"*/);
 
     $arrlength=count($icons);
     
@@ -81,6 +82,8 @@ $icons = array ("number_1.png","number_2.png","number_3.png","number_4.png","num
             echo "var fb_web$i = \"$fb_web[$i]\";\n";
             
             echo "var fb_web_parse$i = \"$fb_web_parse[$i]\";\n";
+            
+            echo "var fb_cover$i = \"$fb_cover[$i]\";\n";
 
             echo "var html$i= '<div id=\"iw-container\">' +
 
@@ -97,7 +100,7 @@ $icons = array ("number_1.png","number_2.png","number_3.png","number_4.png","num
                     '<td>' + \"$fb_talking_about[$i]\" + '</td>' +
                     '</table></div></div><hr>';\n";     
 
-            echo  "var infoCard$i = '<div id=\"sb-title\">' +  \"$j.&nbsp;$fb_name[$i]\" + '</div>'  + '<p></p>'+ '<a id=\"sb_link\" href=' + \"$fb_web[$i]\" + '>' + \"$fb_web_parse[$i]\" +  '</a>'  + '<hr>' + '<div id=\"sb-content\">' + '<p>' + \"$fb_description[$i]\" + '</p>' + '</div>'; \n";
+            echo  "var infoCard$i = '<div class=\"container-fluid\"><div class=\"row\"><div id=\"sb-title\" class=\"col-xs-12\">' +  \"$j.&nbsp;$fb_name[$i]\" + '</div></div>'  + '<div class=\"row\"><div class=\"col-xs-12\">' + '<p></p><a id=\"sb_link\" href=' + \"$fb_web[$i]\" + '>' + \"$fb_web_parse[$i]\" +  '</a>' + '<hr></div></div>' + '<div class=\"row\"><div class=\"col-xs-12\">' + '<img src=\"$fb_cover[$i]\"/>' + '</div></div>' + '<hr>' + '<div class=\"row\"><div class=\"col-xs-12\"><div id=\"sb-content\">' + '<p>' + \"$fb_description[$i]\" + '</p>' + '</div></div></div></div>'; \n";
 
             echo "$('#info_card').append(infoCard$i); \n";
 
