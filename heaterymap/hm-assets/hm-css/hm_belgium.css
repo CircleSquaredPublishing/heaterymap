@@ -44,11 +44,6 @@ a:hover {
 color: #B2D0DB;
 }
 
-#fb_cover{
-width: 100%;
-padding-bottom: 10px;
-}
-
 .navbar-default .navbar-nav>li>a {
 color:#DCF7F3;
 }
@@ -160,6 +155,8 @@ border-color: #D5DED9;
 margin-bottom: 8px;
 }
 
+
+/*Start sidebar info panel*/
 .panel-default {
 background-color: transparent;
 border-color: transparent;
@@ -172,6 +169,11 @@ border-color: transparent;
 color: #D5DED9; 
 padding: 10px;
 border-radius: 3px;
+}
+
+#fb_cover{
+width: 100%;
+padding-bottom: 10px;
 }
 
 #sb-content {
@@ -189,6 +191,20 @@ font-weight: 400;
 padding: 5px;
 margin-top: 10px;
 }
+
+/*Start infowindow style*/
+#iw_container{
+}
+
+#iw_title{
+}
+
+#iw_content{
+}
+
+#info_table{
+}
+
 
 /*Start Bootstrap Sidebar -- Toggle Styles */
 #wrapper {
