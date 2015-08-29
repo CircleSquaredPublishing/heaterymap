@@ -1,6 +1,8 @@
 <?php
-if(!$_POST){
-     echo "<img src=\"https://heatery.io/heaterymap/hm-assets/hm-media/hm_static_map.png\"/>";
+if(!$_POST){?>
+<h4><div class="alert alert-success" role="alert">&nbsp;&nbsp;Enter city or address&nbsp;&nbsp;<span class="glyphicon glyphicon-chevron-up"></span>&nbsp;&nbsp;here to get started.</div></h4>
+
+<?php
 }else{
     $data_arr=geocode($_POST['address']);
     if($data_arr){
@@ -30,3 +32,4 @@ function geocode($address){
     }
 }
 ?>
+
