@@ -100,8 +100,7 @@ $icons = array (    "number_1.png",     "number_2.png",     "number_3.png",     
                     '<td>' + \"$fb_talking_about[$i]\" + '</td>' +
                     '</table></div></div><hr>';\n";     
 
-            echo  "var infoCard$i = '<div class=\"container-fluid\"><div class=\"row\"><div id=\"sb-title\" class=\"col-xs-12\">' +  \"$j.&nbsp;$fb_name[$i]\" + '</div></div>'  + '<div class=\"row\"><div class=\"col-xs-12\">' + '<p></p><a id=\"sb_link\" href=' + \"$fb_web[$i]\" + '>' + \"$fb_web_parse[$i]\" +  '</a>' + '<hr></div></div>' + '<div class=\"row\"><div class=\"col-xs-12\">' + '<img src=\"$fb_cover[$i]\"/>' + '</div></div>' + '<hr>' + '<div class=\"row\"><div class=\"col-xs-12\"><div id=\"sb-content\">' + '<p>' + \"$fb_description[$i]\" + '</p>' + '</div></div></div></div>'; \n";
-
+            echo  "var infoCard$i = '<div class=\"container-fluid\"><div class=\"row\"><div id=\"sb-title\" class=\"col-xs-12\">' +  \"$j.&nbsp;$fb_name[$i]\" + '</div></div>'  + '<div class=\"row\"><div class=\"col-xs-12\">' + '<p></p><a id=\"sb_link\" href=' + \"$fb_web[$i]\" + '>' + \"$fb_web_parse[$i]\" +  '</a>' + '<hr></div></div>' + '<div class=\"row\"><div class=\"col-xs-12\">' + '<img id=\"fb_cover\" src=\"$fb_cover[$i]\"/>' + '</div></div>' + '<hr>' + '<div class=\"row\"><div class=\"col-xs-12\"><div id=\"sb-content\">' + '<p>' + \"$fb_description[$i]\" + '</p>' + '</div></div></div></div>'; \n";
             echo "$('#info_card').append(infoCard$i); \n";
 
             
