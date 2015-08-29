@@ -101,7 +101,7 @@ $icons = array (    "number_1.png",     "number_2.png",     "number_3.png",     
             
             '<p></p>' + 
             
-            '<div class=\"row\"><div class=\"col-xs-12\">' + \"$fb_street[$i]\" + ',&nbsp;' + \"$fb_zip[$i]\" + '<hr>' +
+            '<div class=\"row\"><div class=\"col-xs-12\"><div class=\"iw-subTitle\">' + \"$fb_street[$i]\" + '</div></div></div><hr>' +
             
             '<div id=\"iw_content\" class=\"container-fluid\">' +
             
@@ -129,7 +129,8 @@ $icons = array (    "number_1.png",     "number_2.png",     "number_3.png",     
             
             '</tbody>' +
             
-            '</table></div></div><hr>';\n";  
+            '</table></div>' + 
+            '<div class=\"iw-bottom-gradient\"></div></div>';\n";  
             
 
             echo  "var infoCard$i = 
@@ -159,29 +160,83 @@ $icons = array (    "number_1.png",     "number_2.png",     "number_3.png",     
             '</div></div></div></div>'; \n";
             
             
-            echo "$('#info_card').append(infoCard$i); \n";
+echo "$('#info_card').append(infoCard$i); \n";
 
+
+echo "var infowindow$i = new google.maps.InfoWindow({
+    content: html$i,
+    maxWidth:350
+}); \n";
+
+echo "google.maps.event.addListener(marker$i, 'click', function (){
+            infowindow$i.setContent(html$i);
+            infowindow$i.open(map, marker$i);
+             });\n";
+
+echo "google.maps.event.addListener(map, 'click', function (){
+            infowindow$i.close();
+             });\n";
+
+echo "google.maps.event.addListener(infowindow$i, 'domready', function (){
+
+var iwOuter = $('.gm-style-iw');
+
+var iwBackground = iwOuter.prev();
+
+    iwBackground.children(':nth-child(2)').css({
+        'display' : 'none'
+        });
+
+    iwBackground.children(':nth-child(4)').css({
+        'display' : 'none'
+        });
+
+    iwOuter.parent().parent().css({
+        left: '115px'
+        });
+
+    iwBackground.children(':nth-child(1)').attr('style', function(i,s){ 
+        return s + 'left: 76px !important;'
+        });
+
+    iwBackground.children(':nth-child(3)').attr('style', function(i,s){ 
+        return s + 'left: 76px !important;'
+        });
+
+    iwBackground.children(':nth-child(3)').find('div').children().css({
+        'box-shadow': 'rgba(82, 66, 4, 0.5); 0px 1px 6px', 
+        'z-index' : '1'
+        });
+
+var iwCloseBtn = iwOuter.next();
+
+    iwCloseBtn.css({
+        opacity: '1', 
+        right: '38px', 
+        top: '3px',
+        'border-radius': '13px', 
+        'box-shadow': '0 0 5px rgb(82, 66, 4)'
+    });
+
+    if($('.iw-content').height() < 140){
+
+        $('.iw-bottom-gradient').css({
+        display: 'none'
+        });
+
+    }
+
+    iwCloseBtn.mouseout(function(){
+
+        $(this).css({
+        opacity: '1'
+        });
+
+    });
+
+});\n";
             
-            echo "infowindow$i = new google.maps.InfoWindow({
-                content: html$i,
-                maxWidth:250
-            }); \n";
-            
-            echo "google.maps.event.addListener(marker$i, 'click', function (){
-                        infowindow$i.setContent(html$i);
-                        infowindow$i.open(map, marker$i);
-                         });\n";
-
-            echo "google.maps.event.addListener(map, 'click', function (){
-                        infowindow$i.close();
-                         });\n";
-
-            echo "google.maps.event.addListener(infowindow$i, 'load', function () {
-                        });\n";
-            
-
-
-        }
+}
 
     echo "map.fitBounds(bounds$i); \n";
     
