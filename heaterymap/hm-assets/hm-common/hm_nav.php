@@ -23,18 +23,6 @@
 
             <ul class="nav navbar-nav navbar-left">
 
-                <button id="btn-on-off" type="button" class="btn btn-default navbar-btn" onclick="" data-toggle="tooltip" title="Heatmap On/Off">
-
-                    <span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;Heatery On/Off
-
-                </button>
-
-                <button id="btn-heatery" class="btn btn-default navbar-btn" type="button" onclick="" data-toggle="tooltip" title="Get Heatery Map">
-
-                    <span class="glyphicon glyphicon-fire"></span>&nbsp;&nbsp;Get Heatery Map
-
-                </button>
-
                 <form id="gc-form" class="navbar-form navbar-left" role="search" method="post">
 
                     <button id="btn-find" type="submit" class="btn btn-default">Find</button>
@@ -182,6 +170,21 @@
                 <div id="info_head" class="panel-heading">
 
                     <h2><?php echo($city);?> Heatery</h2>
+                    
+                    
+                    
+                <button id="btn-on-off" type="button" class="btn btn-default navbar-btn" onclick="" data-toggle="tooltip" title="Heatmap On/Off">
+
+                    <span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;Heatery On/Off
+
+                </button>
+
+                <button id="btn-heatery" class="btn btn-default navbar-btn" type="button" onclick="" data-toggle="tooltip" title="Get Heatery Map">
+
+                    <span class="glyphicon glyphicon-fire"></span>&nbsp;&nbsp;Get Heatery Map
+
+                </button>
+                    
 
                     <div data-role="fieldcontain">
 
