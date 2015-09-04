@@ -178,7 +178,7 @@
                 </button>
                         <div data-role="fieldcontain">
                             <label for="radiusSlider">Radius</label>
-                            <input type="range" class="ui-slider ui-slider-handle" id="radiusSlider" onchange="changeRadius(radiusSlider.value)" min="1" max="150" step="0.5" value="70" />
+                            <input type="range" class="ui-slider ui-slider-handle" id="radiusSlider" onchange="changeRadius(radiusSlider.value)" min="1" max="150" step="0.5" value="30" />
                             <label for="opacitySlider">Transparency</label>
                             <input type="range" class="ui-slider ui-slider-handle" id="opacitySlider" onchange="changeOpacity(opacitySlider.value)" min="0" max="1" step=".01" value=".35" />
                         </div>
