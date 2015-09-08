@@ -4,8 +4,6 @@
 <!-- JQUERY 1.11.2 MINIFIED JS -->    
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
 
-<!-- JQUERY 2.1.4 -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>   
 <!-- HEATERY CUSTOM MAP LAYERS --> 
 <script src="<?php echo $js_path . 'hm_map_layers_min.js';?>"></script>
 <script src="<?php echo $js_path . 'hm_heatmap_min.js';?>"></script>

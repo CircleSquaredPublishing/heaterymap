@@ -5,9 +5,10 @@ portability_checklist.md
 hm_standards.md
 *.json
 *.png
-CHANGELOG.md
 
 heaterymap/testfile.php
 =======
 
 >>>>>>> develop
+
+naming_scheme.md

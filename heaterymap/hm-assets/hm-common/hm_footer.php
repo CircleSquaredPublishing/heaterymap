@@ -1,5 +1,7 @@
 <?php /*Silence is almost golden...*/ ?>
 
+
+<!--THEME SELECTOR SCRIPT-->
 <script src="/github/heaterymap/hm-assets/hm-js/hm_theme_selector.js"></script>
 
 <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>

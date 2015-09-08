@@ -17,7 +17,3 @@ $('head').append('<link href="/github/heaterymap/hm-assets/hm-css/hm_pink.css" r
 $("#btn-roots").click(function () {
 $('head').append('<link href="/github/heaterymap/hm-assets/hm-css/hm_roots.css" rel="stylesheet" id="hm_roots" />');
 });
-
-/*$("#btn-industry").click(function () {
-$('head').append('<link href="/github/heaterymap/hm-assets/hm-css/hm-heatery/hm_style6.css" rel="stylesheet" id="hm_style6" />');
-});*/

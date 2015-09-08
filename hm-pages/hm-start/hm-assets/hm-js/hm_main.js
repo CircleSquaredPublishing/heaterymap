@@ -1,26 +1,44 @@
 /*The main javascript file for the homepage.*/
 
+/*Theme Selectors*/
+
+$("#btn-belgium").click(function () {
+$('head').append('<link href="/github/heaterymap/hm-assets/hm-css/hm_belgium.css" rel="stylesheet" id="hm_belgium" />');
+});
+
+$("#btn-redee").click(function () {
+$('head').append('<link href="/github/heaterymap/hm-assets/hm-css/hm_blk_red.css" rel="stylesheet" id="hm_blk_red" />');
+});
+
+$("#btn-pink").click(function () {
+$('head').append('<link href="/github/heaterymap/hm-assets/hm-css/hm_pink.css" rel="stylesheet" id="hm_pink" />');
+});
+
+$("#btn-roots").click(function () {
+$('head').append('<link href="/github/heaterymap/hm-assets/hm-css/hm_roots.css" rel="stylesheet" id="hm_roots" />');
+});
+
 
 /*-------------------------------
 Toggle Control for main side bar.
 --------------------------------*/
 
-$('#menu-toggle span').parent().click(function () {
+$('#btn-sidebar-toggle span').parent().click(function () {
 
-    if($('#menu-toggle span').hasClass('glyphicon glyphicon-arrow-left')) {
+    if($('#btn-sidebar-toggle span').hasClass('glyphicon glyphicon-arrow-left')) {
             
-        $('#menu-toggle').html('<span class="glyphicon glyphicon-arrow-right"></span> Open'); 
+        $('#btn-sidebar-toggle').html('<span class="glyphicon glyphicon-arrow-right"></span> Open'); 
             
     } else {   
     
-        $('#menu-toggle').html('<span class="glyphicon glyphicon-arrow-left"></span> Close'); 
+        $('#btn-sidebar-toggle').html('<span class="glyphicon glyphicon-arrow-left"></span> Close'); 
     
     }
     
 }); 
 
 
-$("#menu-toggle").click(function(e) {
+$("#btn-sidebar-toggle").click(function(e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
 });
@@ -47,18 +65,18 @@ function displayMap(){
     var old_style = new google.maps.StyledMapType(oldStyle,{name:"Vintage"});
     var pale_style = new google.maps.StyledMapType(paleStyle,{name:"Cloud"});
     var brown_style = new google.maps.StyledMapType(brownStyle,{name:"Organic"});
-    var center = new google.maps.LatLng(36,-85);
+    var center = new google.maps.LatLng(38,-90);
     var gradientNew=["rgba(0,255,255,0)","rgba(25,22,218,1)","rgba(17,191,225,1)","rgba(16,227,217,1)","rgba(15,229,173,1)","rgba(14,231,128,1)","rgba(13,233,82,1)","rgba(12,235,34,1)","rgba(37,237,11,1)","rgba(85,239,10,1)","rgba(134,241,8,1)","rgba(185,243,7,1)","rgba(237,245,6,1)","rgba(247,203,5,1)","rgba(249,152,3,1)","rgba(251,100,2,1)","rgba(255,127,131,1)","rgba(253,47,1,1)","rgba(255,0,7,1)"];
     
     var mapOptions = {
-        zoom: 4,
+        zoom: 5,
         center: center,
         scrollwheel: false,
         streetViewControl: false,
         panControl: false,
-        zoomControl: true,
+        zoomControl: false,
         zoomControlOptions: {
-            position: google.maps.ControlPosition.LEFT_BOTTOM,
+            position: google.maps.ControlPosition.LEFT_TOP,
             style: google.maps.ZoomControlStyle.SMALL
         },
         mapTypeControl: true,
@@ -91,7 +109,7 @@ function displayMap(){
         map.mapTypes.set("Vintage", old_style);
         map.mapTypes.set("Cloud", pale_style);
         map.mapTypes.set("Organic", brown_style);
-        map.setMapTypeId("Retro");
+        map.setMapTypeId("Organic");
     }   
 
 google.maps.event.addDomListener(window, "load", displayMap);

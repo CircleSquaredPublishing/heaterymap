@@ -16,31 +16,42 @@
 
             </button>
 
-            <a id="hm_navbar_brand" class="navbar-brand" href="https://www.heatery.io">
+        </div>
+        <!--/.hm_navbar_header-->
 
-                <img id="hm_navbar_brand_img" alt="heatery.io" src="https://www.heatery.io/hm-media/hm-img/hm_logo_csq_lg.jpg">
+        <div id="hm_navbar_collapse" class="collapse navbar-collapse">
 
-            </a>
+            <ul class="nav navbar-nav navbar-left">
 
-        </div><!--/.hm_navbar_header-->
+                <form id="gc-form" class="navbar-form navbar-left" role="search" method="post">
 
-        <div  id="hm_navbar_collapse" class="collapse navbar-collapse">
+                    <button id="btn-find" type="submit" class="btn btn-default">Find</button>
 
-            <ul class="nav navbar-nav">
+                    <div id="gc-input" class="form-group">
+
+                        <input id="gc-search-box" name="address" type="text" class="form-control" placeholder="Your Hot Spot.">
+
+                    </div>
+
+                </form>
+
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
 
                 <li class="active">
+
+
                     <a href="#">Heatery Map<span class="sr-only">(current)</span></a>
+
+
                 </li>
-                
+
                 <li>
                     <a href="https://www.heatery.io/login">Login<span class="sr-only">(login)</span></a>
                 </li>
-                
-                               <li>
-                    <a href="#">About</a>
-                </li>
 
-                <li class="dropdown">
+                <!--<li class="dropdown">
 
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Connect
 
@@ -50,27 +61,26 @@
 
                     <ul id="hm_navbar_dropdown_ul" class="dropdown-menu">
 
-                        <li><a href="#">Action</a>
+                        <li><a href="#">Facebook</a>
 
                         </li>
 
-                        <li><a href="#">Another action</a>
+                        <li><a href="#">Twitter</a>
 
                         </li>
-                        <li><a href="#">Something else here</a>
+                        <li><a href="#">Instagram</a>
 
                         </li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#">Separated link</a>
+                        <li><a href="#">Data Analysis Portal</a>
 
                         </li>
 
                     </ul>
 
-                </li>
+                </li>-->
 
-
-                <li id="hm_navbar_dropdown" class="dropdown">
+                <!--<li id="hm_navbar_dropdown" class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Themes<span class="caret"></span></a>
 
                     <ul id="hm_navbar_dropdown_ul" class="dropdown-menu">
@@ -83,80 +93,60 @@
 
                             </button>
 
-                        <li>
+                            <li>
 
-                            <button id="btn-redee" class="btn btn-default btn-sm" type="button" onclick="" data-toggle="tooltip" title="Add the Selected Stylesheet">
+                                <button id="btn-redee" class="btn btn-default btn-sm" type="button" onclick="" data-toggle="tooltip" title="Add the Selected Stylesheet">
 
-                                <span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;At the Redee
+                                    <span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;At the Redee
 
-                            </button>
+                                </button>
 
-                        </li>
+                            </li>
 
-                        <li>
+                            <li>
 
-                            <button id="btn-pink" class="btn btn-default btn-sm" type="button" onclick="" data-toggle="tooltip" title="Add the Selected Stylesheet">
+                                <button id="btn-pink" class="btn btn-default btn-sm" type="button" onclick="" data-toggle="tooltip" title="Add the Selected Stylesheet">
 
-                                <span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;Soft Pink
+                                    <span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;Soft Pink
 
-                            </button>
+                                </button>
 
-                        </li>
+                            </li>
 
-                        <li>
+                            <li>
 
-                            <button id="btn-roots" class="btn btn-default btn-sm" type="button" onclick="" data-toggle="tooltip" title="Add the Selected Stylesheet">
+                                <button id="btn-roots" class="btn btn-default btn-sm" type="button" onclick="" data-toggle="tooltip" title="Add the Selected Stylesheet">
 
-                                <span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;Roots
+                                    <span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;Roots
 
-                            </button>
+                                </button>
 
-                        </li>
+                            </li>
 
-                        <li>
+                            <li>
 
-                            <!--<button id="btn-on-off6" class="btn btn-default btn-sm" type="button" onclick="" data-toggle="tooltip" title="Add the Selected Stylesheet">
-                                <span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;Industry
+                            </li>
 
-                            </button>-->
 
-                        </li>
-
-                        
                     </ul>
 
-                </li><!--/.dropdown-->
+                    </li>-->
+
+
+                    <li>
+                        <a href="#">Circle Squared Data Labs</a>
+                    </li>
+
+                    <a id="hm_navbar_brand" class="navbar-brand" href="https://www.heatery.io">
+
+                        <img id="hm_navbar_brand_img" alt="heatery.io" src="https://www.heatery.io/hm-media/hm-img/hm_logo_csq_lg.jpg">
+
+                    </a>
 
             </ul>
+            <!--/.dropdown-->
 
- 
-            <ul class="nav navbar-nav navbar-right">
-                
-<button id="btn-heatery" class="btn btn-default navbar-btn" type="button" onclick="" data-toggle="tooltip" title="Get Heatery Map">
 
-    <span class="glyphicon glyphicon-fire"></span>&nbsp;&nbsp;Get Heatery Map
-
-</button>
-                
-<button id="btn-on-off" type="button" class="btn btn-default navbar-btn" onclick="" data-toggle="tooltip" title="Heatmap On/Off">
-
-    <span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;Heatery On/Off
-
-</button>
-                
-                   <form id="gc-form" class="navbar-form navbar-left" role="search" method="post">
-                
-                <button id="btn-find" type="submit" class="btn btn-default">Find</button>
-
-                <div id="gc-input" class="form-group">
-
-                    <input id="gc-search-box" name="address" type="text" class="form-control" placeholder="Your Hot Spot.">
-
-                </div>
-
-            </form>
-                
-            </ul>
 
         </div>
         <!-- /.navbar-collapse -->
@@ -167,65 +157,46 @@
 </nav>
 <!-- /.navbar-default -->
 
+<?php /*Map goes here.*/?>
     <div id="map-canvas"></div>
-
-    <div id="main"  class="container">
-
+    <div class="container" id="main">
         <div class="row">
-
             <div class="col-xs-4" id="left">
-
                 <div class="panel panel-default">
-
                     <div id="info_head" class="panel-heading">
-
                         <h2><?php echo($city);?> Heatery</h2>
+                                        <!--<button id="btn-on-off" type="button" class="btn btn-default navbar-btn" onclick="" data-toggle="tooltip" title="Heatmap On/Off">
 
+                    <span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;Heatery On/Off
+
+                </button>-->
+
+                <button id="btn-heatery" class="btn btn-default navbar-btn" type="button" onclick="" data-toggle="tooltip" title="Get Heatery Map">
+
+                    <span class="glyphicon glyphicon-fire"></span>&nbsp;&nbsp;Get Heatery Map
+
+                </button>
                         <div data-role="fieldcontain">
-
                             <label for="radiusSlider">Radius</label>
-
                             <input type="range" class="ui-slider ui-slider-handle" id="radiusSlider" onchange="changeRadius(radiusSlider.value)" min="1" max="150" step="0.5" value="70" />
-
                             <label for="opacitySlider">Transparency</label>
-
                             <input type="range" class="ui-slider ui-slider-handle" id="opacitySlider" onchange="changeOpacity(opacitySlider.value)" min="0" max="1" step=".01" value=".35" />
-
-            </div>
-
-            </div>
-
-            </div>
-<!--Infowindow content pulled from the database. HTML is generated by PHP script in hm_add.php file.-->
-            <div id="info_panel" class="panel panel-default">
-
-                <div id="info_card" class="panel-heading"></div>
-
-                <div id="sb-title"></div>
-
-                <p></p>
-
-                <a id="sb_link" href="#"></a>
-
-                <hr>
-
-                <div id="sb-content">
-
-                    <p></p>
-
+                        </div>
+                    </div>
                 </div>
-
-            </div><!--@end #info_panel-->
-
+                <!--@end .panel-heading-->
+                <div id="info_panel" class="panel panel-default">
+                    <div id="info_card" class="panel-heading"></div>
+                </div>
+                <!--@end .panel-heading-->
             </div>
-
+            <!--@end .col-xs-4-->
             <div class="col-xs-8"></div>
-
-            </div>
-
-            </div>
-
-
+            <!--@end .col-xs-8-->
+        </div>
+        <!--@end .row-->
+    </div>
+    <!--@end .container-->
 <nav id="hm_navbar_bottom" class="navbar navbar-default navbar-fixed-bottom">
 
     <div id="hm_navbar_container" class="container-fluid">
@@ -244,40 +215,42 @@
 
             </button>
 
-        </div><!--/.hm_navbar_header-->
+        </div>
+        <!--/.hm_navbar_header-->
 
-        <div  id="hm_navbar_collapse" class="collapse navbar-collapse">
+        <div id="hm_navbar_collapse" class="collapse navbar-collapse">
 
             <ul class="nav navbar-nav">
 
-            <li>
+                <li>
 
-                <a href="#">
+                    <a href="#">
 
-                    <span class="glyphicon glyphicon-user">
-        
-    </span>&nbsp;&nbsp;Client Portal
+                        <span class="glyphicon glyphicon-user">
 
-                </a>
-            </li>
-                
-            <li>
-                <a href="#">
+</span>&nbsp;&nbsp;Client Portal
 
-                    <span class="glyphicon glyphicon-log-in">
-            
-        </span>&nbsp;&nbsp;The Speak Easy&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                    </a>
+                </li>
 
-            </li>
+                <li>
+                    <a href="#">
 
-            <li>&nbsp;</li>
+                        <span class="glyphicon glyphicon-log-in">
+
+</span>&nbsp;&nbsp;The Speak Easy&nbsp;&nbsp;&nbsp;&nbsp;</a>
+
+                </li>
+
+                <li>&nbsp;</li>
 
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
 
+
                 <li>
-                    <a href="#">Circle Squared Data Labs</a>
+                    <a href="#">About</a>
                 </li>
 
                 <li id="hm_navbar_dropdown" class="dropup">
@@ -290,11 +263,11 @@
 
                     <ul id="hm_dropup_dev" class="dropdown-menu">
 
-                        <li><a href="#">Github Repos</a>
+                        <li><a href="https://github.com/heatery/heaterymap">Github Repos</a>
 
                         </li>
 
-                        <li><a href="#">Contribute Data</a>
+                        <!--<li><a href="#">Contribute Data</a>
 
                         </li>
                         <li><a href="#">Create Art with Us</a>
@@ -303,18 +276,18 @@
                         <li role="separator" class="divider"></li>
                         <li><a href="#">About our Company</a>
 
-                        </li>
+                        </li>-->
 
                     </ul>
 
                 </li>
-                
-                <li id="hm_navbar_dropdown" class="dropup">
-                    
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog<span class="caret"></span>
-                    </a>
 
-                 <ul id="hm_dropup_blog" class="dropdown-menu">
+                <li id="hm_navbar_dropdown" class="dropup">
+
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog<span class="caret"></span>
+</a>
+
+                    <ul id="hm_dropup_blog" class="dropdown-menu">
 
                         <li>
                             <a href="#">Articles</a>
@@ -327,10 +300,11 @@
                         <li>
                             <a href="#">Raw Data Sets</a>
                         </li>
-                        
+
                     </ul>
 
-                </li><!--/.dropup-->
+                </li>
+                <!--/.dropup-->
 
             </ul>
 
