@@ -1,5 +1,6 @@
 <script>
     var map;
+    var heatmap;
     function displayMap() {
         var retro_style = new google.maps.StyledMapType(retroStyle, {
             name: "Retro"

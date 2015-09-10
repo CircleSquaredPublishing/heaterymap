@@ -51,8 +51,8 @@ $(document).ready(function() {
         }  
         heatmap = new google.maps.visualization.HeatmapLayer({
             data: myData,
-            radius: 20,
-            opacity: 0.3,
+            radius: 30,
+            opacity: 0.35,
             gradient: gradientNew,
             map: map
             });
