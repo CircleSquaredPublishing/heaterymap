@@ -331,7 +331,7 @@ $conn1 = new mysqli($servername, $username, $password, $dbname);
         die("Connection failed:" . $conn1->connect_error);
         exit();
         }
-$version = date('Ymd');
+$version=date('Ymd');
 $table=basename(__FILE__,'.php');
 $name=($table.'.json');
 $fp=fopen($name,'w');

@@ -76,10 +76,10 @@ if(isset($pg_title) && is_string($pg_title)){
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     
 <!-- HEATERY CUSTOM MAP LAYERS -->
-<script src="/github/heaterymap/hm-assets/hm-js/hm_map_layers_min.js"></script>
+<script src="/github/heaterymap/heaterymap/hm-assets/hm-js/hm_map_layers_min.js"></script>
     
 <!-- HEATERY STYLESHEET -->
-<link rel="stylesheet" type="text/css" href= "/github/heaterymap/hm-assets/hm-css/hm_belgium.css" />
+<link rel="stylesheet" type="text/css" href= "/github/heaterymap/heaterymap/hm-assets/hm-css/hm_belgium.css" />
 </head>
     
     <body style="background-color:#666;">
