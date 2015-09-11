@@ -1,23 +1,33 @@
 <?php
 if(!$_POST){
 ?>
-<div class="modal hide fade" id="myModal">
-  <div class="modal-header">
-    <a class="close" data-dismiss="modal">×</a>
-    <h3>Modal header</h3>
-  </div>
-  <div class="modal-body">
-    <p>One fine body…</p>
-  </div>
-  <div class="modal-footer">
-    <a href="#" class="btn">Close</a>
-    <a href="#" class="btn btn-primary">Save changes</a>
-  </div>
-</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Welcome to Circle Squared Data Labs Heatery Map</h4>
+                    <h5>To get started enter a city name in the "Your Hot Spot" search box and click "Find".</h5>
+                    <h4>All data is current as of&nbsp;<?php date_default_timezone_set('America/New_York');  echo date('l F jS Y h:i A');?></h4>
+                    <hr style="border: 1px solid #000;">
+                </div>
+                <div class="modal-body">
+                <!-- Progress Bar -->
+                <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 <script>
+
 window.onload = getLocation;
-   
+$('#myModal').modal('show');
 function getLocation(){
 	if (navigator.geolocation)
 	{
@@ -38,20 +48,15 @@ function geoSuccess(position){
     var lng = position.coords.longitude;
 	var loc = new google.maps.LatLng(lat, lng);
 	displayMap(position.coords);
-	var fb =
-		"https://graph.facebook.com/v2.4/search?&q=restaurant&type=place&center=" +
-		loc +
-		"&distance=5000&fields=talking_about_count,location,name&offset=0&limit=5000&access_token=1452021355091002|x-ZB0iKqWQmYqnJQ-wXoUjl-XtY";
+	var fb ="https://graph.facebook.com/v2.4/search?&q=restaurant&type=place&center=" +loc+"&distance=5000&fields=talking_about_count,location,name&offset=0&limit=5000&access_token=1452021355091002|x-ZB0iKqWQmYqnJQ-wXoUjl-XtY";
 	fb = fb.replace(/[()]/g, "");
-	$(document).ready(function ()
-	{
-		$.ajax(
-		{
+
+	$(document).ready(function (){
+		$.ajax({
 			url: fb,
 			dataType: "text",
 			cache: true,
-			success: function (data)
-			{
+			success: function (data){
 				var restaurantData = $.parseJSON(data);
 				var myData = [];
 				var gradientNew = ["rgba(0,255,255,0)", "rgba(25, 22, 218, 1)",
@@ -65,25 +70,54 @@ function geoSuccess(position){
 					"rgba(255, 127, 131, 1)", "rgba(253, 47, 1, 1)",
 					"rgba(255, 0, 7, 1)"
 				];
-				for (var i = 0; i < restaurantData.data.length; i++)
-				{
+				for (var i = 0; i < restaurantData.data.length; i++){
 					var lat = restaurantData.data[i].location.latitude;
 					var lng = restaurantData.data[i].location.longitude;
 					var wgt = restaurantData.data[i].talking_about_count;
 					var latLng = new google.maps.LatLng(lat, lng, wgt);
 					myData.push(latLng);
-				}
-				heatmap = new google.maps.visualization.HeatmapLayer(
-				{
+				    }
+				heatmap = new google.maps.visualization.HeatmapLayer({
 					data: myData,
 					radius: 15,
 					opacity: 0.3,
 					gradient: gradientNew,
 					map: map
-				});
-			}
-		});
-	});
+				    });
+			     }
+		  });
+});
+    
+$(function() {
+    var progressbar = $( "#progressbar" ),
+      progressLabel = $( ".progress-label" );
+ 
+    progressbar.progressbar({
+      value: false,
+      change: function() {
+        progressLabel.text( progressbar.progressbar( "value" ) + "%" );
+      },
+      complete: function() {
+        progressLabel.text( "Complete" );
+        progressbar.progressbar("destroy");
+        progressbar.progressLabel.progressbar("destroy");
+      }
+    });
+ 
+    function progress() {
+      var val = progressbar.progressbar( "value" ) || 0;
+ 
+      progressbar.progressbar( "value", val + 2 );
+ 
+      if ( val < 99 ) {
+        setTimeout( progress, 80 );
+      }
+    }
+ 
+    setTimeout( progress, 2000 );
+  });
+    
+   
 }
 function geoError(error){
 	var retro_style = new google.maps.StyledMapType(retroStyle,
@@ -224,9 +258,6 @@ function displayMap(coords){
 
 }
 google.maps.event.addDomListener(window, "load", displayMap);  
-$(window).load(function(){
-    $('#myModal').modal('show');
-});
 </script>
 <!--<h4>
     <div class="alert alert-success" role="alert">
@@ -235,7 +266,6 @@ $(window).load(function(){
         &nbsp;&nbsp;here to get started.
     </div>
 </h4>-->
-
 <?php
 } else {
     
@@ -265,7 +295,6 @@ $data_arr=geocode($_POST['address']);
         
     }
 }
-
 function geocode($address){
     $address = urlencode($address);
     $url="https://maps.google.com/maps/api/geocode/json?sensor=false&address={$address}";
