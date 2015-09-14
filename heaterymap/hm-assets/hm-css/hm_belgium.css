@@ -452,3 +452,34 @@ ul.sticky a {
 color: #fff;
 text-decoration: none;
 }
+
+#myModal{
+background-color: rgba(0,0,0,0.5);
+}
+
+#myModalHeader{
+    min-height: 16.43px;
+    padding: 15px;
+    border-bottom: 1px solid #e5e5e5;
+    background-color: rgba(0,0,0,0.8);
+    color: #DCF7F3;
+    text-align: center;
+}
+
+#myModalBody{
+    background-color: rgba(0,0,0,0.8);
+    color: #DCF7F3;
+    text-align: center;
+}
+
+#myModalBody>p{
+font-size:16px;
+text-align:justify;
+line-height:30px;
+}
+
+#myModalHeaderImg{
+height:50px;
+width:50px;
+margin-bottom: 10px;
+}
