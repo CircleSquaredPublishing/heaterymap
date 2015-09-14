@@ -171,11 +171,11 @@
 
                     <h2><?php echo($city);?> Heatery</h2>
                     
-                <button id="btn-heatery" class="btn btn-default navbar-btn" type="button" onclick="" data-toggle="tooltip" title="Get Heatery Map">
+                <!--<button id="btn-heatery" class="btn btn-default navbar-btn" type="button" onclick="" data-toggle="tooltip" title="Get Heatery Map">
 
                     <span class="glyphicon glyphicon-fire"></span>&nbsp;&nbsp;Get Heatery Map
 
-                </button>
+                </button>-->
                     
 
                     <div data-role="fieldcontain">
