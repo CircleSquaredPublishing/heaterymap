@@ -4,25 +4,33 @@ if(!$_POST){
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Welcome to Circle Squared Data Labs Heatery Map</h4>
-                    <h5>To get started enter a city name in the "Your Hot Spot" search box and click "Find".</h5>
-                    <h4>All data is current as of&nbsp;<?php date_default_timezone_set('America/New_York');  echo date('l F jS Y h:i A');?></h4>
-                    <hr style="border: 1px solid #000;">
-                </div>
-                <div class="modal-body">
-                <!-- Progress Bar -->
-                <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <!--<button type="button" class="btn btn-primary">Save changes</button>-->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
+<div class="modal-dialog" role="document">
+
+<div class="modal-content">
+
+<div id="myModalHeader" class="modal-header">
+
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+
+<h4 class="modal-title" id="myModalLabel"><img id="myModalHeaderImg" src="https://www.heatery.io/hm-media/hm-img/hm_logo_csq_lg.jpg"/><br>
+Welcome to the Circle Squared Data Labs Heatery Map
+</h4>
+    
+</div><!--@end #myModalHeader -->
+
+<div id="myModalBody" class="modal-body">
+
+<p>
+To get started, enter a city name in the "Your Hot Spot" search box and click "Find".&nbsp;&nbsp;All data is current as of&nbsp;<?php date_default_timezone_set('America/New_York'); echo date('l F jS Y h:i A');?>.
+</p>
+    
+</div>
+</div>
+</div>
+</div>
 
 <script>
 
