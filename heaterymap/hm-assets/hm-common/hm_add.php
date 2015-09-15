@@ -45,7 +45,7 @@ FROM top10_markers
 INNER JOIN foursquare
 WHERE  fs_name LIKE fb_name AND 
 fb_date = curdate() AND fs_date = curdate()
-HAVING fb_distance < 2
+HAVING fb_distance < 10 
 ORDER BY heatery_score DESC LIMIT 10;";
 
 if ($result = $conn->query($stmt)) {
