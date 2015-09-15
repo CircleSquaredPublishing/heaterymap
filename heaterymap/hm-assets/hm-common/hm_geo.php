@@ -267,13 +267,13 @@ function displayMap(coords){
 }
 google.maps.event.addDomListener(window, "load", displayMap);  
 </script>
-<!--<h4>
+<h4>
     <div class="alert alert-success" role="alert">
         &nbsp;&nbsp;Enter city or address&nbsp;&nbsp;
         <span class="glyphicon glyphicon-chevron-up"></span>
         &nbsp;&nbsp;here to get started.
     </div>
-</h4>-->
+</h4>
 <?php
 } else {
     
@@ -303,6 +303,7 @@ $data_arr=geocode($_POST['address']);
         
     }
 }
+
 function geocode($address){
     $address = urlencode($address);
     $url="https://maps.google.com/maps/api/geocode/json?sensor=false&address={$address}";
