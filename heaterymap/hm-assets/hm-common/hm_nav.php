@@ -170,24 +170,14 @@
                 <div id="info_head" class="panel-heading">
 
                     <h2><?php echo($city);?> Heatery</h2>
+
+                        <div data-role="fieldcontain">
+                            <label for="radiusSlider">Radius</label>
+                            <input type="range" class="ui-slider ui-slider-handle" id="radiusSlider" onchange="changeRadius(radiusSlider.value)" min="1" max="150" step="0.5" value="30" />
+                            <label for="opacitySlider">Transparency</label>
+                            <input type="range" class="ui-slider ui-slider-handle" id="opacitySlider" onchange="changeOpacity(opacitySlider.value)" min="0" max="1" step=".01" value=".35" />
+                        </div>
                     
-                <!--<button id="btn-heatery" class="btn btn-default navbar-btn" type="button" onclick="" data-toggle="tooltip" title="Get Heatery Map">
-
-                    <span class="glyphicon glyphicon-fire"></span>&nbsp;&nbsp;Get Heatery Map
-
-                </button>-->
-                    
-
-                    <div data-role="fieldcontain">
-
-                        <label for="radiusSlider">Radius</label>
-
-                        <input type="range" class="ui-slider ui-slider-handle" id="radiusSlider" onchange="changeRadius(radiusSlider.value)" min="1" max="150" step="0.5" value="30" />
-
-                        <label for="opacitySlider">Transparency</label>
-
-                        <input type="range" class="ui-slider ui-slider-handle" id="opacitySlider" onchange="changeOpacity(opacitySlider.value)" min="0" max="1" step=".01" value=".35" />
-
                     </div>
 
                 </div>
@@ -220,9 +210,6 @@
         <div class="col-xs-8"></div>
 
     </div>
-
-</div>
-
 
 <nav id="hm_navbar_bottom" class="navbar navbar-default navbar-fixed-bottom">
 
