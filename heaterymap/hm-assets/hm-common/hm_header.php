@@ -45,16 +45,6 @@ if (screen.width <=699){
 <meta property="og:title" content="Heatery Map: Find Your Hot Spot." />
 <meta property="og:description" content="Find the hottest restaurants in your area or anywhere in the world with the Heatery Map." />
 <meta property="og:image" content="https://www.heatery.io/hm-media/hm-img/hm_fb_og_img.png" />
-
-<!--<script>
-    
-    if (screen.width <=699) {
-        
-        document.location = "https://mobile.heatery.io";
-        
-        }
-    
-</script>  -->    
     
 <!-- - - - - - - - - - - EXTERNAL ASSETS - - - - - - - - - - -->
 <!-- JQUERY 2.1.4 -->
