@@ -46,10 +46,8 @@
         map.mapTypes.set("Cloud", pale_style);
         map.mapTypes.set("Organic", brown_style);
         map.setMapTypeId("Retro");
-
-        <?php require ($_SERVER['DOCUMENT_ROOT'] . '/heaterymap/hm-assets/hm-common/hm_add.php');?>
-
-    }
+        <?php require ($common_path . 'hm_add.php');?>
+        }
 
     $(document).ready(function() {
         $.ajax({
