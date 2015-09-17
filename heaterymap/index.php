@@ -1,8 +1,9 @@
 <?php 
 
 $pg_title = 'Heatery Map';
-
-$common_path = 'hm-assets/hm-common/';
+$common_path = ($_SERVER['DOCUMENT_ROOT'] . '/heaterymap/hm-assets/hm-common/');
+$js_path = ($_SERVER['DOCUMENT_ROOT'] . '/heaterymap/hm-assets/hm-js/');
+$media_path = ($_SERVER['DOCUMENT_ROOT'] . '/heaterymap/hm-media/');
 
 require($common_path . 'hm_header.php');
 require($common_path . 'hm_geo.php');  

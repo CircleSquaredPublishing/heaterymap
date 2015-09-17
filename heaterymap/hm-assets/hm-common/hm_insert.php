@@ -5,23 +5,6 @@ Description: Inserts Facebook Graph API data into social_data database. Used onl
 Author: Circle Squared Data Labs 
 Author URI: http://www.heatery.io 
 */ 
-
-/*@NOTE When adding fields to the database update the following in this file:
-*1. Database table columns
-*2. Facebook query fields
-*3. SQL insert statement
-*   a.column name (ie fb_cover)
-*   b.binding value (ie ?)
-*   c.bound param type (ie s denoting it is a string)
-*   d.variable to bind to (ie $fb_cover)
-*   e.location to send variable data (ie $fb_cover=mysqli_real_escape_string($conn, $i['cover']['source']);
-*4. Update the following in hm_add.php file:
-*   a.SQL select statement
-*   b.PHP while function
-*   c.PHP echo javascript for loop
-*   d.PHP echo javascript HTML display
-*/
-
 $table = basename(__FILE__ , '.php');
 $name = ($table . '.json');
 $fp = fopen($name, 'w' );
@@ -32,7 +15,6 @@ curl_exec($ch);
 curl_close($ch);
 $results=file_get_contents($name);
 $fb_array=json_decode($results, true);
-
 foreach ($fb_array[data] as $i) {
 require_once($common_path . 'hm_conn.php');      
 $stmt1=$conn->prepare("INSERT INTO top10_markers(FID, fb_web,fb_cover,fb_about,fb_culinary_team,fb_description,fb_name, fb_likes, fb_were_here, fb_talking_about, fb_street, fb_city, fb_state, fb_zip, fb_lat, fb_lng)VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -56,7 +38,6 @@ $fb_lng=mysqli_real_escape_string($conn, $i['location']['longitude']);
 $stmt1->execute();
 }
 $stmt1->close();
-
 
 $table_fs=basename(__FILE__,'.php');
 $name_fs=($table_fs .'foursquare'.'.json');

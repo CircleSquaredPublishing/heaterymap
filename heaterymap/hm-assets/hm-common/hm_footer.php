@@ -1,4 +1,5 @@
 <?php /*Silence is almost golden...*/ ?>
+
 <!-- GOOGLE ANALYTICS TRACKING CODE -->
 <script>
     (function(i, s, o, g, r, a, m) {
@@ -17,8 +18,7 @@
     ga('send', 'pageview');
 </script>
 
-<!--THEME SELECTOR SCRIPT-->
-<script src="/github/heaterymap/hm-assets/hm-js/hm_theme_selector.js"></script>
+<script src="/heaterymap/hm-assets/hm-js/hm_theme_selector.js"></script>
 
 <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
 
