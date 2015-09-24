@@ -28,9 +28,6 @@ fb_were_here,
 fb_likes,
 fs_name,  
 fs_phone,
-fs_menu,
-fs_mobile_menu,
-fs_reservations,
 fs_checkins,
 fs_users,
 fs_tips,
@@ -42,15 +39,15 @@ TRUNCATE (fb_lng,3) AS fb_lng,
 TRUNCATE((SQRT(POW(69.1 * (fb_lat - $latitude),2) + POW(69.1 *( $longitude - fb_lng) * COS(fb_lat/57.3), 2)) * 0.621371),2)
 AS fb_distance
 FROM top10_markers
-INNER JOIN foursquare
-WHERE  fs_name LIKE fb_name AND 
+INNER JOIN foursquare_explore
+WHERE  SOUNDEX(fs_name) LIKE SOUNDEX(fb_name) AND 
 fb_date = curdate() AND fs_date = curdate()
-HAVING fb_distance < 2
+HAVING fb_distance < 2 
 ORDER BY heatery_score DESC LIMIT 10;";
 
 if ($result = $conn->query($stmt)) {
     
-$fb_web=$fb_cover=$fb_about=$fb_culinary_team=$fb_description=$fb_name=$fb_date=$fb_lat=$fb_lng=$fb_city=$fb_state=$fb_zip=$fb_street=$fb_talking_about=$fb_were_here=$fb_likes=$fs_name=$fs_phone=$fs_menu=$fs_mobile_menu=$fs_reservations=$fs_checkins=$fs_users=$fs_tips=$heatery_score=array();
+$fb_web=$fb_cover=$fb_about=$fb_culinary_team=$fb_description=$fb_name=$fb_date=$fb_lat=$fb_lng=$fb_city=$fb_state=$fb_zip=$fb_street=$fb_talking_about=$fb_were_here=$fb_likes=$fs_name=$fs_phone=$fs_checkins=$fs_users=$fs_tips=$heatery_score=array();
 
 $c = 0;
 
@@ -73,13 +70,7 @@ $c = 0;
             $fb_about[$c] = $obj->fb_about;
             $fb_culinary_team[$c] = $obj->fb_culinary_team;
             $fs_name[$c]=(stripslashes($obj->fs_name));
-            $fs_phone[$c]=$obj->fs_phone;
-            $fs_menu[$c]=$obj->fs_menu;    
-            $fs_menu_parse[$c]=(parse_url($obj->fs_menu, PHP_URL_HOST));      
-            $fs_mobile_menu[$c]=$obj->fs_mobile_menu;     
-            $fs_mobile_menu_parse[$c]=(parse_url($obj->fs_mobile_menu, PHP_URL_HOST));   
-            $fs_reservations[$c]=$obj->fs_reservations;    
-            $fs_reservations_parse[$c]=(parse_url($obj->fs_reservations, PHP_URL_HOST));   
+            $fs_phone[$c]=$obj->fs_phone;  
             $fs_checkins[$c]=(number_format($obj->fs_checkins, 0, null, ','));  
             $fs_users[$c]=(number_format($obj->fs_users, 0, null, ','));  
             $fs_tips[$c]=(number_format($obj->fs_tips, 0, null, ','));
@@ -151,12 +142,6 @@ $icons= array("number_1.png", "number_2.png", "number_3.png", "number_4.png" ,"n
             
             echo "var fs_phone$i = \"$fs_phone[$i]\"; \n";
             
-            echo "var fs_menu$i = \"$fs_menu[$i]\";\n";
-            
-            echo "var fs_mobile_menu$i = \"$fs_mobile_menu[$i]\";\n";
-            
-            echo "var fs_reservations$i = \"$fs_reservations[$i]\";\n";
-            
             echo "var fs_checkins$i = \"$fs_checkins[$i]\";\n";
             
             echo "var fs_users$i = \"$fs_users[$i]\";\n";
@@ -186,19 +171,6 @@ echo "var html$i=
 '<div class=\"row\"><div class=\"col-xs-12\">' + 
 
 '</div></div><hr>' + 
-
-'<div class=\"row\"><div class=\"col-xs-12\">' + 
-
-'<div id=\"iw_content\" class=\"container-fluid\">' +
-
-'<a id=\"sb_link\" href=$fs_menu[$i]>The Menu @' + \"&nbsp;$fs_name[$i]\" + '</a>' +
-
-'<br>' +
-'<a id=\"sb_link\" href=$fs_mobile_menu[$i]>Mobile Friendly Menu @' + \"&nbsp;$fs_name[$i]\" +
-'</a>' + 
-
-'<br>' + 
-'<a id=\"sb_link\" href=$fs_reservations[$i]>Reservations&nbsp;@' + \"&nbsp;$fs_name[$i]\" + '</a><hr></div></div>' + 
 
 '</div></div></div></div>'\n";  
 
