@@ -219,7 +219,7 @@ date_default_timezone_set("America/New_York");
 $today=date('l, F jS');
 $client_id = "LUDUFON05OQ3US4C0FT0TEKWXKSD0NHIPVGKF0TGUZGY4YUR";
 $client_secret ="F2E3NQTQKY3WS1APVGFVA31ESHW2ONNPVNJ11NPYVBV05W2I";
-$version = date('Ymd');
+$version = '20150918';
 }
 }
 function geocode($address){
