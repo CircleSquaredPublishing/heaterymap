@@ -1,8 +1,8 @@
 /*
-File Name: hm_pink.css
+File Name: hm_belgium.css
 Author: Circle Squared Data Labs
-Author URI: http://www.heatery.io
-Description: This is the heatery map Soft Pink stylesheet. It is a light theme with pink backgrounds and ever 'pinker' fonts.
+Author URI: http://mobile.heatery.io
+Description: This is the heatery map Belgium Theme stylesheet. It is the theme that is loaded by default. 
 The primary colors used are:
 background-color:
 color:
@@ -15,200 +15,151 @@ Tags: responsive-layout, fluid-layout, custom-background, custom-menu, custom-ma
 
 html,
 body {
-    height: 100%;
-    background-color: #666;
-    font-family: Helvetica Neue, Arial, sans-serif;
-    font-weight: 400;
+height: 100%;
+width: 100%;
+position: absolute;
+background-color:  rgb(171, 3, 92) !important;
+font-family: Helvetica Neue, Arial, sans-serif;
+font-weight: 200;
 }
 body {
-    padding-top: 50px;
-    padding-bottom: 50px;
+padding-top: 50px;
 }
 p {
-    padding-right: 10px;
-    text-align: justify;
+padding-right: 10px;
+text-align: justify;
 }
 hr {
-    margin-top: 5px !important;
-    margin-bottom: 5px !important;
-    border-top: 1px solid rgb(207, 201, 196);
+margin-top: 5px;
+margin-bottom: 10px;
+border-top: 3px solid rgba(204, 51, 63, 0.3);
 }
-a{
-font-size: 16px;
-
+a {
+color: #D5DED9 !important;
+text-decoration: none;
+font-size: 13px;
+font-weight: 500;
+line-height: 25px;
 }
-
-.navbar-default .navbar-nav>li>a {
-    color: #000 !important;
+a:hover {
+color: #FF244A !important;
 }
 
 /*Begin Navbar*/
+.navbar-form {
+padding: 0px !important;
+margin-top: 8px !important;
+margin-right: 5px !important;
+margin-bottom: 0px !important;
+margin-left: 5px !important;
+border-top: none !important;
+border-bottom: none !important;
+-webkit-box-shadow: none !important;
+box-shadow: none !important;
+}
 #hm_navbar_top,
 #hm_navbar_bottom,
 #hm_navbar_collapse {
-    background-color:  rgb(171, 3, 92);
-    border-color: transparent !important;
-    color: #000;
-}
-#hm_navbar_brand_img {
-    height: 45px;
-    width: 45px;
-    margin-top: -11px;
-}
-#hm_navbar_top li>a:hover,
-#hm_navbar_top .active>a,
-#hm_navbar_top li>a:focus,
-#hm_navbar_bottom li>a:hover,
-#hm_navbar_bottom .active>a,
-#hm_navbar_bottom li>a:focus {
-    background: rgba(255, 255, 255, 0.2);
-    color: #000;
-}
-#hm_navbar_dropdown_ul,
-#hm_dropup_dev,
-#hm_dropup_blog {
-    background-color: RGBA(242, 56, 166, 0.7);
-    padding: 8px;
-}
-.dropdown-menu>li>a {
-    color: #000;
-}
-.dropdown-menu>li>a:hover {
-    background: rgba(255, 255, 255, 0.2);
-   color: #000;
-}
-.navbar-default .navbar-nav>li>a {
-    color: #000;
+background-color:  rgb(171, 3, 92);
+border-color: transparent !important;
+color: #000;
 }
 #map-canvas {
-    width: 100%;
-    height: calc(100% - 0);
-    position: absolute;
-    right: 0px;
-    top: 50px;
-    bottom: 50px;
-    overflow: hidden;
-}
-#main,
-#main>.row {
-    height: 100%;
-}
-#main>.row {
-    overflow-y: scroll;
+width: 100% !important;
+height: 170px;
+position: fixed !important;
+right: 0px;
+left: 0px;
+overflow: hidden;
+z-index: 2;
 }
 #main {
-    float: left;
-}
-#left {
-    margin-top: 30px;
+position: absolute;
+top: 220px;
+right: 0px;
+left: 0px;
+padding: 0px;
+width: 100% !important;
 }
 
 /*Begin Buttons*/
 #gc-search-box {
-    width: 250px;
-    background-color: RGB(242, 56, 166);
-    border: none;
-    color: #000;
-    letter-spacing: 1.5px;
+width: 250px;
+background-color: RGB(242, 56, 166);
+border: none;
+color: #000;
+letter-spacing: 1.5px;
 }
 #btn-find {
-    background-color: RGB(242, 56, 166);
-    border-color: transparent;
-    color: #000;
-    font-family: Helvetica Neue, Arial, sans-serif;
-    font-weight: 400;
+background-color: RGB(242, 56, 166);
+border-color: transparent;
+color: #000;
+font-family: Helvetica Neue, Arial, sans-serif;
+font-weight: 400;
 }
 #btn-find:hover {
-    background-color: #dcf7f3;
-    color: #000;
+background-color: #dcf7f3;
+color: #000;
 }
 
 /*Start sidebar info panel*/
-.panel{
-    background-color: transparent !important;
-    border-color: transparent !important;
+.panel {
+border-radius: 0px !important;
+background-color: transparent !important;
+border-color: transparent !important;
 }
-
 .panel-default {
-    background-color: transparent;
-    border-color: transparent;
-    min-width: 420px;
+background-color: transparent !important;
+border-color: transparent !important;
 }
-
-#info_head{
-    text-align: center;
+#info_panel {
+margin-bottom: 0px !important;
 }
-
-#info_head,
+#hm_location {
+color: #DCF7F3;
+margin-left: 10px;
+}
 #info_card {
-    background-color: rgba(242, 56, 166, 0.8);
-    border-color: transparent;
-    color:  #000;
-    padding: 10px 20px;
-    border-radius: 3px;
+background-color: rgba(242, 56, 166, 0.8);
+border-color: transparent;
+color:  #000;
+padding: 10px 20px;
 }
 #fb_cover {
-    width: 100%;
-}
-#sb-content {
-    background-color: #000;
-    color:  rgb(207, 201, 196);
-    text-align: justify;
-    font-size:15px;
-    font-weight: 400;
-    line-height: 25px;
-    letter-spacing: 1.1px;
-    max-height: 250px;
-    overflow-y: auto;
-    padding: 20px;
+width: 100%;
+max-height: 160px;
 }
 #sb-title {
-    background-color: #000;
-    color:  rgb(207, 201, 196);
-    font-size:16px;
-    font-weight:400;
-    letter-spacing: 1.3px;
-    padding: 20px;
-    margin-top: 10px;
-}
-#sb_link{
-    color: rgb(207, 201, 196);
-    font-size:16px;
-    font-weight:400;
+background-color: #000;
+color:  rgb(207, 201, 196);
+font-size:16px;
+font-weight:400;
+letter-spacing: 1.3px;
+padding: 5px;
+margin-top: 5px;
 }
 
-#sb_link:hover{
-    color: rgb(207, 201, 196);
-    font-size:18px;
-    font-weight:400;
-    text-decoration: none;
-}
-
-#sb-details{
-letter-spacing: 1.0px;
-}
 /*Start infowindow style*/
 #iw_container {
-    margin-bottom: 10px;
-    border-radius: 10px;
+margin-bottom: 10px;
+border-radius: 10px;
 }
 #iw_container,
 #iw_content {
-    background-color: rgba(242, 56, 166, 0.7);
-    border-color: transparent;
-    color: #000;
-    padding: 25px;
-    font-size: 15px;
-    line-height: 18px;
-    font-weight: 600;
-    margin-right: 1px;
-    max-height: 200px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    width: 100%;
-    text-align: justify;
+background-color: rgba(242, 56, 166, 0.7);
+border-color: transparent;
+color: #000;
+padding: 10px;
+font-size: 15px;
+line-height: 18px;
+font-weight: 600;
+margin-right: 1px;
+max-height: 200px;
+overflow-y: auto;
+overflow-x: hidden;
+width: 100%;
+text-align: justify;
 }
-
 #myModal {
     background-color: rgba(242, 56, 166, 0.3);
 }
@@ -217,12 +168,12 @@ letter-spacing: 1.0px;
     padding: 15px;
     border-bottom: 1px solid #e5e5e5;
     background-color: rgb(242, 56, 166);
-    color:  #000;
+    color: #000;
     text-align: center;
 }
 #myModalBody {
     background-color: rgb(242, 56, 166);
-    color:  #000;
+    color: #000;
     text-align: center;
 }
 #myModalBody>p {

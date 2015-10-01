@@ -1,6 +1,6 @@
 <?php 
 
-$pg_title = 'Heatery Map';
+$pg_title = 'Mobile Heatery Map';
 
 $common_path = 'hm-assets/hm-common/';
 

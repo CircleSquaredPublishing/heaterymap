@@ -28,9 +28,6 @@ fb_were_here,
 fb_likes,
 fs_name,  
 fs_phone,
-fs_menu,
-fs_mobile_menu,
-fs_reservations,
 fs_checkins,
 fs_users,
 fs_tips,
@@ -102,8 +99,8 @@ $icons= array("number_1.png", "number_2.png", "number_3.png", "number_4.png" ,"n
             echo "var marker$i = new google.maps.Marker({
                 position: point$i,   
                 map: map,  
-                icon: 'https://maps.google.com/mapfiles/kml/paddle/$j-lv.png'
-                });\n";
+        icon: '//heatery.io/heaterymap/hm-assets/hm-media/hm-markers-colors-000000/$icons[$i]'
+        });\n";
             echo "bounds$i.extend(marker$i.getPosition());\n";
             echo "var fb_date$i = \"$fb_date[$i]\"; \n";
             echo "var fb_name$i = \"$fb_name[$i]\"; \n";
@@ -144,7 +141,8 @@ echo "var html$i=
 
 echo  "var infoCard$i = 
 '<div id=\"sb-title\" class=\"container-fluid\">' + 
-\"$j.&nbsp;$fb_name[$i]\" + '</div><a id=\"sb_link\" href=' + \"$fb_web[$i]\" + '>' + \"$fb_web_parse[$i]\" + '</a><br><img id=\"fb_cover\" src=\"$fb_cover[$i]\"/></div></div>' \n";
+\"$j.&nbsp;$fb_name[$i]\" + '</div><a id=\"sb_link\" href=' + \"$fb_web[$i]\" + '>' + \"$fb_web_parse[$i]\" + '</a>' + '<br>' +
+'<img id=\"fb_cover\" src=\"$fb_cover[$i]\"/>' + '</div></div>' \n";
 
 echo "$('#info_card').append(infoCard$i); \n";
 

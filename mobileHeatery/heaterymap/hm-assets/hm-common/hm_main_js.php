@@ -58,12 +58,11 @@ function getNewRadius() {
 }
 /*End Mercator Projection*/
     function displayMap() {
-        var brown_style = new google.maps.StyledMapType(brownStyle, {
-            name: "Organic"
-        });
+    var old_style = new google.maps.StyledMapType(oldStyle, {
+        name: "Vintage"
+});
         var myOptions = {
-            zoom: 12,
-            minZoom: 12,
+            zoom: 13,
             center: new google.maps.LatLng(<?php echo $latitude; ?>, <?php echo $longitude;?>),
             scrollWheelControl: true,
             draggable: true,
@@ -78,8 +77,8 @@ function getNewRadius() {
             
         };
         map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
-        map.mapTypes.set("Organic", brown_style);
-        map.setMapTypeId("Organic");
+    map.mapTypes.set("Vintage", old_style);
+    map.setMapTypeId("Vintage");
         
 google.maps.event.addListener(map, 'zoom_changed', function() {
         heatmap.setOptions({

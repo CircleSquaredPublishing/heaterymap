@@ -144,13 +144,9 @@ function displayMap(coords){
 	var mapOptions = {
 		zoom: 12,
 		center: successPosition,
-		scrollwheel: false,
+		scrollwheel: true,
 		panControl: false,
 		zoomControl: true,
-		zoomControlOptions:{
-                position: google.maps.ControlPosition.TOP_RIGHT,
-                style: google.maps.ZoomControlStyle.SMALL
-            },
 		mapTypeControl: false
 	};
 	map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
