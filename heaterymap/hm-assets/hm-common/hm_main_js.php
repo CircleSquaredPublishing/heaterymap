@@ -4,7 +4,7 @@
     var infoWindow;
     var myData=[];
     var TILE_SIZE = 256;
-    /*Begin Mercator Projection*/
+/*Begin Mercator Projection*/
 function bound(value, opt_min, opt_max) {
 	if (opt_min !== null) value = Math.max(value, opt_min);
 	if (opt_max !== null) value = Math.min(value, opt_max);
@@ -58,7 +58,7 @@ function getNewRadius() {
 	return totalPixelSize;
 }
 /*End Mercator Projection*/
-    function displayMap() {
+function displayMap() {
         var retro_style = new google.maps.StyledMapType(retroStyle, {
             name: "Retro"
 });
@@ -78,7 +78,7 @@ function getNewRadius() {
             name: "Organic"
 });
         var myOptions = {
-            zoom: 14,
+            zoom: 15,
             center: new google.maps.LatLng(<?php echo $latitude; ?>, <?php echo $longitude;?>),
             panControl: false,
             zoomControl: true,
@@ -100,7 +100,7 @@ function getNewRadius() {
         map.mapTypes.set("Vintage", old_style);
         map.mapTypes.set("Cloud", pale_style);
         map.mapTypes.set("Organic", brown_style);
-        map.setMapTypeId("Retro");
+        map.setMapTypeId("Vintage");
         
 	google.maps.event.addListener(map, 'zoom_changed', function() {
 		heatmap.setOptions({
@@ -109,9 +109,9 @@ function getNewRadius() {
 	});
         <?php require ($common_path . 'hm_add.php');?>
 
-    }
 
-    $(document).ready(function() {
+    }
+$(document).ready(function() {
         $.ajax({
             url: "https://graph.facebook.com/v2.4/search?&q=restaurant&type=place&center=<?php echo($latitude);?>,<?php echo($longitude);?>&distance=8000&fields=talking_about_count,location,name&offset=0&limit=250&access_token=1452021355091002|x-ZB0iKqWQmYqnJQ-wXoUjl-XtY",
             cache: true,
@@ -133,7 +133,7 @@ function getNewRadius() {
                 heatmap = new google.maps.visualization.HeatmapLayer({
                     data: myData,
                     radius: getNewRadius(),
-                    opacity: 0.3,
+                    opacity: 0.5,
                     gradient: gradientNew,
                     map: map
 
@@ -142,5 +142,5 @@ function getNewRadius() {
         });
     });
 
-    google.maps.event.addDomListener(window, 'load', displayMap);
+google.maps.event.addDomListener(window, 'load', displayMap);
 </script>

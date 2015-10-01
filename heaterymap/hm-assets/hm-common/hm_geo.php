@@ -1,208 +1,227 @@
 <?php
 if(!$_POST){
 ?>
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div id="myModalHeader" class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <h4 class="modal-title" id="myModalLabel"><img id="myModalHeaderImg" style="height:50px; width:50px; margin-bottom:10px;" src="https://www.heatery.io/hm-media/hm-img/hm_logo_csq_lg.jpg"/><br>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div id="myModalHeader" class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel"><img id="myModalHeaderImg" style="height:50px; width:50px; margin-bottom:10px;" src="https://www.heatery.io/hm-media/hm-img/hm_logo_csq_lg.jpg"/><br>
 Welcome to the Circle Squared Data Labs Heatery Map
 </h4>
-                </div>
-                <div id="myModalBody" class="modal-body">
-                    <p>
-                        To get started, enter a city name in the "Your Hot Spot" search box and click "Find".&nbsp;&nbsp;All data is current as of&nbsp;
-                        <?php date_default_timezone_set('America/New_York'); echo date('l F jS Y h:i A');?>.
-                    </p>
-                </div>
-            </div>
+        </div>
+        <div id="myModalBody" class="modal-body">
+            <p>
+                To get started, enter a city name in the "Your Hot Spot" search box and click "Find".&nbsp;&nbsp;All data is current as of&nbsp;
+                <?php date_default_timezone_set('America/New_York'); echo date('l F jS Y h:i A');?>.
+            </p>
         </div>
     </div>
-    <script>
-        window.onload = getLocation;
-        $('#myModal').modal('show');
+</div>
+</div>
+<script>
+window.onload = getLocation;
+$('#myModal').modal('show');
 
-        function getLocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(geoSuccess, geoError, {
-                    maximumAge: 30000,
-                    timeout: 10000,
-                    enableHighAccuracy: true
-                });
-            } else {
-                alert("Geolocation is not supported by your browser.");
-            }
-        }
+var heatmap;
+var geocoder;
+var map;
+var TILE_SIZE = 256;
 
-        function geoSuccess(position) {
-            var lat = position.coords.latitude;
-            var lng = position.coords.longitude;
-            var loc = new google.maps.LatLng(lat, lng);
-            displayMap(position.coords);
-            var fb = "https://graph.facebook.com/v2.4/search?&q=restaurant&type=place&center=" + loc + "&distance=5000&fields=talking_about_count,location,name&offset=0&limit=5000&access_token=1452021355091002|x-ZB0iKqWQmYqnJQ-wXoUjl-XtY";
-            fb = fb.replace(/[()]/g, "");
-            $(document).ready(function() {
-                $.ajax({
-                    url: fb,
-                    dataType: "text",
-                    cache: true,
-                    success: function(data) {
-                        var restaurantData = $.parseJSON(data);
-                        var myData = [];
-                        var gradientNew = ["rgba(0,255,255,0)", "rgba(25, 22, 218, 1)",
-                            "rgba(17, 191, 225, 1)", "rgba(16, 227, 217, 1)",
-                            "rgba(15, 229, 173, 1)", "rgba(14, 231, 128, 1)",
-                            "rgba(13, 233, 82, 1)", "rgba(12, 235, 34, 1)",
-                            "rgba(37, 237, 11, 1)", "rgba(85, 239, 10, 1)",
-                            "rgba(134, 241, 8, 1)", "rgba(185, 243, 7, 1)",
-                            "rgba(237, 245, 6, 1)", "rgba(247, 203, 5, 1)",
-                            "rgba(249, 152, 3, 1)", "rgba(251, 100, 2, 1)",
-                            "rgba(255, 127, 131, 1)", "rgba(253, 47, 1, 1)",
-                            "rgba(255, 0, 7, 1)"
-                        ];
-                        for (var i = 0; i < restaurantData.data.length; i++) {
-                            var lat = restaurantData.data[i].location.latitude;
-                            var lng = restaurantData.data[i].location.longitude;
-                            var wgt = restaurantData.data[i].talking_about_count;
-                            var latLng = new google.maps.LatLng(lat, lng, wgt);
-                            myData.push(latLng);
-                        }
-                        heatmap = new google.maps.visualization.HeatmapLayer({
-                            data: myData,
-                            radius: 15,
-                            opacity: 0.3,
-                            gradient: gradientNew,
-                            map: map
-                        });
-                    }
-                });
-            });
-        }
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(geoSuccess, geoError, {
+            maximumAge: 30000,
+            timeout: 10000,
+            enableHighAccuracy: true
+        });
+    } else {
+        alert("Geolocation is not supported by your browser.");
+    }
+}
 
-        function geoError(error) {
-            var retro_style = new google.maps.StyledMapType(retroStyle, {
-                name: "Retro"
-            });
-            var apple_style = new google.maps.StyledMapType(appleStyle, {
-                name: "Apple"
-            });
-            var light_style = new google.maps.StyledMapType(lightStyle, {
-                name: "Dusk"
-            });
-            var old_style = new google.maps.StyledMapType(oldStyle, {
-                name: "Vintage"
-            });
-            var pale_style = new google.maps.StyledMapType(paleStyle, {
-                name: "Cloud"
-            });
-            var brown_style = new google.maps.StyledMapType(brownStyle, {
-                name: "Organic"
-            });
-            geocoder = new google.maps.Geocoder();
-            var errorPosition = new google.maps.LatLng(39.8282, -98.5795);
-            var mapOptions = {
-                zoom: 4,
-                center: errorPosition,
-                panControl: false,
-                zoomControl: true,
-                mapTypeControl: true,
-                mapTypeControlOptions: {
-                    style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
-                    position: google.maps.ControlPosition.TOP_RIGHT,
-                    mapTypeIds: ["Retro", "Apple", "Dusk", "Vintage", "Cloud", "Organic",
-                        google.maps.MapTypeId.ROADMAP, google.maps.MapTypeId.SATELLITE, google.maps
-                        .MapTypeId.TERRAIN
-                    ]
+function geoSuccess(position) {
+/*Begin Mercator Projection*/
+function bound(value, opt_min, opt_max) {
+if (opt_min !== null) value = Math.max(value, opt_min);
+if (opt_max !== null) value = Math.min(value, opt_max);
+return value;
+}
+    
+function degreesToRadians(deg) {
+return deg * (Math.PI / 180);
+}
+    
+function radiansToDegrees(rad) {
+return rad / (Math.PI / 180);
+}
+    
+function MercatorProjection() {
+this.pixelOrigin_ = new google.maps.Point(TILE_SIZE / 2, TILE_SIZE / 2);
+this.pixelsPerLonDegree_ = TILE_SIZE / 360;
+this.pixelsPerLonRadian_ = TILE_SIZE / (2 * Math.PI);
+}
+    
+MercatorProjection.prototype.fromLatLngToPoint = function(latLng, opt_point) {
+var me = this;
+var point = opt_point || new google.maps.Point(0, 0);
+var origin = me.pixelOrigin_;
+point.x = origin.x + latLng.lng() * me.pixelsPerLonDegree_;
+var siny = bound(Math.sin(degreesToRadians(latLng.lat())), -0.9999, 0.9999);
+point.y = origin.y + 0.5 * Math.log((1 + siny) / (1 - siny)) * -me.pixelsPerLonRadian_;
+return point;
+};
+    
+MercatorProjection.prototype.fromPointToLatLng = function(point) {
+var me = this;
+var origin = me.pixelOrigin_;
+var lng = (point.x - origin.x) / me.pixelsPerLonDegree_;
+var latRadians = (point.y - origin.y) / -me.pixelsPerLonRadian_;
+var lat = radiansToDegrees(2 * Math.atan(Math.exp(latRadians)) - Math.PI / 2);
+return new google.maps.LatLng(lat, lng);
+};
+    
+var desiredRadiusPerPointInMeters = 150;
+    
+function getNewRadius() {
+var numTiles = 1 << map.getZoom();
+var center = map.getCenter();
+var moved = google.maps.geometry.spherical.computeOffset(center, 10000, 90); /*1000 meters to the right*/
+var projection = new MercatorProjection();
+var initCoord = projection.fromLatLngToPoint(center);
+var endCoord = projection.fromLatLngToPoint(moved);
+var initPoint = new google.maps.Point(
+initCoord.x * numTiles,
+initCoord.y * numTiles);
+var endPoint = new google.maps.Point(
+endCoord.x * numTiles,
+endCoord.y * numTiles);
+var pixelsPerMeter = (Math.abs(initPoint.x - endPoint.x)) / 10000.0;
+var totalPixelSize = Math.floor(desiredRadiusPerPointInMeters * pixelsPerMeter);
+console.log(totalPixelSize);
+return totalPixelSize;
+}
+/*End Mercator Projection*/
+    var lat = position.coords.latitude;
+    var lng = position.coords.longitude;
+    var loc = new google.maps.LatLng(lat, lng);
+    displayMap(position.coords);
+    var fb = "https://graph.facebook.com/v2.4/search?&q=restaurant&type=place&center=" + loc + "&distance=5000&fields=talking_about_count,location,name&offset=0&limit=5000&access_token=1452021355091002|x-ZB0iKqWQmYqnJQ-wXoUjl-XtY";
+    fb = fb.replace(/[()]/g, "");
+    $(document).ready(function() {
+        $.ajax({
+            url: fb,
+            dataType: "text",
+            cache: true,
+            success: function(data) {
+                var restaurantData = $.parseJSON(data);
+                var myData = [];
+                var gradientNew = ["rgba(0,255,255,0)", "rgba(25, 22, 218, 1)",
+                    "rgba(17, 191, 225, 1)", "rgba(16, 227, 217, 1)",
+                    "rgba(15, 229, 173, 1)", "rgba(14, 231, 128, 1)",
+                    "rgba(13, 233, 82, 1)", "rgba(12, 235, 34, 1)",
+                    "rgba(37, 237, 11, 1)", "rgba(85, 239, 10, 1)",
+                    "rgba(134, 241, 8, 1)", "rgba(185, 243, 7, 1)",
+                    "rgba(237, 245, 6, 1)", "rgba(247, 203, 5, 1)",
+                    "rgba(249, 152, 3, 1)", "rgba(251, 100, 2, 1)",
+                    "rgba(255, 127, 131, 1)", "rgba(253, 47, 1, 1)",
+                    "rgba(255, 0, 7, 1)"
+                ];
+                for (var i = 0; i < restaurantData.data.length; i++) {
+                    var lat = restaurantData.data[i].location.latitude;
+                    var lng = restaurantData.data[i].location.longitude;
+                    var wgt = restaurantData.data[i].talking_about_count;
+                    var latLng = new google.maps.LatLng(lat, lng, wgt);
+                    myData.push(latLng);
                 }
-            };
-            map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-            map.mapTypes.set("Retro", retro_style);
-            map.mapTypes.set("Apple", apple_style);
-            map.mapTypes.set("Dusk", light_style);
-            map.mapTypes.set("Vintage", old_style);
-            map.mapTypes.set("Cloud", pale_style);
-            map.mapTypes.set("Organic", brown_style);
-            map.setMapTypeId("Vintage");
-            switch (error.code) {
-                case
-                error.PERMISSION_DENIED:
-                    alert("The Heatery Map Requires Your Location for Accurate Results");
-                    break;
-                case
-                error.POSITION_UNAVAILABLE:
-                    alert("Location information is unavailable.")
-                    break;
-                case
-                error.TIMEOUT:
-                    alert("The request to get user location timed out.")
-                    break;
-                case
-                error.UNKNOWN_ERROR:
-                    alert("An unknown error occurred.")
-                    break;
+                heatmap = new google.maps.visualization.HeatmapLayer({
+                    data: myData,
+                    radius: getNewRadius(),
+                    opacity: 0.5,
+                    gradient: gradientNew,
+                    map: map
+                });
+ google.maps.event.addListener(map, 'zoom_changed', function() {
+		heatmap.setOptions({
+			radius: getNewRadius()
+		});
+	});
             }
-        }
-        var heatmap;
-        var geocoder;
-        var map;
+        });
+    });
+}
 
-        function displayMap(coords) {
-            geocoder = new google.maps.Geocoder();
-            var retro_style = new google.maps.StyledMapType(retroStyle, {
-                name: "Retro"
-            });
-            var apple_style = new google.maps.StyledMapType(appleStyle, {
-                name: "Apple"
-            });
-            var light_style = new google.maps.StyledMapType(lightStyle, {
-                name: "Dusk"
-            });
-            var old_style = new google.maps.StyledMapType(oldStyle, {
-                name: "Vintage"
-            });
-            var pale_style = new google.maps.StyledMapType(paleStyle, {
-                name: "Cloud"
-            });
-            var brown_style = new google.maps.StyledMapType(brownStyle, {
-                name: "Organic"
-            });
-            var successPosition = new google.maps.LatLng(coords.latitude, coords.longitude);
-            var mapOptions = {
-                zoom: 12,
-                center: successPosition,
-                scrollwheel: false,
-                panControl: false,
-                zoomControl: true,
-                zoomControlOptions: {
-                    position: google.maps.ControlPosition.RIGHT_BOTTOM,
-                    style: google.maps.ZoomControlStyle.SMALL
-                },
-                mapTypeControl: true,
-                mapTypeControlOptions: {
-                    position: google.maps.ControlPosition.RIGHT_TOP,
-                    style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
-                    mapTypeIds: ["Retro", "Apple", "Dusk", "Vintage", "Cloud", "Organic",
-                        google.maps.MapTypeId.ROADMAP, google.maps.MapTypeId.SATELLITE, google.maps
-                        .MapTypeId.TERRAIN
-                    ]
-                }
-            };
-            map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-            map.mapTypes.set("Retro", retro_style);
-            map.mapTypes.set("Apple", apple_style);
-            map.mapTypes.set("Dusk", light_style);
-            map.mapTypes.set("Vintage", old_style);
-            map.mapTypes.set("Cloud", pale_style);
-            map.mapTypes.set("Organic", brown_style);
-            map.setMapTypeId("Vintage");
-        }
-        google.maps.event.addDomListener(window, "load", displayMap);
-    </script>
-    <?php
+function geoError(error) {
+    var old_style = new google.maps.StyledMapType(oldStyle, {
+        name: "Vintage"
+    });
+    geocoder = new google.maps.Geocoder();
+    var errorPosition = new google.maps.LatLng(39.8282, -98.5795);
+    var mapOptions = {
+        zoom: 4,
+        center: errorPosition,
+        panControl: false,
+        zoomControl: true,
+        mapTypeControl: false
+    };
+    map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+    map.setMapTypeId("Vintage");
+    switch (error.code) {
+        case
+        error.PERMISSION_DENIED:
+            alert("The Heatery Map Requires Your Location for Accurate Results");
+            break;
+        case
+        error.POSITION_UNAVAILABLE:
+            alert("Location information is unavailable.")
+            break;
+        case
+        error.TIMEOUT:
+            alert("The request to get user location timed out.")
+            break;
+        case
+        error.UNKNOWN_ERROR:
+            alert("An unknown error occurred.")
+            break;
+    }
+}
+
+function displayMap(coords) {
+    
+
+    geocoder = new google.maps.Geocoder();
+    var old_style = new google.maps.StyledMapType(oldStyle, {
+        name: "Vintage"
+});
+    var successPosition = new google.maps.LatLng(coords.latitude, coords.longitude);
+    var mapOptions = {
+        zoom: 15,
+        center: successPosition,
+        scrollwheel: true,
+        panControl: false,
+        zoomControl: true,
+        zoomControlOptions: {
+            position: google.maps.ControlPosition.RIGHT_BOTTOM,
+            style: google.maps.ZoomControlStyle.SMALL
+        },
+        mapTypeControl: false
+    };
+    map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+    map.mapTypes.set("Vintage", old_style);
+    map.setMapTypeId("Vintage");
+    
+
+}
+
+google.maps.event.addDomListener(window, "load", displayMap);
+
+</script>
+
+
+<?php
 } else {
 $data_arr=geocode($_POST['address']);
 if (!$limit=($_POST['limit'])){
@@ -219,7 +238,7 @@ date_default_timezone_set("America/New_York");
 $today=date('l, F jS');
 $client_id = "LUDUFON05OQ3US4C0FT0TEKWXKSD0NHIPVGKF0TGUZGY4YUR";
 $client_secret ="F2E3NQTQKY3WS1APVGFVA31ESHW2ONNPVNJ11NPYVBV05W2I";
-$version = '20150918';
+$version = '20150925';
 }
 }
 function geocode($address){
