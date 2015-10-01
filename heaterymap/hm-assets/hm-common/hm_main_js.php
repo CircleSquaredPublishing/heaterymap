@@ -142,13 +142,5 @@ function getNewRadius() {
         });
     });
 
-    function changeRadius(r) {
-        heatmap.set('radius', r * 1);
-    }
-
-    function changeOpacity(o) {
-        heatmap.set('opacity', o);
-    }
-
     google.maps.event.addDomListener(window, 'load', displayMap);
 </script>
