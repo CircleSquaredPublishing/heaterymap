@@ -19,35 +19,31 @@ if(!$_POST){
 Welcome to the Circle Squared Data Labs Heatery Map
 </h4>
     
-</div><!--@end #myModalHeader -->
+</div>
 
 <div id="myModalBody" class="modal-body">
 
 <p>
 To get started, enter a city name in the "Your Hot Spot" search box and click "Find".&nbsp;&nbsp;All data is current as of&nbsp;<?php date_default_timezone_set('America/New_York'); echo date('l F jS Y h:i A');?>.
-</p>
-    
+</p> 
 </div>
 </div>
 </div>
 </div>
-
 <script>
-
 window.onload = getLocation;
 $('#myModal').modal('show');
+var heatmap;
+var geocoder;
+var map;
 function getLocation(){
-	if (navigator.geolocation)
-	{
-		navigator.geolocation.getCurrentPosition(geoSuccess, geoError,
-		{
+	if (navigator.geolocation){
+		navigator.geolocation.getCurrentPosition(geoSuccess, geoError,{
 			maximumAge: 30000,
 			timeout: 10000,
 			enableHighAccuracy: true
 		});
-	}
-	else
-	{
+	}else{
 		alert("Geolocation is not supported by your browser.");
 	}
 }
@@ -58,7 +54,6 @@ function geoSuccess(position){
 	displayMap(position.coords);
 	var fb ="https://graph.facebook.com/v2.4/search?&q=restaurant&type=place&center=" +loc+"&distance=5000&fields=talking_about_count,location,name&offset=0&limit=5000&access_token=1452021355091002|x-ZB0iKqWQmYqnJQ-wXoUjl-XtY";
 	fb = fb.replace(/[()]/g, "");
-
 	$(document).ready(function (){
 		$.ajax({
 			url: fb,
@@ -96,61 +91,10 @@ function geoSuccess(position){
 		  });
 });
     
-$(function() {
-    var progressbar = $( "#progressbar" ),
-      progressLabel = $( ".progress-label" );
- 
-    progressbar.progressbar({
-      value: false,
-      change: function() {
-        progressLabel.text( progressbar.progressbar( "value" ) + "%" );
-      },
-      complete: function() {
-        progressLabel.text( "Complete" );
-        progressbar.progressbar("destroy");
-        progressbar.progressLabel.progressbar("destroy");
-      }
-    });
- 
-    function progress() {
-      var val = progressbar.progressbar( "value" ) || 0;
- 
-      progressbar.progressbar( "value", val + 2 );
- 
-      if ( val < 99 ) {
-        setTimeout( progress, 80 );
-      }
-    }
- 
-    setTimeout( progress, 2000 );
-  });
-    
-   
 }
 function geoError(error){
-	var retro_style = new google.maps.StyledMapType(retroStyle,
-	{
-		name: "Retro"
-	});
-	var apple_style = new google.maps.StyledMapType(appleStyle,
-	{
-		name: "Apple"
-	});
-	var light_style = new google.maps.StyledMapType(lightStyle,
-	{
-		name: "Dusk"
-	});
-	var old_style = new google.maps.StyledMapType(oldStyle,
-	{
+	var old_style = new google.maps.StyledMapType(oldStyle,{
 		name: "Vintage"
-	});
-	var pale_style = new google.maps.StyledMapType(paleStyle,
-	{
-		name: "Cloud"
-	});
-	var brown_style = new google.maps.StyledMapType(brownStyle,
-	{
-		name: "Organic"
 	});
 	geocoder = new google.maps.Geocoder();
 	var errorPosition = new google.maps.LatLng(39.8282, -98.5795);
@@ -159,24 +103,17 @@ function geoError(error){
 		center: errorPosition,
 		panControl: false,
 		zoomControl: true,
-		mapTypeControl: true,
+		mapTypeControl: false,
 		mapTypeControlOptions:
 		{
 			style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
 			position: google.maps.ControlPosition.TOP_RIGHT,
-			mapTypeIds: ["Retro", "Apple", "Dusk", "Vintage", "Cloud", "Organic",
-				google.maps.MapTypeId.ROADMAP, google.maps.MapTypeId.SATELLITE, google.maps
+			mapTypeIds: ["Vintage",google.maps.MapTypeId.ROADMAP, google.maps.MapTypeId.SATELLITE, google.maps
 				.MapTypeId.TERRAIN
 			]
 		}
 	};
 	map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-	map.mapTypes.set("Retro", retro_style);
-	map.mapTypes.set("Apple", apple_style);
-	map.mapTypes.set("Dusk", light_style);
-	map.mapTypes.set("Vintage", old_style);
-	map.mapTypes.set("Cloud", pale_style);
-	map.mapTypes.set("Organic", brown_style);
 	map.setMapTypeId("Vintage");
 	switch (error.code)
 	{
@@ -197,83 +134,31 @@ function geoError(error){
 		alert("An unknown error occurred.")
 		break;
 	}
-}
-var heatmap;
-var geocoder;
-var map;
+}  
 function displayMap(coords){
-
 	geocoder = new google.maps.Geocoder();
-
-	var retro_style = new google.maps.StyledMapType(retroStyle,
-	{
-		name: "Retro"
-	});
-	var apple_style = new google.maps.StyledMapType(appleStyle,
-	{
-		name: "Apple"
-	});
-	var light_style = new google.maps.StyledMapType(lightStyle,
-	{
-		name: "Dusk"
-	});
-	var old_style = new google.maps.StyledMapType(oldStyle,
-	{
+	var old_style = new google.maps.StyledMapType(oldStyle,{
 		name: "Vintage"
 	});
-	var pale_style = new google.maps.StyledMapType(paleStyle,
-	{
-		name: "Cloud"
-	});
-	var brown_style = new google.maps.StyledMapType(brownStyle,
-	{
-		name: "Organic"
-	});
 	var successPosition = new google.maps.LatLng(coords.latitude, coords.longitude);
-
 	var mapOptions = {
 		zoom: 12,
 		center: successPosition,
 		scrollwheel: false,
 		panControl: false,
 		zoomControl: true,
-		zoomControlOptions:
-		{
-			position: google.maps.ControlPosition.RIGHT_BOTTOM,
-			style: google.maps.ZoomControlStyle.SMALL
-		},
-		mapTypeControl: true,
-		mapTypeControlOptions:
-		{
-			position: google.maps.ControlPosition.RIGHT_TOP,
-			style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
-			mapTypeIds: ["Retro", "Apple", "Dusk", "Vintage", "Cloud", "Organic",
-				google.maps.MapTypeId.ROADMAP, google.maps.MapTypeId.SATELLITE, google.maps
-				.MapTypeId.TERRAIN
-			]
-		}
+		zoomControlOptions:{
+                position: google.maps.ControlPosition.TOP_RIGHT,
+                style: google.maps.ZoomControlStyle.SMALL
+            },
+		mapTypeControl: false
 	};
-
 	map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-
-	map.mapTypes.set("Retro", retro_style);
-	map.mapTypes.set("Apple", apple_style);
-	map.mapTypes.set("Dusk", light_style);
 	map.mapTypes.set("Vintage", old_style);
-	map.mapTypes.set("Cloud", pale_style);
-	map.mapTypes.set("Organic", brown_style);
 	map.setMapTypeId("Vintage");
-
-}
+    }
 google.maps.event.addDomListener(window, "load", displayMap);  
 </script>
-<!--<h4>
-    <div class="alert alert-success" role="alert">
-        &nbsp;&nbsp;Enter city or address&nbsp;&nbsp;
-        <span class="glyphicon glyphicon-chevron-up"></span>
-        &nbsp;&nbsp;here to get started.
-    </div>
-</h4>-->
 <?php
 } else {
     
@@ -298,7 +183,7 @@ $data_arr=geocode($_POST['address']);
         $today=date('l, F jS');
         $client_id = "LUDUFON05OQ3US4C0FT0TEKWXKSD0NHIPVGKF0TGUZGY4YUR";
         $client_secret ="F2E3NQTQKY3WS1APVGFVA31ESHW2ONNPVNJ11NPYVBV05W2I";
-        $version = date('Ymd');
+        $version = '20150915';
         /*@ end foursquare param*/
         
     }
