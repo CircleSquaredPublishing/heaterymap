@@ -178,12 +178,12 @@ td {
 }
 #iw_container,
 #iw_content {
-    background-color: rgba(82, 66, 4, 0.5);
+    background-color: rgba(82, 66, 4, 0.9);
     border-color: transparent;
     color: #D5DED9;
     padding: 10px;
-    font-size: 16px;
-    line-height: 18px;
+    font-size: 13px;
+    line-height: 18px; 
     font-weight: 200;
     margin-right: 1px;
     max-height: 200px;
@@ -192,17 +192,7 @@ td {
     width: 100%;
     text-align: center;
 }
-#iw_title {
-    font-family: 'Open Sans Condensed', sans-serif;
-    font-size: 12px;
-    font-weight: 100;
-    padding: 5px;
-    background-color: rgba(224, 228, 204, 0.8);
-    color: #524204;
-    margin: 0;
-    border-radius: 5px;
-    text-align: center;
-}
+
 #info_table {
     color: rgba(82, 66, 4, 0.5);
 }
