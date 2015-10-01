@@ -42,12 +42,11 @@ TRUNCATE (fb_lng,3) AS fb_lng,
 TRUNCATE((SQRT(POW(69.1 * (fb_lat - $latitude),2) + POW(69.1 *( $longitude - fb_lng) * COS(fb_lat/57.3), 2)) * 0.621371),2)
 AS fb_distance
 FROM top10_markers
-INNER JOIN foursquare
-WHERE  fs_name LIKE fb_name AND 
+INNER JOIN foursquare_explore
+WHERE  SOUNDEX(fs_name) LIKE SOUNDEX(fb_name) AND 
 fb_date = curdate() AND fs_date = curdate()
 HAVING fb_distance < 2
 ORDER BY heatery_score DESC LIMIT 10;";
-
 if ($result = $conn->query($stmt)) {
     
 $fb_web=$fb_cover=$fb_about=$fb_culinary_team=$fb_description=$fb_name=$fb_date=$fb_lat=$fb_lng=$fb_city=$fb_state=$fb_zip=$fb_street=$fb_talking_about=$fb_were_here=$fb_likes=$fs_name=$fs_phone=$fs_menu=$fs_mobile_menu=$fs_reservations=$fs_checkins=$fs_users=$fs_tips=$heatery_score=array();
@@ -89,221 +88,122 @@ $c = 0;
     
     $result->close();
 }
-
 $conn->close();
-
 foreach($heatery_score as $x){
     $v[]= round(($x/max($heatery_score))*100) . '%';
 }
-
-for ($i = 0; $i < $c; $i++) {
-
+for ($i = 0; $i <= 9; $i++) {
 $icons= array("number_1.png", "number_2.png", "number_3.png", "number_4.png" ,"number_5.png", "number_6.png", "number_7.png", "number_8.png", "number_9.png", "number_10.png");
-
     $arrlength=count($icons);
-    
         for ($i = 0;$i<$arrlength;$i++) {
-
             $j = $i + 1; 
             echo "var bounds$i = new google.maps.LatLngBounds(); \n";
-
             echo "var point$i = new google.maps.LatLng(\"$fb_lat[$i]\",\"$fb_lng[$i]\"); \n";
-
             echo "var marker$i = new google.maps.Marker({
                 position: point$i,   
                 map: map,  
-                icon: '//heatery.io/heaterymap/hm-assets/hm-media/hm-markers-colors-000000/$icons[$i]'
+                icon: 'https://maps.google.com/mapfiles/kml/paddle/$j-lv.png'
                 });\n";
-            
             echo "bounds$i.extend(marker$i.getPosition());\n";
-
             echo "var fb_date$i = \"$fb_date[$i]\"; \n";
-
             echo "var fb_name$i = \"$fb_name[$i]\"; \n";
-
             echo "var fb_street$i = \"$fb_street[$i]\";\n";
-            
             echo "var fb_city$i = \"$fb_city[$i]\";\n";
-            
             echo "var fb_state$i = \"$fb_state[$i]\";\n";
-            
             echo "var fb_zip$i = \"$fb_zip[$i]\";\n";
-
             echo "var fb_talking_about$i = \"$fb_talking_about[$i]\";\n";
-
             echo "var fb_likes$i = \"$fb_likes[$i]\";\n";
-
             echo "var fb_were_here$i = \"$fb_were_here[$i]\";\n";
-
             echo "var fb_description$i = \"{$fb_description[$i]}\";\n";
-
             echo "var fb_web$i = \"$fb_web[$i]\";\n";
-            
             echo "var fb_web_parse$i = \"$fb_web_parse[$i]\";\n";
-            
             echo "var fb_cover$i = \"$fb_cover[$i]\";\n";
-            
             echo "var fb_about$i = \"$fb_about[$i]\";\n";
-            
             echo "var fb_culinary_team$i = \"{$fb_culinary_team[$i]}\";\n";
-            
             echo "var fs_name$i = \"$fs_name[$i]\"; \n";
-            
             echo "var fs_phone$i = \"$fs_phone[$i]\"; \n";
-            
             echo "var fs_menu$i = \"$fs_menu[$i]\";\n";
-            
             echo "var fs_mobile_menu$i = \"$fs_mobile_menu[$i]\";\n";
-            
             echo "var fs_reservations$i = \"$fs_reservations[$i]\";\n";
-            
             echo "var fs_checkins$i = \"$fs_checkins[$i]\";\n";
-            
             echo "var fs_users$i = \"$fs_users[$i]\";\n";
-            
             echo "var fs_tips$i = \"$fs_tips[$i]\";\n";
-            
             echo "var heatery_score$i = \"$heatery_score[$i]\";\n";
-            
             echo "var v$i= \"$v[$i]\";\n";
 
 /*Begin Facebook Data*/            
 
 echo "var html$i= 
-
 '<div id=\"iw_container\" class=\"container-fluid\">' +
-
-'<div class=\"row\"><div class=\"col-xs-12\">' + 
-
-'<div id=\"iw_title\">' + 
-
-\"$fb_name[$i]\" +  '&nbsp;ranks higher than&nbsp;' + \"$v[$i]\" + '&nbsp;of qualifying restaurants within the search area.' +
-
-'<br>' +
-
-'</div></div></div><br>' + 
-
-'<div class=\"row\"><div class=\"col-xs-12\">' + 
-
-'</div></div><hr>' + 
-
-'<div class=\"row\"><div class=\"col-xs-12\">' + 
-
-'<div id=\"iw_content\" class=\"container-fluid\">' +
-
-'<a id=\"sb_link\" href=$fs_menu[$i]>The Menu @' + \"&nbsp;$fs_name[$i]\" + '</a>' +
-
-'<br>' +
-'<a id=\"sb_link\" href=$fs_mobile_menu[$i]>Mobile Friendly Menu @' + \"&nbsp;$fs_name[$i]\" +
-'</a>' + 
-
-'<br>' + 
-'<a id=\"sb_link\" href=$fs_reservations[$i]>Reservations&nbsp;@' + \"&nbsp;$fs_name[$i]\" + '</a><hr></div></div>' + 
-
+\"$j.&nbsp;$fb_name[$i]\" + '<br>' +
+\"$fb_street[$i]\" + '<br>' +
+\"$fs_phone[$i]\" + '&nbsp;&nbsp;' + '<span class=\"glyphicon glyphicon-earphone\"></span>'+
+'</div></div>' + 
 '</div></div></div></div>'\n";  
 
 
 echo  "var infoCard$i = 
-
-'<div class=\"container-fluid\"><div class=\"row\">' + 
-
-'<div id=\"sb-title\" class=\"col-xs-12\">' + 
-
-\"$j.&nbsp;$fb_name[$i]\" + '&nbsp;|&nbsp;' +
-
-\"$fb_street[$i]\" + 
-
-'</div><hr>' + 
-'<a id=\"sb_link\" href=' + \"$fb_web[$i]\" + '>' + \"$fb_web_parse[$i]\" +  '</a>' + 
-
-'<br>' +\"$fs_phone[$i]\" + '&nbsp;&nbsp;' + '<span class=\"glyphicon glyphicon-earphone\"></span>' +
-
-'<br>' + 
-\"$fb_culinary_team[$i]\" + 
-
-'<br>' + 
-
-'<div class=\"row\"><div class=\"col-xs-12\">' + 
-
-'<img id=\"fb_cover\" src=\"$fb_cover[$i]\"/>' + 
-
-'</div></div>' + '<hr>' + 
-
-'<div class=\"row\"><div class=\"col-xs-12\"><div id=\"sb-content\">' + 
-
-'<p>' + \"$fb_about[$i]\" + '<hr>' + \"$fb_description[$i]\" + '</p>' + 
-
-'</div></div></div>'; \n";
-
+'<div id=\"sb-title\" class=\"container-fluid\">' + 
+\"$j.&nbsp;$fb_name[$i]\" + '</div><a id=\"sb_link\" href=' + \"$fb_web[$i]\" + '>' + \"$fb_web_parse[$i]\" + '</a><br><img id=\"fb_cover\" src=\"$fb_cover[$i]\"/></div></div>' \n";
 
 echo "$('#info_card').append(infoCard$i); \n";
 
-
 echo "var infowindow$i = new google.maps.InfoWindow({
-    content: html$i,
-    maxWidth:350
-}); \n";
+            content: html$i,
+            maxWidth:350
+            }); \n";
 
 echo "google.maps.event.addListener(marker$i, 'click', function (){
             infowindow$i.setContent(html$i);
             infowindow$i.open(map, marker$i);
-             });\n";
+            });\n";
 
 echo "google.maps.event.addListener(map, 'click', function (){
             infowindow$i.close();
-             });\n";
+            });\n";
 
-echo "google.maps.event.addListener(infowindow$i, 'domready', function (){
+echo 
+        "google.maps.event.addListener(infowindow$i, 'domready', function (){
 
-var iwOuter = $('.gm-style-iw');
+        var iwOuter = $('.gm-style-iw');
+        var iwBackground = iwOuter.prev();
 
-var iwBackground = iwOuter.prev();
+        iwBackground.children(':nth-child(2)').css({
+            'display' : 'none'
+            });
 
-    iwBackground.children(':nth-child(2)').css({
-        'display' : 'none'
-        });
+        iwBackground.children(':nth-child(4)').css({
+            'display' : 'none'
+            });
 
-    iwBackground.children(':nth-child(4)').css({
-        'display' : 'none'
-        });
+        iwBackground.children(':nth-child(3)').find('div').children().css({
+            'box-shadow': 'rgba(82, 66, 4, 0.5); 0px 1px 6px', 
+            'z-index' : '1'
+            });
 
-    iwBackground.children(':nth-child(3)').find('div').children().css({
-        'box-shadow': 'rgba(82, 66, 4, 0.5); 0px 1px 6px', 
-        'z-index' : '1'
-        });
+        var iwCloseBtn = iwOuter.next();
 
-var iwCloseBtn = iwOuter.next();
+        iwCloseBtn.css({
+            opacity: '1', 
+            right: '38px', 
+            top: '3px',
+            'border-radius': '13px', 
+            'box-shadow': '0 0 5px rgb(82, 66, 4)'
+            });
 
-    iwCloseBtn.css({
-        opacity: '1', 
-        right: '38px', 
-        top: '3px',
-        'border-radius': '13px', 
-        'box-shadow': '0 0 5px rgb(82, 66, 4)'
-    });
+        if($('.iw-content').height() < 140){
+            $('.iw-bottom-gradient').css({
+            display: 'none'
+            });
+        }
 
-    if($('.iw-content').height() < 140){
-
-        $('.iw-bottom-gradient').css({
-        display: 'none'
-        });
-
+        iwCloseBtn.mouseout(function(){
+                $(this).css({
+                opacity: '1'
+                });
+            });
+        });\n";        
     }
-
-    iwCloseBtn.mouseout(function(){
-
-        $(this).css({
-        opacity: '1'
-        });
-
-    });
-
-});\n";
-            
+    echo "map.fitBounds(bounds$i); \n"; 
 }
-
-    echo "map.fitBounds(bounds$i); \n";
-    
-}
-   
 ?>
