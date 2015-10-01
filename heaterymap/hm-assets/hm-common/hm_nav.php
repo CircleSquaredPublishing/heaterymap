@@ -44,12 +44,6 @@
             <div class="panel panel-default">
                 <div id="info_head" class="panel-heading">
                     <h2><?php echo($city);?> Heatery</h2>
-                    <div data-role="fieldcontain">
-                        <label for="radiusSlider">Radius</label>
-                        <input type="range" class="ui-slider ui-slider-handle" id="radiusSlider" onchange="changeRadius(radiusSlider.value)" min="1" max="150" step="0.5" value="30" />
-                        <label for="opacitySlider">Transparency</label>
-                        <input type="range" class="ui-slider ui-slider-handle" id="opacitySlider" onchange="changeOpacity(opacitySlider.value)" min="0" max="1" step=".01" value=".35" />
-                    </div>
                 </div>
             </div>
             <div id="info_panel" class="panel panel-default">
