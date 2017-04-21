@@ -1,6 +1,6 @@
 #Circle Squared Data Labs 
 ##Heatery Map
-###Version 2.0.0
+###Version 1.0.0
 ####https://heatery.io/heaterymap
 #####info@heatery.io
 
